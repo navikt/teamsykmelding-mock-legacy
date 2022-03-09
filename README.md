@@ -8,4 +8,4 @@ Denne applikasjonen bruker yarn, men yarn skal _ikke_ installeres via brew!
 
 2. Kjører deretter `yarn` (tilsvarer `npm install`) på rot.
 
-3. Start applikasjosen med `yarn start`
+3. Start utviklermodus med `yarn start`
