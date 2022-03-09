@@ -2,7 +2,7 @@ name: Push
 on: push
 env:
   branchname: ${{ github.ref_name }}
-  docker_image: ghcr.io/navikt/dinesykmeldte:${{ github.sha }}
+  docker_image: ghcr.io/navikt/teamsykmelding-mock:${{ github.sha }}
 jobs:
   snyk-monitor:
     if: github.ref == 'refs/heads/master'
