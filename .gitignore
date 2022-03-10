@@ -19,6 +19,10 @@
 .DS_Store
 *.pem
 
+# Idea project files
+*.iml
+.idea/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
