@@ -1,4 +1,4 @@
-import { Alert, Checkbox, Heading, TextField } from '@navikt/ds-react';
+import { Alert, Button, Checkbox, Heading, TextField } from '@navikt/ds-react';
 import DatePicker from 'react-datepicker';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -22,9 +22,10 @@ function OpprettNarmesteleder(): JSX.Element {
     const OPPRETT_NL_URL = `/api/proxy/narmesteleder/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        const aktivFom = data.aktivFom ?? new Date();
         const mappedData = {
             ...data,
-            aktivFom: format(data.aktivFom, 'yyyy-MM-dd'),
+            aktivFom: format(aktivFom, 'yyyy-MM-dd'),
         };
 
         const response = await fetch(OPPRETT_NL_URL, {
@@ -44,25 +45,26 @@ function OpprettNarmesteleder(): JSX.Element {
             <Heading size="medium" level="2">
                 Registrer nærmeste leder
             </Heading>
+            <p />
             <TextField {...register('ansattFnr')} label="Fødselsnummer" />
             <TextField {...register('lederFnr')} label="Fødselsnummer til ny nærmeste leder" />
             <TextField {...register('orgnummer')} label="Organisasjonsnummer" />
             <TextField {...register('mobil')} label="Telefonnummer til ny nærmeste leder" />
             <TextField {...register('epost')} label="E-post til ny nærmeste leder" />
             <Checkbox {...register('forskutterer')}>Arbeidsgiver forskutterer</Checkbox>
-            <p>Aktiv fra og med</p>
+            <p>
+                <b>Aktiv fra og med</b>
+            </p>
             <Controller
                 control={control}
                 name="aktivFom"
                 render={({ field }) => (
-                    <DatePicker
-                        placeholderText="aktivFom"
-                        onChange={(date) => field.onChange(date)}
-                        selected={field.value}
-                    />
+                    <DatePicker onChange={(date) => field.onChange(date)} selected={field.value ?? new Date()} />
                 )}
             />
-            <input type="submit" />
+            <p />
+            <Button type="submit">Registrer</Button>
+            <p />
             {error && <Alert variant="error">{error}</Alert>}
             {result && <Alert variant="success">{result}</Alert>}
         </form>

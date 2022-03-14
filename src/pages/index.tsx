@@ -1,4 +1,4 @@
-import { BodyShort, Cell, ContentContainer, Grid, Link } from '@navikt/ds-react';
+import { BodyShort, Cell, ContentContainer, Grid } from '@navikt/ds-react';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
@@ -23,7 +23,6 @@ function Home(): JSX.Element {
                     <Grid>
                         <Cell xs={12}>
                             <BodyShort>Kommer snart</BodyShort>
-                            <Link href="./narmesteleder/opprett">Registrer nærmeste leder</Link>
                         </Cell>
                     </Grid>
                 </section>

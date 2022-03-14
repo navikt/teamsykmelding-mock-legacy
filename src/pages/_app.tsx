@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         <Link href="/">Hjem</Link>
                     </li>
                     <li>
-                        <Link href="/narmesteleder/opprett">Opprett</Link>
+                        <Link href="/narmesteleder/opprett">Registrer nærmeste leder</Link>
                     </li>
                 </ul>
                 <div className={styles.innhold}>
