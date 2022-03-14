@@ -1,4 +1,4 @@
-import { BodyShort, Cell, ContentContainer, Grid, PageHeader } from '@navikt/ds-react';
+import { BodyShort, Cell, ContentContainer, Grid, Link } from '@navikt/ds-react';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
@@ -18,12 +18,12 @@ function Home(): JSX.Element {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <PageHeader description="La det mocke la det rock and roll">Team Sykmelding Mock</PageHeader>
             <ContentContainer>
                 <section>
                     <Grid>
                         <Cell xs={12}>
                             <BodyShort>Kommer snart</BodyShort>
+                            <Link href="./narmesteleder/opprett">Registrer nærmeste leder</Link>
                         </Cell>
                     </Grid>
                 </section>
