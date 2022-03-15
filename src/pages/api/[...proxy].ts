@@ -40,8 +40,8 @@ function getHeaders(req: NextApiRequest): Record<string, string> {
         'Content-Type': 'application/json',
     };
 
-    if (req.headers['Sykmeldt-Fnr']) {
-        headers['Sykmeldt-Fnr'] = req.headers['Sykmeldt-Fnr'] as string;
+    if (req.headers['sykmeldt-fnr']) {
+        headers['Sykmeldt-Fnr'] = req.headers['sykmeldt-fnr'] as string;
     }
 
     return headers;
