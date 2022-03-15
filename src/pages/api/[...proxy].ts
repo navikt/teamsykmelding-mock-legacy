@@ -24,7 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
     if (!result.ok) {
         logger.error('Proxy request failed');
         logger.error(`${result.status} ${result.statusText}`);
-        res.status(result.status).json({ message: `Klarte ikke fetche mock backend: ${result.statusText}` });
+        res.status(result.status).json({ message: `Noe gikk galt: ${result.statusText}` });
         return;
     }
 
