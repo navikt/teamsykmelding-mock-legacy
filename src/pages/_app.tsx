@@ -17,6 +17,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     <li>
                         <Link href="/narmesteleder/opprett">Registrer nærmeste leder</Link>
                     </li>
+                    <li>
+                        <Link href="/narmesteleder/slett">Deaktiver nærmeste leder</Link>
+                    </li>
                 </ul>
                 <div className={styles.innhold}>
                     <Component {...pageProps} />
