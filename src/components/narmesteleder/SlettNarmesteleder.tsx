@@ -50,7 +50,7 @@ function SlettNarmesteleder(): JSX.Element {
                 error={errors.orgnummer && 'Organisasjonsnummer mangler'}
             />
             <p />
-            <Button type="submit">Registrer</Button>
+            <Button type="submit">Deaktiver</Button>
             <p />
             {error && <Alert variant="error">{error}</Alert>}
             {result && <Alert variant="success">{result}</Alert>}
