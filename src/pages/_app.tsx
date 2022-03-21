@@ -20,6 +20,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     <li>
                         <Link href="/narmesteleder/slett">Deaktiver nærmeste leder</Link>
                     </li>
+                    <li>
+                        <Link href="/legeerklaering/opprett">Opprett legeerklæring</Link>
+                    </li>
                 </ul>
                 <div className={styles.innhold}>
                     <Component {...pageProps} />
