@@ -57,7 +57,7 @@ function OpprettLegeerklaering(): JSX.Element {
 
     return (
         <form onSubmit={handleSubmit(postData)}>
-            <Heading size="medium" level="2">
+            <Heading size="medium" level="2" spacing>
                 Opprett legeerklæring
             </Heading>
             <p />
