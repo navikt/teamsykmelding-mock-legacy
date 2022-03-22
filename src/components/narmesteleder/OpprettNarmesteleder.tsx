@@ -1,8 +1,7 @@
 import { Alert, Button, Checkbox, Heading, TextField } from '@navikt/ds-react';
-import DatePicker from 'react-datepicker';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import 'react-datepicker/dist/react-datepicker.css';
+import { Datepicker } from '@navikt/ds-datepicker';
 import { format } from 'date-fns';
 
 interface FormValues {
@@ -12,30 +11,29 @@ interface FormValues {
     mobil: string;
     epost: string;
     forskutterer: boolean;
-    aktivFom: Date;
+    aktivFom: string;
 }
 
 function OpprettNarmesteleder(): JSX.Element {
+    const dagensDato = format(new Date(), 'yyyy-MM-dd');
     const {
         register,
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormValues>();
+    } = useForm<FormValues>({
+        defaultValues: {
+            aktivFom: dagensDato,
+        },
+    });
     const [error, setError] = useState<string | null>(null);
     const [result, setResult] = useState<string | null>(null);
     const OPPRETT_NL_URL = `/api/proxy/narmesteleder/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
-        const aktivFom = data.aktivFom ?? new Date();
-        const mappedData = {
-            ...data,
-            aktivFom: format(aktivFom, 'yyyy-MM-dd'),
-        };
-
         const response = await fetch(OPPRETT_NL_URL, {
             method: 'POST',
-            body: JSON.stringify(mappedData),
+            body: JSON.stringify(data),
         });
 
         if (response.ok) {
@@ -83,9 +81,7 @@ function OpprettNarmesteleder(): JSX.Element {
             <Controller
                 control={control}
                 name="aktivFom"
-                render={({ field }) => (
-                    <DatePicker onChange={(date) => field.onChange(date)} selected={field.value ?? new Date()} />
-                )}
+                render={({ field }) => <Datepicker onChange={(date) => field.onChange(date)} value={field.value} />}
             />
             <p />
             <Button type="submit">Registrer</Button>

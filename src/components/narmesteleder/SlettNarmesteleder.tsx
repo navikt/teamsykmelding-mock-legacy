@@ -1,7 +1,6 @@
 import { Alert, Button, Heading, TextField } from '@navikt/ds-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import 'react-datepicker/dist/react-datepicker.css';
 
 interface FormValues {
     fnr: string;
