@@ -29,7 +29,6 @@ interface FormValues {
 }
 
 function OpprettSykmelding(): JSX.Element {
-    const dagensDato = format(new Date(), 'yyyy-MM-dd');
     const date = new Date();
     const iGar = format(date.setDate(date.getDate() - 1), 'yyyy-MM-dd');
     const enUkeSiden = format(date.setDate(date.getDate() - 7), 'yyyy-MM-dd');
@@ -41,8 +40,8 @@ function OpprettSykmelding(): JSX.Element {
         watch,
     } = useForm<FormValues>({
         defaultValues: {
-            syketilfelleStartdato: dagensDato,
-            behandletDato: dagensDato,
+            syketilfelleStartdato: enUkeSiden,
+            behandletDato: enUkeSiden,
             perioder: [{ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
         },
     });
