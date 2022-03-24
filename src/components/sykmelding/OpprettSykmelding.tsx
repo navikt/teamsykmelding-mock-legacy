@@ -1,7 +1,7 @@
 import { Alert, Button, Checkbox, Heading, Select, TextField } from '@navikt/ds-react';
 import { useEffect, useState } from 'react';
 import { Controller, useForm, useFieldArray } from 'react-hook-form';
-import { format } from 'date-fns';
+import { format, sub } from 'date-fns';
 import { Datepicker } from '@navikt/ds-datepicker';
 
 import { Diagnosekode, Diagnosekoder, DiagnosekodeSystem } from '../../types/diagnosekoder/Diagnosekoder';
@@ -30,8 +30,8 @@ interface FormValues {
 
 function OpprettSykmelding(): JSX.Element {
     const date = new Date();
-    const iGar = format(date.setDate(date.getDate() - 1), 'yyyy-MM-dd');
-    const enUkeSiden = format(date.setDate(date.getDate() - 7), 'yyyy-MM-dd');
+    const iGar = format(sub(date, { days: 1 }), 'yyyy-MM-dd');
+    const enUkeSiden = format(sub(date, { days: 7 }), 'yyyy-MM-dd');
     const {
         register,
         control,
