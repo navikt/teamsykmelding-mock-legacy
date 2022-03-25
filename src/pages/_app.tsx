@@ -26,6 +26,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     <li>
                         <Link href="/sykmelding/opprett">Opprett sykmelding</Link>
                     </li>
+                    <li>
+                        <Link href="/papirsykmelding/opprett">Opprett papirsykmelding</Link>
+                    </li>
                 </ul>
                 <div className={styles.innhold}>
                     <Component {...pageProps} />
