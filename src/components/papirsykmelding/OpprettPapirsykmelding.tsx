@@ -15,6 +15,7 @@ interface FormValues {
     fnr: string;
     hprNummer: string;
     syketilfelleStartdato: string;
+    behandletDato: string;
     diagnosekodesystem: 'icd10' | 'icpc2';
     diagnosekode: string;
     perioder: Periode[];
@@ -34,6 +35,7 @@ function OpprettPapirsykmelding(): JSX.Element {
     } = useForm<FormValues>({
         defaultValues: {
             syketilfelleStartdato: enUkeSiden,
+            behandletDato: enUkeSiden,
             perioder: [{ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
         },
     });
@@ -148,6 +150,14 @@ function OpprettPapirsykmelding(): JSX.Element {
             <Controller
                 control={control}
                 name="syketilfelleStartdato"
+                render={({ field }) => <Datepicker onChange={(date) => field.onChange(date)} value={field.value} />}
+            />
+            <p>
+                <b>Behandlingsdato</b>
+            </p>
+            <Controller
+                control={control}
+                name="behandletDato"
                 render={({ field }) => <Datepicker onChange={(date) => field.onChange(date)} value={field.value} />}
             />
             <Select

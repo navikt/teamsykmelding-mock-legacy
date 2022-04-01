@@ -26,6 +26,7 @@ interface FormValues {
     begrunnIkkeKontakt: string | null;
     vedlegg: boolean;
     virksomhetsykmelding: boolean;
+    utenUtdypendeOpplysninger: boolean;
 }
 
 function OpprettSykmelding(): JSX.Element {
@@ -264,6 +265,7 @@ function OpprettSykmelding(): JSX.Element {
             />
             <Checkbox {...register('vedlegg')}>Vedlegg</Checkbox>
             <Checkbox {...register('virksomhetsykmelding')}>Virksomhetsykmelding</Checkbox>
+            <Checkbox {...register('utenUtdypendeOpplysninger')}>Uten utdypende opplysninger</Checkbox>
             <Button type="submit">Opprett</Button>
             {error && <Alert variant="error">{error}</Alert>}
             {result && <Alert variant="success">{result}</Alert>}
