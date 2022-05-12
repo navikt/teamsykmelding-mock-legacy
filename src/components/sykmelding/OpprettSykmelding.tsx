@@ -141,14 +141,17 @@ function OpprettSykmelding(): JSX.Element {
                             <option value="BEHANDLINGSDAG">BEHANDLINGSDAG</option>
                             <option value="REISETILSKUDD">REISETILSKUDD</option>
                         </Select>
-                        <Button onClick={() => remove(index)} variant="tertiary">
+                        <Button type="button" onClick={() => remove(index)} variant="tertiary">
                             Slett
                         </Button>
                     </div>
                 ))}
             </div>
             <div className={styles.periodeButton}>
-                <Button onClick={() => append({ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT })}>
+                <Button
+                    type="button"
+                    onClick={() => append({ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT })}
+                >
                     Legg til periode
                 </Button>
             </div>
