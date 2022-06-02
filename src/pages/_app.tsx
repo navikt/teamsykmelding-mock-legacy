@@ -12,9 +12,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             <div className={styles.innholdsWrapper}>
                 <ul className={styles.sideMeny}>
                     <li>
-                        <Link href="/">Hjem</Link>
-                    </li>
-                    <li>
                         <Link href="/narmesteleder/opprett">Registrer nærmeste leder</Link>
                     </li>
                     <li>
@@ -31,6 +28,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     </li>
                     <li>
                         <Link href="/papirsykmelding-utland/opprett">Opprett utenlandsk papirsykmelding</Link>
+                    </li>
+                    <li>
+                        <Link href="/sykmelding/slett">Slett alle sykmeldinger</Link>
                     </li>
                 </ul>
                 <div className={styles.innhold}>

@@ -22,7 +22,7 @@ function Home(): JSX.Element {
                 <section>
                     <Grid>
                         <Cell xs={12}>
-                            <BodyShort>Kommer snart</BodyShort>
+                            <BodyShort>Velkommen til Team Sykmelding sin mock!</BodyShort>
                         </Cell>
                     </Grid>
                 </section>
