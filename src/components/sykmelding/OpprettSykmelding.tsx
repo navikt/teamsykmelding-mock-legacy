@@ -27,6 +27,7 @@ interface FormValues {
     vedlegg: boolean;
     virksomhetsykmelding: boolean;
     utenUtdypendeOpplysninger: boolean;
+    regelsettVersjon: string | null;
 }
 
 function OpprettSykmelding(): JSX.Element {
@@ -269,6 +270,12 @@ function OpprettSykmelding(): JSX.Element {
             <Checkbox {...register('vedlegg')}>Vedlegg</Checkbox>
             <Checkbox {...register('virksomhetsykmelding')}>Virksomhetsykmelding</Checkbox>
             <Checkbox {...register('utenUtdypendeOpplysninger')}>Uten utdypende opplysninger</Checkbox>
+            <TextField
+                className={styles.commonFormElement}
+                {...register('regelsettVersjon')}
+                label="Regelsettversjon"
+                defaultValue={'2'}
+            />
             <Button type="submit">Opprett</Button>
             {error && <Alert variant="error">{error}</Alert>}
             {result && <Alert variant="success">{result}</Alert>}
