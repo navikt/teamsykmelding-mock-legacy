@@ -1,15 +1,16 @@
-import { BodyShort, Cell, ContentContainer, Grid } from '@navikt/ds-react';
+import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { PageHeader } from '@navikt/ds-react';
+import { Print } from '@navikt/ds-icons';
+import { Bandage } from '@navikt/ds-icons';
+import { Employer } from '@navikt/ds-icons';
+import { Stethoscope } from '@navikt/ds-icons';
+import Link from 'next/link';
+import { Link as DsLink } from '@navikt/ds-react';
 
-import { logger } from '../utils/logger';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/App.module.css';
 
-function Home(): JSX.Element {
-    useEffect(() => {
-        logger.info('Dette er logging fra frontend');
-    }, []);
-
+const Home: NextPage = () => {
     return (
         <div className={styles.container}>
             <Head>
@@ -17,18 +18,76 @@ function Home(): JSX.Element {
                 <meta name="description" content="Mock" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <PageHeader description="La det mocke la det rock and roll">Team Sykmelding Mock</PageHeader>
+            <div className={styles.innholdsWrapper}>
+                <div>
+                    <h1>
+                        <Employer /> Nærmeste leder
+                    </h1>
+                    <ul className={styles.sideMeny}>
+                        <li>
+                            <Link href="/narmesteleder/opprett" passHref>
+                                <DsLink>Registrer nærmeste leder</DsLink>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/narmesteleder/slett" passHref>
+                                <DsLink>Deaktiver nærmeste leder</DsLink>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>
+                        <Stethoscope /> Legeerklæring
+                    </h1>
+                    <ul className={styles.sideMeny}>
+                        <li>
+                            <Link href="/legeerklaering/opprett" passHref>
+                                <DsLink>Opprett legeerklæring </DsLink>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
 
-            <ContentContainer>
-                <section>
-                    <Grid>
-                        <Cell xs={12}>
-                            <BodyShort>Velkommen til Team Sykmelding sin mock!</BodyShort>
-                        </Cell>
-                    </Grid>
-                </section>
-            </ContentContainer>
+                <div>
+                    <h1>
+                        <Bandage /> Sykmelding
+                    </h1>
+                    <ul className={styles.sideMeny}>
+                        <li>
+                            <Link href="/sykmelding/opprett" passHref>
+                                <DsLink>Opprett sykmelding</DsLink>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/sykmelding/slett" passHref>
+                                <DsLink>Slett alle sykmeldinger</DsLink>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h1>
+                        <Print /> Papirsykmelding
+                    </h1>
+                    <ul className={styles.sideMeny}>
+                        <li>
+                            <Link href="/papirsykmelding/opprett" passHref>
+                                <DsLink>Opprett papirsykmelding </DsLink>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/papirsykmelding-utland/opprett" passHref>
+                                <DsLink>Opprett utenlandsk papirsykmelding</DsLink>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     );
-}
+};
 
 export default Home;

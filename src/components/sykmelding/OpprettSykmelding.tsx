@@ -15,6 +15,7 @@ interface FormValues {
     fnr: string;
     fnrLege: string;
     herId: string | null;
+    meldingTilArbeidsgiver: string | null;
     hprNummer: string;
     syketilfelleStartdato: string;
     diagnosekodesystem: 'icd10' | 'icpc2';
@@ -81,6 +82,7 @@ function OpprettSykmelding(): JSX.Element {
             kontaktDato: data.kontaktDato ? data.kontaktDato : null,
             annenFraverGrunn: data.annenFraverGrunn ? data.annenFraverGrunn : null,
             herId: data.herId ? data.herId : null,
+            meldingTilArbeidsgiver: data.meldingTilArbeidsgiver ? data.meldingTilArbeidsgiver : null,
             begrunnIkkeKontakt: data.begrunnIkkeKontakt ? data.begrunnIkkeKontakt : null,
         };
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
@@ -216,6 +218,11 @@ function OpprettSykmelding(): JSX.Element {
                     <option value="tullekode">Tullekode</option>
                 </Select>
             )}
+            <TextField
+                className={styles.commonFormElement}
+                {...register('meldingTilArbeidsgiver')}
+                label="Melding til arbeidsgiver"
+            />
             <Select {...register('annenFraverGrunn')} label="Annen fraværsårsak" className={styles.commonFormElement}>
                 <option value="">Velg</option>
                 <option value="GODKJENT_HELSEINSTITUSJON">

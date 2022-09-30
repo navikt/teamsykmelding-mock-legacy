@@ -27,4 +27,4 @@ spec:
     path: /api/internal/is_ready
   env:
     - name: MOCK_BACKEND_URL
-      value: https://teamsykmelding-mock-backend.dev.intern.nav.no
+      value: http://teamsykmelding-mock-backend

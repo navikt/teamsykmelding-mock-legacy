@@ -1,11 +1,17 @@
-.innholdsWrapper {
+.container {
+    padding: 1rem;
     display: flex;
+    flex-direction: column;
+}
+
+.innholdsWrapper {
+    margin: 1rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sideMeny {
     flex: 0 0 300px;
-}
-
-.innhold {
-    flex: 1 0 auto;
 }
