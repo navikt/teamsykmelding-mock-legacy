@@ -47,11 +47,11 @@ You will also see any lint errors in the console.
 
 ### Creating a docker image
 
-Creating a docker image should be as simple as `docker build -t macgyver-frontend .`
+Creating a docker image should be as simple as `docker build -t teamsykmelding-mock .`
 
 ### Running a docker image
 
-`docker run --rm -it -p 3000:3000 macgyver-frontend`
+`docker run --rm -it -p 3000:3000 teamsykmelding-mock`
 
 ## FlowChart
 
@@ -66,7 +66,7 @@ This the high level flow of the application
 
 This project is maintained by navikt/teamsykmelding
 
-Questions and/or feature requests? Please create an [issue](https://github.com/navikt/macgyver-frontend/issues).
+Questions and/or feature requests? Please create an [issue](https://github.com/navikt/teamsykmelding-mock/issues).
 
 If you work in [@navikt](https://github.com/navikt) you can reach us at the Slack
 channel [#team-sykmelding](https://nav-it.slack.com/archives/CMA3XV997).
