@@ -1,14 +1,58 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { Modal } from '@navikt/ds-react';
-import { useEffect } from 'react';
+import Link from 'next/link';
+import { PageHeader } from '@navikt/ds-react';
+import { Print } from '@navikt/ds-icons';
+import { Bandage } from '@navikt/ds-icons';
+import { Employer } from '@navikt/ds-icons';
+import { Stethoscope } from '@navikt/ds-icons';
+
+import styles from '../styles/App.module.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-    useEffect(() => {
-        Modal.setAppElement?.('#__next');
-    }, []);
+    return (
+        <>
+            <PageHeader description="La det mocke la det rock and roll">Team Sykmelding Mock</PageHeader>
+            <div className={styles.innholdsWrapper}>
+                <div>
+                    <ul className={styles.sideMeny}>
+                        <Employer /> Nærmeste leder
+                        <li>
+                            <Link href="/narmesteleder/opprett">Registrer nærmeste leder</Link>
+                        </li>
+                        <li>
+                            <Link href="/narmesteleder/slett">Deaktiver nærmeste leder</Link>
+                        </li>
+                        <br />
+                        <Stethoscope /> Legeerklæring
+                        <li>
+                            <Link href="/legeerklaering/opprett">Opprett legeerklæring</Link>
+                        </li>
+                        <br />
+                        <Bandage /> Sykmelding
+                        <li>
+                            <Link href="/sykmelding/opprett">Opprett sykmelding</Link>
+                        </li>
+                        <li>
+                            <Link href="/sykmelding/slett">Slett alle sykmeldinger</Link>
+                        </li>
+                        <br />
+                        <Print /> Papirsykmelding
+                        <li>
+                            <Link href="/papirsykmelding/opprett">Opprett papirsykmelding</Link>
+                        </li>
+                        <li>
+                            <Link href="/papirsykmelding-utland/opprett">Opprett utenlandsk papirsykmelding</Link>
+                        </li>
+                    </ul>
+                </div>
 
-    return <Component {...pageProps} />;
+                <div className={styles.innhold}>
+                    <Component {...pageProps} />
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default MyApp;
