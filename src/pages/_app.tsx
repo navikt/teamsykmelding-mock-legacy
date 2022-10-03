@@ -1,18 +1,20 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Link from 'next/link';
-import { PageHeader } from '@navikt/ds-react';
 import { Print } from '@navikt/ds-icons';
 import { Bandage } from '@navikt/ds-icons';
 import { Employer } from '@navikt/ds-icons';
 import { Stethoscope } from '@navikt/ds-icons';
+import { Header } from '@navikt/ds-react-internal';
 
 import styles from '../styles/App.module.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
         <>
-            <PageHeader description="La det mocke la det rock and roll">Team Sykmelding Mock</PageHeader>
+            <Header>
+                <Header.Title as="h1">La det mocke la det rock and roll</Header.Title>
+            </Header>
             <div className={styles.innholdsWrapper}>
                 <div>
                     <ul className={styles.sideMeny}>
