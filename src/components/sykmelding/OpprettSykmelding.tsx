@@ -27,6 +27,7 @@ interface FormValues {
     utenUtdypendeOpplysninger: boolean;
     regelsettVersjon: string | null;
     hoveddiagnose: Diagnose;
+    bidiagnoser: [Diagnose] | null;
 }
 
 function OpprettSykmelding(): JSX.Element {
@@ -48,12 +49,22 @@ function OpprettSykmelding(): JSX.Element {
     });
     const {
         fields: periodeFields,
-        append,
-        remove,
+        append: perioderAppend,
+        remove: perioderRemove,
     } = useFieldArray({
         control,
         name: 'perioder',
     });
+
+    const {
+        append: bidiagnoserAppend,
+        remove: bidiagnoserRemove,
+        fields: bidiagnoserFields,
+    } = useFieldArray({
+        control,
+        name: 'bidiagnoser',
+    });
+
     const [error, setError] = useState<string | null>(null);
     const [result, setResult] = useState<string | null>(null);
     const OPPRETT_SYKMELDING_URL = `/api/proxy/sykmelding/opprett`;
@@ -131,7 +142,7 @@ function OpprettSykmelding(): JSX.Element {
                             <option value="BEHANDLINGSDAG">BEHANDLINGSDAG</option>
                             <option value="REISETILSKUDD">REISETILSKUDD</option>
                         </Select>
-                        <Button type="button" onClick={() => remove(index)} variant="tertiary">
+                        <Button type="button" onClick={() => perioderRemove(index)} variant="tertiary">
                             Slett
                         </Button>
                     </div>
@@ -140,7 +151,13 @@ function OpprettSykmelding(): JSX.Element {
             <div className={styles.periodeButton}>
                 <Button
                     type="button"
-                    onClick={() => append({ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT })}
+                    onClick={() =>
+                        perioderAppend({
+                            fom: enUkeSiden,
+                            tom: iGar,
+                            type: SykmeldingType.Enum.HUNDREPROSENT,
+                        })
+                    }
                 >
                     Legg til periode
                 </Button>
@@ -173,6 +190,25 @@ function OpprettSykmelding(): JSX.Element {
                     Velg tullekode i Diagnosekode for å få en kode som vil bli avslått i systemet!
                 </BodyShort>
             </DiagnosePicker>
+            <Label>Bidiagnose</Label>
+            {bidiagnoserFields.map((field, index) => (
+                <DiagnosePicker
+                    key={field.id}
+                    name={`bidiagnoser.${index}`}
+                    diagnoseType="bidiagnose"
+                    control={control as any}
+                    onRemove={() => bidiagnoserRemove(index)}
+                />
+            ))}
+            <div>
+                <Button
+                    variant="secondary"
+                    onClick={() => bidiagnoserAppend({ system: 'icd10', code: '', text: '' }, { shouldFocus: true })}
+                    type="button"
+                >
+                    Legg til bidiagnose
+                </Button>
+            </div>
 
             <TextField
                 className={styles.commonFormElement}
