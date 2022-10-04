@@ -40,7 +40,7 @@ function OpprettPapirsykmelding(): JSX.Element {
             syketilfelleStartdato: enUkeSiden,
             behandletDato: enUkeSiden,
             perioder: [{ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
-            hoveddiagnose: { system: 'icd10', code: 'Z000', text: 'Generell helseundersøkelse' },
+            hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
         },
     });
     const {
