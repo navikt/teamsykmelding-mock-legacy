@@ -26,7 +26,7 @@ function OpprettLegeerklaering(): JSX.Element {
         control,
     } = useForm<FormValues>({
         defaultValues: {
-            hoveddiagnose: { system: 'icd10' },
+            hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
         },
     });
     const [error, setError] = useState<string | null>(null);
