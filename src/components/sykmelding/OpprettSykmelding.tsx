@@ -28,6 +28,7 @@ interface FormValues {
     regelsettVersjon: string | null;
     hoveddiagnose: Diagnose;
     bidiagnoser: [Diagnose] | null;
+    arbeidsgiverNavn: string | null;
 }
 
 function OpprettSykmelding(): JSX.Element {
@@ -209,7 +210,11 @@ function OpprettSykmelding(): JSX.Element {
                     Legg til bidiagnose
                 </Button>
             </div>
-
+            <TextField
+                className={styles.commonFormElement}
+                {...register('arbeidsgiverNavn')}
+                label="Arbeidsgiver navn"
+            />
             <TextField
                 className={styles.commonFormElement}
                 {...register('meldingTilArbeidsgiver')}
