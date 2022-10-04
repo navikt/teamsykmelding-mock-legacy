@@ -1,0 +1,16 @@
+.diagnosePicker {
+    display: flex;
+    gap: var(--navds-spacing-4);
+}
+
+.diagnoseDescriptionText {
+    height: var(--navds-spacing-12);
+    display: flex;
+    align-items: center;
+}
+
+.onRemoveButtonWrapper {
+    display: flex;
+    align-items: center;
+    margin-left: var(--navds-spacing-8);
+}

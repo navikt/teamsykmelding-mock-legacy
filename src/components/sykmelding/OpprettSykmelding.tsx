@@ -1,13 +1,12 @@
-import { Alert, Button, Checkbox, Heading, Select, TextField } from '@navikt/ds-react';
-import { useEffect, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Alert, BodyShort, Button, Checkbox, Heading, Label, Select, TextField } from '@navikt/ds-react';
+import React, { useState } from 'react';
 import { Controller, useForm, useFieldArray } from 'react-hook-form';
 import { format, sub } from 'date-fns';
 import { Datepicker } from '@navikt/ds-datepicker';
 
-import { Diagnosekode, Diagnosekoder, DiagnosekodeSystem } from '../../types/diagnosekoder/Diagnosekoder';
-import { getDiagnosekoder } from '../../utils/dataUtils';
-import { logger } from '../../utils/logger';
 import { Periode, SykmeldingType } from '../../types/sykmelding/Periode';
+import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker';
 
 import styles from './OpprettSykmelding.module.css';
 
@@ -15,19 +14,20 @@ interface FormValues {
     fnr: string;
     fnrLege: string;
     herId: string | null;
+    meldingTilArbeidsgiver: string | null;
     hprNummer: string;
     syketilfelleStartdato: string;
-    diagnosekodesystem: 'icd10' | 'icpc2';
-    diagnosekode: string;
     annenFraverGrunn: string | null;
     perioder: Periode[];
     behandletDato: string;
-    kontaktDato: string | undefined;
+    kontaktDato: string | null;
     begrunnIkkeKontakt: string | null;
     vedlegg: boolean;
     virksomhetsykmelding: boolean;
     utenUtdypendeOpplysninger: boolean;
     regelsettVersjon: string | null;
+    hoveddiagnose: Diagnose;
+    bidiagnoser: [Diagnose] | null;
 }
 
 function OpprettSykmelding(): JSX.Element {
@@ -39,49 +39,49 @@ function OpprettSykmelding(): JSX.Element {
         control,
         handleSubmit,
         formState: { errors },
-        watch,
     } = useForm<FormValues>({
         defaultValues: {
             syketilfelleStartdato: enUkeSiden,
             behandletDato: enUkeSiden,
             perioder: [{ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
+            hoveddiagnose: { system: 'icd10' },
         },
     });
     const {
         fields: periodeFields,
-        append,
-        remove,
+        append: perioderAppend,
+        remove: perioderRemove,
     } = useFieldArray({
         control,
         name: 'perioder',
     });
+
+    const {
+        append: bidiagnoserAppend,
+        remove: bidiagnoserRemove,
+        fields: bidiagnoserFields,
+    } = useFieldArray({
+        control,
+        name: 'bidiagnoser',
+    });
+
     const [error, setError] = useState<string | null>(null);
     const [result, setResult] = useState<string | null>(null);
     const OPPRETT_SYKMELDING_URL = `/api/proxy/sykmelding/opprett`;
-    const [diagnosekoder, setDiagnosekoder] = useState<Diagnosekoder | undefined>(undefined);
-    const diagnosekodesystem = watch('diagnosekodesystem');
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const _diagnosekoder = await getDiagnosekoder();
-                setDiagnosekoder(_diagnosekoder);
-            } catch (error: unknown) {
-                logger.error(error);
-            }
-        })();
-    }, []);
-
-    const icd10Koder: Diagnosekode[] = diagnosekoder?.[DiagnosekodeSystem.ICD10] ?? [];
-    const icpc2Koder: Diagnosekode[] = diagnosekoder?.[DiagnosekodeSystem.ICPC2] ?? [];
 
     const postData = async (data: FormValues): Promise<void> => {
-        const mappedData = {
+        const mappedData: Omit<FormValues, 'hoveddiagnose'> & {
+            diagnosekodesystem: 'icd10' | 'icpc2';
+            diagnosekode: string;
+        } = {
             ...data,
             kontaktDato: data.kontaktDato ? data.kontaktDato : null,
             annenFraverGrunn: data.annenFraverGrunn ? data.annenFraverGrunn : null,
             herId: data.herId ? data.herId : null,
+            meldingTilArbeidsgiver: data.meldingTilArbeidsgiver ? data.meldingTilArbeidsgiver : null,
             begrunnIkkeKontakt: data.begrunnIkkeKontakt ? data.begrunnIkkeKontakt : null,
+            diagnosekodesystem: data.hoveddiagnose.system,
+            diagnosekode: data.hoveddiagnose.code,
         };
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
@@ -142,7 +142,7 @@ function OpprettSykmelding(): JSX.Element {
                             <option value="BEHANDLINGSDAG">BEHANDLINGSDAG</option>
                             <option value="REISETILSKUDD">REISETILSKUDD</option>
                         </Select>
-                        <Button type="button" onClick={() => remove(index)} variant="tertiary">
+                        <Button type="button" onClick={() => perioderRemove(index)} variant="tertiary">
                             Slett
                         </Button>
                     </div>
@@ -151,7 +151,13 @@ function OpprettSykmelding(): JSX.Element {
             <div className={styles.periodeButton}>
                 <Button
                     type="button"
-                    onClick={() => append({ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT })}
+                    onClick={() =>
+                        perioderAppend({
+                            fom: enUkeSiden,
+                            tom: iGar,
+                            type: SykmeldingType.Enum.HUNDREPROSENT,
+                        })
+                    }
                 >
                     Legg til periode
                 </Button>
@@ -178,44 +184,37 @@ function OpprettSykmelding(): JSX.Element {
                 name="syketilfelleStartdato"
                 render={({ field }) => <Datepicker onChange={(date) => field.onChange(date)} value={field.value} />}
             />
-            <Select
-                {...register('diagnosekodesystem', { required: true })}
-                label="Diagnosekodesystem"
+            <Label>Hoveddiagnose</Label>
+            <DiagnosePicker control={control as any} name={'hoveddiagnose'} diagnoseType={'hoveddiagnose'}>
+                <BodyShort size="small">
+                    Velg tullekode i Diagnosekode for å få en kode som vil bli avslått i systemet!
+                </BodyShort>
+            </DiagnosePicker>
+            <Label>Bidiagnose</Label>
+            {bidiagnoserFields.map((field, index) => (
+                <DiagnosePicker
+                    key={field.id}
+                    name={`bidiagnoser.${index}`}
+                    diagnoseType="bidiagnose"
+                    control={control as any}
+                    onRemove={() => bidiagnoserRemove(index)}
+                />
+            ))}
+            <div>
+                <Button
+                    variant="secondary"
+                    onClick={() => bidiagnoserAppend({ system: 'icd10', code: '', text: '' }, { shouldFocus: true })}
+                    type="button"
+                >
+                    Legg til bidiagnose
+                </Button>
+            </div>
+
+            <TextField
                 className={styles.commonFormElement}
-            >
-                <option value="icd10">ICD10</option>
-                <option value="icpc2">ICPC2</option>
-            </Select>
-            {diagnosekodesystem === 'icd10' && (
-                <Select
-                    {...register('diagnosekode', { required: true })}
-                    label="Diagnosekode"
-                    description="Velg tullekode for å få en kode som vil bli avslått i systemet!"
-                    className={styles.commonFormElement}
-                >
-                    {icd10Koder.map((it) => (
-                        <option key={it.code} value={it.code}>
-                            {it.code + ' - ' + it.text}
-                        </option>
-                    ))}
-                    <option value="tullekode">Tullekode</option>
-                </Select>
-            )}
-            {diagnosekodesystem === 'icpc2' && (
-                <Select
-                    {...register('diagnosekode', { required: true })}
-                    label="Diagnosekode"
-                    description="Skriv tullekode for å få en kode som vil bli avslått i systemet!"
-                    className={styles.commonFormElement}
-                >
-                    {icpc2Koder.map((it) => (
-                        <option key={it.code} value={it.code}>
-                            {it.code + ' - ' + it.text}
-                        </option>
-                    ))}
-                    <option value="tullekode">Tullekode</option>
-                </Select>
-            )}
+                {...register('meldingTilArbeidsgiver')}
+                label="Melding til arbeidsgiver"
+            />
             <Select {...register('annenFraverGrunn')} label="Annen fraværsårsak" className={styles.commonFormElement}>
                 <option value="">Velg</option>
                 <option value="GODKJENT_HELSEINSTITUSJON">
@@ -260,7 +259,9 @@ function OpprettSykmelding(): JSX.Element {
             <Controller
                 control={control}
                 name="kontaktDato"
-                render={({ field }) => <Datepicker onChange={(date) => field.onChange(date)} value={field.value} />}
+                render={({ field }) => (
+                    <Datepicker onChange={(date) => field.onChange(date)} value={field.value ?? undefined} />
+                )}
             />
             <TextField
                 className={styles.commonFormElement}

@@ -21,8 +21,9 @@ function Home(): JSX.Element {
             <ContentContainer>
                 <section>
                     <Grid>
-                        <Cell xs={12}>
+                        <Cell xs={5}>
                             <BodyShort>Velkommen til Team Sykmelding sin mock!</BodyShort>
+                            <BodyShort>Velg hva du vil gjøre i side menyen!</BodyShort>
                         </Cell>
                     </Grid>
                 </section>

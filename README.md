@@ -28,16 +28,16 @@ The following steps need to be in the project directory(the root foler for this 
 yarn
 ```
 
-### Builds the app for production
-
-```bash
-yarn build
-```
-
 ### Run the app in development mode
 
 ```bash
 yarn start
+```
+
+### Builds the app for production
+
+```bash
+yarn build
 ```
 
 Open http://localhost:3000/ to view it in the browser.
