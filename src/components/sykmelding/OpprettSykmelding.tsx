@@ -81,6 +81,7 @@ function OpprettSykmelding(): JSX.Element {
             herId: data.herId ? data.herId : null,
             meldingTilArbeidsgiver: data.meldingTilArbeidsgiver ? data.meldingTilArbeidsgiver : null,
             begrunnIkkeKontakt: data.begrunnIkkeKontakt ? data.begrunnIkkeKontakt : null,
+            utdypendeOpplysninger: data.utdypendeOpplysninger ? data.utdypendeOpplysninger : null,
             diagnosekodesystem: data.hoveddiagnose.system,
             diagnosekode: data.hoveddiagnose.code,
         };
