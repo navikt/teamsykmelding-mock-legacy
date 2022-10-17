@@ -24,7 +24,7 @@ interface FormValues {
     begrunnIkkeKontakt: string | null;
     vedlegg: boolean;
     virksomhetsykmelding: boolean;
-    utenUtdypendeOpplysninger: boolean;
+    utdypendeOpplysninger: string | null;
     regelsettVersjon: string | null;
     hoveddiagnose: Diagnose;
     bidiagnoser: [Diagnose] | null;
@@ -275,12 +275,25 @@ function OpprettSykmelding(): JSX.Element {
             />
             <Checkbox {...register('vedlegg')}>Vedlegg</Checkbox>
             <Checkbox {...register('virksomhetsykmelding')}>Virksomhetsykmelding</Checkbox>
-            <Checkbox {...register('utenUtdypendeOpplysninger')}>Uten utdypende opplysninger</Checkbox>
+            <Select
+                {...register('utdypendeOpplysninger')}
+                label="Utdypende opplysninger"
+                className={styles.commonFormElement}
+            >
+                <option value="">Velg</option>
+                <option value="INGEN">Ingen utdypende opplysninger (alle regelsettversjoner)</option>
+                <option value="UKE_7">Utdypende opplysninger ved uke 7</option>
+                <option value="UKE_17"> Utdypende opplysninger ved uke 17</option>
+                <option value="UKE_39">Utdypende opplysninger ved uke 39</option>
+            </Select>
+            <BodyShort size="small">
+                Utdypende opplysninger for uke 7, 17 og 39 påvirker kun regelsettversjon 3.
+            </BodyShort>
             <TextField
                 className={styles.commonFormElement}
                 {...register('regelsettVersjon')}
                 label="Regelsettversjon"
-                defaultValue={'2'}
+                defaultValue={'3'}
             />
             <Button type="submit">Opprett</Button>
             {error && <Alert variant="error">{error}</Alert>}
