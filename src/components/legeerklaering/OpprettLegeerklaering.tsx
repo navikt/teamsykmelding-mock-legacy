@@ -10,6 +10,7 @@ interface FormValues {
     fnrLege: string;
     statusPresens: string;
     vedlegg: boolean;
+    vedleggMedVirus: boolean;
     hoveddiagnose: Diagnose;
 }
 
@@ -39,6 +40,7 @@ function OpprettLegeerklaering(): JSX.Element {
             fnrLege: data.fnrLege,
             statusPresens: data.statusPresens,
             vedlegg: data.vedlegg,
+            vedleggMedVirus: data.vedleggMedVirus,
             diagnosekodesystem: data.hoveddiagnose.system,
             diagnosekode: data.hoveddiagnose.code,
         };
@@ -79,6 +81,7 @@ function OpprettLegeerklaering(): JSX.Element {
 
             <TextField {...register('statusPresens')} label="Status presens" />
             <Checkbox {...register('vedlegg')}>Vedlegg</Checkbox>
+            <Checkbox {...register('vedleggMedVirus')}>Vedlegg med virus</Checkbox>
             <p />
             <Button type="submit">Opprett</Button>
             <p />
