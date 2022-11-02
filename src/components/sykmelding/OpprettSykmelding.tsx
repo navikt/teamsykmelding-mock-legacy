@@ -29,6 +29,7 @@ interface FormValues {
     hoveddiagnose: Diagnose;
     bidiagnoser: [Diagnose] | null;
     arbeidsgiverNavn: string | null;
+    vedleggMedVirus: boolean;
 }
 
 function OpprettSykmelding(): JSX.Element {
@@ -275,6 +276,7 @@ function OpprettSykmelding(): JSX.Element {
                 label="Tilbakedatering: Begrunnelse"
             />
             <Checkbox {...register('vedlegg')}>Vedlegg</Checkbox>
+            <Checkbox {...register('vedleggMedVirus')}>Vedlegg med virus</Checkbox>
             <Checkbox {...register('virksomhetsykmelding')}>Virksomhetsykmelding</Checkbox>
             <Select
                 {...register('utdypendeOpplysninger')}
