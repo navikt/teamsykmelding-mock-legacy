@@ -76,6 +76,8 @@ function OpprettSykmelding(): JSX.Element {
     const postData = async (data: FormValues): Promise<void> => {
         setError(null);
         setResult(null);
+        setRegelError(null);
+        setRegelResult(null);
         const mappedData: Omit<FormValues, 'hoveddiagnose'> & {
             diagnosekodesystem: 'icd10' | 'icpc2';
             diagnosekode: string;
@@ -106,6 +108,8 @@ function OpprettSykmelding(): JSX.Element {
     const [regelResult, setRegelResult] = useState<string | null>(null);
     const REGELSJEKK_URL = `/api/proxy/sykmelding/regelsjekk`;
     const postDataRegelsjekk = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
         setRegelError(null);
         setRegelResult(null);
         const mappedData: Omit<FormValues, 'hoveddiagnose'> & {
@@ -342,9 +346,8 @@ function OpprettSykmelding(): JSX.Element {
                     variant="secondary"
                     type="button"
                     onClick={async () => {
-                        const validationResult = await trigger();
+                        const validationResult = await trigger(undefined, { shouldFocus: true });
                         if (!validationResult) {
-                            setRegelError('Validering feilet');
                             return;
                         }
                         return postDataRegelsjekk(getValues());
