@@ -37,6 +37,8 @@ function OpprettSykmelding(): JSX.Element {
     const iGar = format(sub(date, { days: 1 }), 'yyyy-MM-dd');
     const enUkeSiden = format(sub(date, { days: 7 }), 'yyyy-MM-dd');
     const {
+        getValues,
+        trigger,
         register,
         control,
         handleSubmit,
@@ -72,6 +74,10 @@ function OpprettSykmelding(): JSX.Element {
     const OPPRETT_SYKMELDING_URL = `/api/proxy/sykmelding/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
+        setRegelError(null);
+        setRegelResult(null);
         const mappedData: Omit<FormValues, 'hoveddiagnose'> & {
             diagnosekodesystem: 'icd10' | 'icpc2';
             diagnosekode: string;
@@ -95,6 +101,40 @@ function OpprettSykmelding(): JSX.Element {
             setResult((await response.json()).message);
         } else {
             setError((await response.json()).message);
+        }
+    };
+
+    const [regelError, setRegelError] = useState<string | null>(null);
+    const [regelResult, setRegelResult] = useState<string | null>(null);
+    const REGELSJEKK_URL = `/api/proxy/sykmelding/regelsjekk`;
+    const postDataRegelsjekk = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
+        setRegelError(null);
+        setRegelResult(null);
+        const mappedData: Omit<FormValues, 'hoveddiagnose'> & {
+            diagnosekodesystem: 'icd10' | 'icpc2';
+            diagnosekode: string;
+        } = {
+            ...data,
+            kontaktDato: data.kontaktDato ? data.kontaktDato : null,
+            annenFraverGrunn: data.annenFraverGrunn ? data.annenFraverGrunn : null,
+            herId: data.herId ? data.herId : null,
+            meldingTilArbeidsgiver: data.meldingTilArbeidsgiver ? data.meldingTilArbeidsgiver : null,
+            begrunnIkkeKontakt: data.begrunnIkkeKontakt ? data.begrunnIkkeKontakt : null,
+            utdypendeOpplysninger: data.utdypendeOpplysninger ? data.utdypendeOpplysninger : null,
+            diagnosekodesystem: data.hoveddiagnose.system,
+            diagnosekode: data.hoveddiagnose.code,
+        };
+        const response = await fetch(REGELSJEKK_URL, {
+            method: 'POST',
+            body: JSON.stringify(mappedData),
+        });
+
+        if (response.ok) {
+            setRegelResult(JSON.stringify(await response.json(), null, 2));
+        } else {
+            setRegelError((await response.json()).message);
         }
     };
 
@@ -298,9 +338,26 @@ function OpprettSykmelding(): JSX.Element {
                 label="Regelsettversjon"
                 defaultValue={'3'}
             />
-            <Button type="submit">Opprett</Button>
-            {error && <Alert variant="error">{error}</Alert>}
-            {result && <Alert variant="success">{result}</Alert>}
+            <div className={styles.buttons}>
+                <Button type="submit">Opprett</Button>
+                {error && <Alert variant="error">{error}</Alert>}
+                {result && <Alert variant="success">{result}</Alert>}
+                <Button
+                    variant="secondary"
+                    type="button"
+                    onClick={async () => {
+                        const validationResult = await trigger(undefined, { shouldFocus: true });
+                        if (!validationResult) {
+                            return;
+                        }
+                        return postDataRegelsjekk(getValues());
+                    }}
+                >
+                    Valider mot regler
+                </Button>
+                {regelError && <Alert variant="error">{regelError}</Alert>}
+                {regelResult && <Alert variant="success">{regelResult}</Alert>}
+            </div>
         </form>
     );
 }
