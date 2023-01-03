@@ -38,6 +38,7 @@ function OpprettSykmelding(): JSX.Element {
     const enUkeSiden = format(sub(date, { days: 7 }), 'yyyy-MM-dd');
     const {
         getValues,
+        trigger,
         register,
         control,
         handleSubmit,
@@ -73,6 +74,8 @@ function OpprettSykmelding(): JSX.Element {
     const OPPRETT_SYKMELDING_URL = `/api/proxy/sykmelding/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
         const mappedData: Omit<FormValues, 'hoveddiagnose'> & {
             diagnosekodesystem: 'icd10' | 'icpc2';
             diagnosekode: string;
@@ -103,6 +106,8 @@ function OpprettSykmelding(): JSX.Element {
     const [regelResult, setRegelResult] = useState<string | null>(null);
     const REGELSJEKK_URL = `/api/proxy/sykmelding/regelsjekk`;
     const postDataRegelsjekk = async (data: FormValues): Promise<void> => {
+        setRegelError(null);
+        setRegelResult(null);
         const mappedData: Omit<FormValues, 'hoveddiagnose'> & {
             diagnosekodesystem: 'icd10' | 'icpc2';
             diagnosekode: string;
@@ -123,7 +128,7 @@ function OpprettSykmelding(): JSX.Element {
         });
 
         if (response.ok) {
-            setRegelResult((await response.json()).message);
+            setRegelResult(JSON.stringify(await response.json(), null, 2));
         } else {
             setRegelError((await response.json()).message);
         }
@@ -336,7 +341,12 @@ function OpprettSykmelding(): JSX.Element {
                 <Button
                     variant="secondary"
                     type="button"
-                    onClick={() => {
+                    onClick={async () => {
+                        const validationResult = await trigger();
+                        if (!validationResult) {
+                            setRegelError('Validering feilet');
+                            return;
+                        }
                         return postDataRegelsjekk(getValues());
                     }}
                 >
