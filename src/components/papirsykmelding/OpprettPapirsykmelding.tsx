@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Alert, Button, Checkbox, Heading, Select, TextField } from '@navikt/ds-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Controller, useForm, useFieldArray } from 'react-hook-form';
 import { format, sub } from 'date-fns';
 import { Datepicker } from '@navikt/ds-datepicker';
@@ -31,6 +31,8 @@ function OpprettPapirsykmelding(): JSX.Element {
     const iGar = format(sub(date, { days: 1 }), 'yyyy-MM-dd');
     const enUkeSiden = format(sub(date, { days: 7 }), 'yyyy-MM-dd');
     const {
+        getValues,
+        trigger,
         register,
         control,
         handleSubmit,
@@ -56,6 +58,10 @@ function OpprettPapirsykmelding(): JSX.Element {
     const OPPRETT_SYKMELDING_URL = `/api/proxy/papirsykmelding/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
+        setRegelError(null);
+        setRegelResult(null);
         const postData: OpprettPapirsykmeldingApiBody = {
             fnr: data.fnr,
             hprNummer: data.hprNummer,
@@ -76,6 +82,38 @@ function OpprettPapirsykmelding(): JSX.Element {
             setResult((await response.json()).message);
         } else {
             setError((await response.json()).message);
+        }
+    };
+
+    const [regelError, setRegelError] = useState<string | null>(null);
+    const [regelResult, setRegelResult] = useState<string | null>(null);
+    const REGELSJEKK_URL = `/api/proxy/papirsykmelding/regelsjekk`;
+
+    const postDataRegelsjekk = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
+        setRegelError(null);
+        setRegelResult(null);
+        const postData: OpprettPapirsykmeldingApiBody = {
+            fnr: data.fnr,
+            hprNummer: data.hprNummer,
+            syketilfelleStartdato: data.syketilfelleStartdato,
+            behandletDato: data.behandletDato,
+            perioder: data.perioder,
+            utenOcr: data.utenOcr,
+            diagnosekodesystem: data.hoveddiagnose.system,
+            diagnosekode: data.hoveddiagnose.code,
+        };
+
+        const response = await fetch(REGELSJEKK_URL, {
+            method: 'POST',
+            body: JSON.stringify(postData),
+        });
+
+        if (response.ok) {
+            setRegelResult(JSON.stringify(await response.json(), null, 2));
+        } else {
+            setRegelError((await response.json()).message);
         }
     };
 
@@ -163,14 +201,31 @@ function OpprettPapirsykmelding(): JSX.Element {
                 render={({ field }) => <Datepicker onChange={(date) => field.onChange(date)} value={field.value} />}
             />
             <p>
-                <b>HouvedDiagnose</b>
+                <b>Hoveddiagnose</b>
             </p>
             <DiagnosePicker control={control as any} name={'hoveddiagnose'} diagnoseType={'hoveddiagnose'} />
 
             <Checkbox {...register('utenOcr')}>Opprett papirsykmelding uten OCR</Checkbox>
-            <Button type="submit">Opprett</Button>
-            {error && <Alert variant="error">{error}</Alert>}
-            {result && <Alert variant="success">{result}</Alert>}
+            <div className={styles.buttons}>
+                <Button type="submit">Opprett</Button>
+                {error && <Alert variant="error">{error}</Alert>}
+                {result && <Alert variant="success">{result}</Alert>}
+                <Button
+                    variant="secondary"
+                    type="button"
+                    onClick={async () => {
+                        const validationResult = await trigger(undefined, { shouldFocus: true });
+                        if (!validationResult) {
+                            return;
+                        }
+                        return postDataRegelsjekk(getValues());
+                    }}
+                >
+                    Valider mot regler
+                </Button>
+                {regelError && <Alert variant="error">{regelError}</Alert>}
+                {regelResult && <Alert variant="success">{regelResult}</Alert>}
+            </div>
         </form>
     );
 }

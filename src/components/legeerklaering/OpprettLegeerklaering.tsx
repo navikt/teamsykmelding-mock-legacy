@@ -75,7 +75,7 @@ function OpprettLegeerklaering(): JSX.Element {
                 error={errors.fnrLege && 'Fødselsnummer til lege mangler'}
             />
             <p>
-                <b>HouvedDiagnose</b>
+                <b>Hoveddiagnose</b>
             </p>
             <DiagnosePicker control={control as any} name={'hoveddiagnose'} diagnoseType={'hoveddiagnose'} />
 

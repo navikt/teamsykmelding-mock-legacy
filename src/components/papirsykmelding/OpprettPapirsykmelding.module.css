@@ -21,3 +21,12 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.buttons {
+    display: flex;
+    gap: var(--a-spacing-4);
+}
+
+.buttons > button:last-of-type {
+    margin-left: auto;
+}
