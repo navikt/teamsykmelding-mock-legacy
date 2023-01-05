@@ -31,6 +31,8 @@ function OpprettNarmesteleder(): JSX.Element {
     const OPPRETT_NL_URL = `/api/proxy/narmesteleder/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
         const response = await fetch(OPPRETT_NL_URL, {
             method: 'POST',
             body: JSON.stringify(data),

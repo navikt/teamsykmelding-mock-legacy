@@ -17,6 +17,8 @@ function OpprettUtenlandskPapirsykmelding(): JSX.Element {
     const OPPRETT_SYKMELDING_URL = `/api/proxy/papirsykmelding/utenlandsk/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
             headers: {

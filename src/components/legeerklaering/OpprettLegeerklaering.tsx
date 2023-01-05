@@ -35,6 +35,8 @@ function OpprettLegeerklaering(): JSX.Element {
     const OPPRETT_LEGEERKLAERING_URL = `/api/proxy/legeerklaering/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
         const postData: OpprettLegeerklaeringApiBody = {
             fnr: data.fnr,
             fnrLege: data.fnrLege,
