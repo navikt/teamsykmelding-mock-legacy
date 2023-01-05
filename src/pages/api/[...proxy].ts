@@ -24,6 +24,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
     if (!result.ok) {
         logger.error('Proxy request failed');
         logger.error(`${result.status} ${result.statusText}`);
+        if (result.status === 400) {
+            const jsonBody = await result.json();
+            res.status(result.status).json({ message: jsonBody.message });
+            return;
+        }
         res.status(result.status).json({ message: `Noe gikk galt: ${result.statusText}` });
         return;
     }

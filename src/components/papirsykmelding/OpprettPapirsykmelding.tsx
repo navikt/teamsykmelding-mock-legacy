@@ -113,7 +113,7 @@ function OpprettPapirsykmelding(): JSX.Element {
         if (response.ok) {
             setRegelResult(JSON.stringify(await response.json(), null, 2));
         } else {
-            setRegelError(JSON.stringify(await response.json(), null, 2));
+            setRegelError((await response.json()).message);
         }
     };
 
