@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Alert, Button, Checkbox, Heading, TextField } from '@navikt/ds-react';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Alert, Button, Checkbox, Heading, Label, TextField } from '@navikt/ds-react';
+import React, { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker';
+import styles from '../legeerklaering/OpprettLegeerklaering.module.css';
 
 interface FormValues {
     fnr: string;
@@ -20,12 +20,7 @@ type OpprettLegeerklaeringApiBody = Omit<FormValues, 'hoveddiagnose'> & {
 };
 
 function OpprettLegeerklaering(): JSX.Element {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        control,
-    } = useForm<FormValues>({
+    const form = useForm<FormValues>({
         defaultValues: {
             hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
         },
@@ -60,36 +55,45 @@ function OpprettLegeerklaering(): JSX.Element {
     };
 
     return (
-        <form onSubmit={handleSubmit(postData)}>
-            <Heading size="medium" level="2" spacing>
-                Opprett legeerklæring
-            </Heading>
-            <p />
-            <TextField
-                {...register('fnr', { required: true })}
-                label="Fødselsnummer"
-                error={errors.fnr && 'Fødselsnummer for pasienten mangler'}
-            />
-            <TextField
-                {...register('fnrLege', { required: true })}
-                label="Fødselsnummer til lege"
-                defaultValue={'01117302624'}
-                error={errors.fnrLege && 'Fødselsnummer til lege mangler'}
-            />
-            <p>
-                <b>Hoveddiagnose</b>
-            </p>
-            <DiagnosePicker control={control as any} name={'hoveddiagnose'} diagnoseType={'hoveddiagnose'} />
-
-            <TextField {...register('statusPresens')} label="Status presens" />
-            <Checkbox {...register('vedlegg')}>Vedlegg</Checkbox>
-            <Checkbox {...register('vedleggMedVirus')}>Vedlegg med virus</Checkbox>
-            <p />
-            <Button type="submit">Opprett</Button>
-            <p />
-            {error && <Alert variant="error">{error}</Alert>}
-            {result && <Alert variant="success">{result}</Alert>}
-        </form>
+        <FormProvider {...form}>
+            <form onSubmit={form.handleSubmit(postData)}>
+                <Heading size="medium" level="2" spacing>
+                    Opprett legeerklæring
+                </Heading>
+                <p />
+                <TextField
+                    className={styles.commonFormElement}
+                    {...form.register('fnr', { required: true })}
+                    label="Fødselsnummer"
+                    error={form.formState.errors.fnr && 'Fødselsnummer for pasienten mangler'}
+                />
+                <TextField
+                    className={styles.commonFormElement}
+                    {...form.register('fnrLege', { required: true })}
+                    label="Fødselsnummer til lege"
+                    defaultValue={'01117302624'}
+                    error={form.formState.errors.fnrLege && 'Fødselsnummer til lege mangler'}
+                />
+                <div className={styles.commonFormElement}>
+                    <Label>Hoveddiagnose</Label>
+                    <DiagnosePicker name={'hoveddiagnose'} diagnoseType={'hoveddiagnose'} />
+                </div>
+                <TextField
+                    className={styles.commonFormElement}
+                    {...form.register('statusPresens')}
+                    label="Status presens"
+                />
+                <Checkbox className={styles.commonFormElement} {...form.register('vedlegg')}>
+                    Vedlegg
+                </Checkbox>
+                <Checkbox className={styles.commonFormElement} {...form.register('vedleggMedVirus')}>
+                    Vedlegg med virus
+                </Checkbox>
+                <Button type="submit">Opprett</Button>
+                {error && <Alert variant="error">{error}</Alert>}
+                {result && <Alert variant="success">{result}</Alert>}
+            </form>
+        </FormProvider>
     );
 }
 
