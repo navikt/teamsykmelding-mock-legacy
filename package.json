@@ -12,7 +12,6 @@
     },
     "dependencies": {
         "@navikt/ds-css": "^1.5.10",
-        "@navikt/ds-datepicker": "^1.0.4",
         "@navikt/ds-react": "^1.5.10",
         "@navikt/ds-react-internal": "^1.5.10",
         "@reach/combobox": "^0.18.0",

@@ -2,9 +2,8 @@ import { useController } from 'react-hook-form';
 import { UNSAFE_DatePicker, UNSAFE_useRangeDatepicker } from '@navikt/ds-react';
 import { format } from 'date-fns';
 
-import { toDate } from '../../utils/dateUtils';
+import { toDate } from '../../../utils/dateUtils';
 
-import { PapirsykmeldingFormValues } from './OpprettPapirsykmelding';
 import styles from './PeriodePicker.module.css';
 
 type DateRange = {
@@ -13,18 +12,17 @@ type DateRange = {
 };
 
 type FormName = `perioder.${number}`;
-type FormField = `${FormName}.${'fom' | 'tom'}`;
 
 interface PeriodePickerProps {
     name: FormName;
 }
 
 function PeriodePicker({ name }: PeriodePickerProps): JSX.Element {
-    const { field: fromField } = useController<PapirsykmeldingFormValues, FormField>({
+    const { field: fromField } = useController({
         name: `${name}.fom`,
         rules: { required: 'Du må fylle inn fra-dato.' },
     });
-    const { field: toField } = useController<PapirsykmeldingFormValues, FormField>({
+    const { field: toField } = useController({
         name: `${name}.tom`,
         rules: { required: 'Du må fylle inn til-dato.' },
     });

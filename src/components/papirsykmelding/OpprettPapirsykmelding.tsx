@@ -5,11 +5,11 @@ import { format, sub } from 'date-fns';
 
 import { Periode, SykmeldingType } from '../../types/sykmelding/Periode';
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker';
+import PeriodePicker from '../formComponents/PeriodePicker/PeriodePicker';
 
 import styles from './OpprettPapirsykmelding.module.css';
 import Behandletdato from './Behandletdato';
 import SyketilfelleStartdato from './SyketilfelleStartdato';
-import PeriodePicker from './PeriodePicker';
 
 export interface PapirsykmeldingFormValues {
     fnr: string;
@@ -160,8 +160,12 @@ function OpprettPapirsykmelding(): JSX.Element {
                     label="HPR-nummer"
                     defaultValue={'7125186'}
                 />
-                <SyketilfelleStartdato />
-                <Behandletdato />
+                <div className={styles.commonFormElement}>
+                    <SyketilfelleStartdato />
+                </div>
+                <div className={styles.commonFormElement}>
+                    <Behandletdato />
+                </div>
                 <p>
                     <b>Hoveddiagnose</b>
                 </p>
