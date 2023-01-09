@@ -17,6 +17,8 @@ function SlettSykmelding(): JSX.Element {
     const SLETT_SYKMELDING_URL = `/api/proxy/sykmeldinger`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
         const response = await fetch(`${SLETT_SYKMELDING_URL}`, {
             method: 'DELETE',
             headers: {

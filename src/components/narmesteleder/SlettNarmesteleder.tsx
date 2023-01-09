@@ -18,6 +18,8 @@ function SlettNarmesteleder(): JSX.Element {
     const SLETT_NL_URL = `/api/proxy/narmesteleder/`;
 
     const postData = async (data: FormValues): Promise<void> => {
+        setError(null);
+        setResult(null);
         const response = await fetch(`${SLETT_NL_URL}${data.orgnummer}`, {
             method: 'DELETE',
             headers: {
