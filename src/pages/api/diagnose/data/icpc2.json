@@ -217,7 +217,7 @@
     },
     {
         "code": "B25",
-        "text": "Engstelig for HIV/AIDS"
+        "text": "Engstelig for hiv/aids"
     },
     {
         "code": "B26",
@@ -301,7 +301,7 @@
     },
     {
         "code": "B90",
-        "text": "HIV-sykdom/AIDS"
+        "text": "Hiv-sykdom/aids"
     },
     {
         "code": "B99",
@@ -538,42 +538,6 @@
     {
         "code": "D99",
         "text": "Sykdom i fordøyelsessystemet IKA"
-    },
-    {
-        "code": "D991",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D992",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D993",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D994",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D995",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D996",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D997",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D998",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
-    },
-    {
-        "code": "D999",
-        "text": "Utbruddssykdom definert av FHI, fordøyelsessystemet"
     },
     {
         "code": "F01",
@@ -1385,7 +1349,7 @@
     },
     {
         "code": "P09",
-        "text": "Seksuell legning bekymret for"
+        "text": "Seksuell legning  og kjønnsidentitet, bekymring for"
     },
     {
         "code": "P10",
@@ -1592,10 +1556,6 @@
         "text": "Luftveier symptomer/plager IKA"
     },
     {
-        "code": "R33",
-        "text": "Mikrobiologisk/immunologisk prøve"
-    },
-    {
         "code": "R71",
         "text": "Kikhoste"
     },
@@ -1706,34 +1666,6 @@
     {
         "code": "R992",
         "text": "Covid-19 (bekreftet)"
-    },
-    {
-        "code": "R993",
-        "text": "Utbruddssykdom definert av FHI, luftveier"
-    },
-    {
-        "code": "R994",
-        "text": "Utbruddssykdom definert av FHI, luftveier"
-    },
-    {
-        "code": "R995",
-        "text": "Utbruddssykdom definert av FHI, luftveier"
-    },
-    {
-        "code": "R996",
-        "text": "Utbruddssykdom definert av FHI, luftveier"
-    },
-    {
-        "code": "R997",
-        "text": "Utbruddssykdom definert av FHI, luftveier"
-    },
-    {
-        "code": "R998",
-        "text": "Utbruddssykdom definert av FHI, luftveier"
-    },
-    {
-        "code": "R999",
-        "text": "Utbruddssykdom definert av FHI, luftveier"
     },
     {
         "code": "S01",
@@ -2165,7 +2097,7 @@
     },
     {
         "code": "U77",
-        "text": "Ondartet svulst urinveier IKA"
+        "text": "Ondartet svulst urinveiene IKA"
     },
     {
         "code": "U78",
