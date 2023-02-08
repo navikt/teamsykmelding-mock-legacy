@@ -3073,7 +3073,7 @@
     },
     {
         "code": "B961",
-        "text": "Klebisella pneumoniae s. årsak til sykd. klass. i andre kap."
+        "text": "Klebsiella pneumoniae s. årsak til sykd. klass. i andre kap."
     },
     {
         "code": "B962",
@@ -4957,7 +4957,7 @@
     },
     {
         "code": "C910",
-        "text": "Akutt lymfatisk leukemi [ALL]"
+        "text": "Akutt lymfoblastisk leukemi (ALL)"
     },
     {
         "code": "C911",
@@ -4981,7 +4981,7 @@
     },
     {
         "code": "C917",
-        "text": "Andre lymfatiske leukemier"
+        "text": "Andre lymfoide leukemier"
     },
     {
         "code": "C918",
@@ -4989,7 +4989,7 @@
     },
     {
         "code": "C919",
-        "text": "Lymfatisk leukemi, uspesifisert"
+        "text": "Lymfoid leukemi, uspesifisert"
     },
     {
         "code": "C920",
@@ -10601,167 +10601,167 @@
     },
     {
         "code": "F190",
-        "text": "Akutt intoksikasjon med flere stoffer"
+        "text": "Akutt intoksikasjon med andre el. flere psykoaktive stoffer"
     },
     {
         "code": "F1900",
-        "text": "Akutt intoksikasjon med flere stoffer, ukomplisert"
+        "text": "Akutt intoks med andre el. flere psykoaktive stoffer, ukompl"
     },
     {
         "code": "F1901",
-        "text": "Akutt intoksikasjon med flere stoffer med fysisk skade"
+        "text": "Ak. intoks m/andre el.flere psykoakt. stoffer m/fysisk skade"
     },
     {
         "code": "F1902",
-        "text": "Akutt intoks, flere stoffer med andre medisinske komplikasj"
+        "text": "Ak intoks m/an.el.flere psykoakt.stoffer m/andre med.komplik"
     },
     {
         "code": "F1903",
-        "text": "Akutt intoksikasjon med flere stoffer med delirium"
+        "text": "Ak intoks m/andre el. flere psykoakt. stoffer med delirium"
     },
     {
         "code": "F1904",
-        "text": "Akutt intoks med flere stoffer med persepsjonsforstyrrelser"
+        "text": "Ak intoks m/an.el.fl.psykoakt stoffer m/persepsjonsforstyrr"
     },
     {
         "code": "F1905",
-        "text": "Akutt intoksikasjon med flere stoffer med koma"
+        "text": "Akutt intoks med andre/flere psykoaktive stoffer med koma"
     },
     {
         "code": "F1906",
-        "text": "Akutt intoksikasjon med flere stoffer med kramper"
+        "text": "Akutt intoks med andre/flere psykoaktive stoffer med kramper"
     },
     {
         "code": "F191",
-        "text": "Skadelig bruk av flere stoffer"
+        "text": "Skadelig bruk av andre eller flere psykoaktive stoffer"
     },
     {
         "code": "F192",
-        "text": "Avhengighetssyndrom som skyldes flere stoffer"
+        "text": "Avhengighetssyndrom som skyldes andre/flere psykoakt stoffer"
     },
     {
         "code": "F1920",
-        "text": "Avhengighetssyndrom, flere stoffer, for tiden abstinent"
+        "text": "Avhengighetssyndr,andre/fl. psykoakt stoffer, p.t. abstinent"
     },
     {
         "code": "F1921",
-        "text": "Avhengighet, flere stoffer, abstinent i beskyttet miljø"
+        "text": "Avhengig, an/fl psykoak stoffer, abstinent i beskyttet miljø"
     },
     {
         "code": "F1922",
-        "text": "Avhengighetssyndrom, flere stoffer, vedlikeholdsbehandling"
+        "text": "Avhengig, an/fl psykoakt. stoffer, på vedlikeholdsbehandling"
     },
     {
         "code": "F1923",
-        "text": "Avhengighet, flere stoffer, abstinent, aversiv/blokker medik"
+        "text": "Avhengig, and/fl stoffer, abstinent, aversiv/blokker medik"
     },
     {
         "code": "F1924",
-        "text": "Avhengighetssyndrom pga flere stoffer, nå aktiv avhengighet"
+        "text": "Avhengighetssyndr andr/fl. psykoakt. stoffer, aktiv avhengig"
     },
     {
         "code": "F1925",
-        "text": "Avhengighetssyndrom pga flere stoffer, vedvarende bruk"
+        "text": "Avhengighetssyndrom pga andre/flere stoffer, vedvarende bruk"
     },
     {
         "code": "F1926",
-        "text": "Avhengighetssyndrom pga flere stoffer, episodisk bruk"
+        "text": "Avhengighetssyndrom pga andre/flere stoffer, episodisk bruk"
     },
     {
         "code": "F193",
-        "text": "Abstinenstilstand som skyldes flere stoffer"
+        "text": "Abstinenstilstand som skyldes andre/flere psykoakt. stoffer"
     },
     {
         "code": "F1930",
-        "text": "Abstinenstilstand som skyldes flere stoffer, ukomplisert"
+        "text": "Abstinens pga. andre/flere psykoaktive stoffer, ukomplisert"
     },
     {
         "code": "F1931",
-        "text": "Abstinenstilstand som skyldes flere stoffer, med kramper"
+        "text": "Abstinens pga. flere/andre psykoaktive stoffer, med kramper"
     },
     {
         "code": "F194",
-        "text": "Abstinenstilstand som skyldes flere stoffer med delirium"
+        "text": "Abstinens pga. andre/flere psykoaktive stoffer med delirium"
     },
     {
         "code": "F1940",
-        "text": "Abstinenstilstand pga flere stoffer med delir uten kramper"
+        "text": "Abstinens pga andre/flere stoffer med delir uten kramper"
     },
     {
         "code": "F1941",
-        "text": "Abstinenstilstand pga flere stoffer med delirium og kramper"
+        "text": "Abstinens pga andre/flere stoffer med delirium og kramper"
     },
     {
         "code": "F195",
-        "text": "Psykotisk lidelse som skyldes bruk av flere stoffer"
+        "text": "Psykotisk lidelse pga. bruk av andre/flere psykoakt. stoffer"
     },
     {
         "code": "F1950",
-        "text": "Schizofreniform psykose som skyldes bruk av flere stoffer"
+        "text": "Schizofreniform psykose pga. andre/flere psykoaktive stoffer"
     },
     {
         "code": "F1951",
-        "text": "Psykose pga bruk av flere stoffer, i hovedsak vrangforestil."
+        "text": "Psykose pga andre/flere stoffer, i hovedsak vrangforestil."
     },
     {
         "code": "F1952",
-        "text": "Psykose pga bruk av flere stoffer, i hovedsak hallusin."
+        "text": "Psykose pga. andre/flere stoffer, i hovedsak hallusinasjon"
     },
     {
         "code": "F1953",
-        "text": "I hovedsak polymorf psykose pga bruk av flere stoffer"
+        "text": "I hovedsak polymorf psykose pga. bruk av andre/flere stoffer"
     },
     {
         "code": "F1954",
-        "text": "Psykose pga bruk av flere stoffer, i hovedsak depr. sympt."
+        "text": "Psykose pga. andre/flere stoffer, i hovedsak depr. sympt."
     },
     {
         "code": "F1955",
-        "text": "Psykose pga bruk av flere stoffer, i hovedsak maniske symp."
+        "text": "Psykose pga. andre/flere stoffer, i hovedsak maniske sympt."
     },
     {
         "code": "F1956",
-        "text": "Blandet psykotisk lidelse som skyldes bruk av flere stoffer"
+        "text": "Blandet psykotisk lidelse pga. andre/flere psykoakt. stoffer"
     },
     {
         "code": "F196",
-        "text": "Amnestisk syndrom som skyldes bruk av flere stoffer"
+        "text": "Amnestisk syndrom pga. andre/flere psykoaktive stoffer"
     },
     {
         "code": "F197",
-        "text": "Residualtilst/sent innsettende psykose pga flere stoffer"
+        "text": "Residualtilst/sent innsettende psykose pga andre/flere stoff"
     },
     {
         "code": "F1970",
-        "text": "Flashbacks som skyldes bruk av flere stoffer"
+        "text": "Flashbacks pga. bruk av andre/flere psykoaktive stoffer"
     },
     {
         "code": "F1971",
-        "text": "Personlighets- eller atferdsforstyrrelse pga flere stoffer"
+        "text": "Personlighets-/atferdsforstyrrelse pga. andre/flere stoffer"
     },
     {
         "code": "F1972",
-        "text": "Residual affektiv lidelse som skyldes bruk av flere stoffer"
+        "text": "Residual affektiv lidelse pga. andre/flere psykoakt. stoffer"
     },
     {
         "code": "F1973",
-        "text": "Demens som skyldes bruk av flere stoffer"
+        "text": "Demens pga. bruk av andre eller flere psykoaktive stoffer"
     },
     {
         "code": "F1974",
-        "text": "Annen vedvarende kognitiv forstyrrelse pga flere stoffer"
+        "text": "Annen vedvarende kognitiv forstyrr pga. andre/flere stoffer"
     },
     {
         "code": "F1975",
-        "text": "Sent innsettende psykotisk lidelse pga bruk av flere stoffer"
+        "text": "Sent innsettende psykotisk lidelse pga. andre/flere stoffer"
     },
     {
         "code": "F198",
-        "text": "Andre psykiske lidelser/atferdsforstyrr pga flere stoffer"
+        "text": "Andre psyk. lidelser/atferdsforstyrr pga andre/flere stoffer"
     },
     {
         "code": "F199",
-        "text": "Uspesif psykisk lidelse/atferdsforstyrr pga flere stoffer"
+        "text": "Uspes. psyk. lidelse/atferdsforstyrr pga andre/flere stoffer"
     },
     {
         "code": "F200",
@@ -13213,7 +13213,7 @@
     },
     {
         "code": "G573",
-        "text": "Lesjon i nervus peroneus communis"
+        "text": "Lesjon i nervus fibularis communis"
     },
     {
         "code": "G574",
@@ -13605,7 +13605,7 @@
     },
     {
         "code": "G912",
-        "text": "Lavtrykkshydrocephalus"
+        "text": "Normaltrykkshydrocephalus"
     },
     {
         "code": "G913",
@@ -31744,6 +31744,46 @@
         "text": "Nekrotiserende fasciitt"
     },
     {
+        "code": "M7260",
+        "text": "Nekrotiserende fasciitt i flere lokalisasjoner"
+    },
+    {
+        "code": "M7261",
+        "text": "Nekrotiserende fasciitt i skulderregionen"
+    },
+    {
+        "code": "M7262",
+        "text": "Nekrotiserende fasciitt i overarm"
+    },
+    {
+        "code": "M7263",
+        "text": "Nekrotiserende fasciitt i underarm"
+    },
+    {
+        "code": "M7264",
+        "text": "Nekrotiserende fasciitt i hånd"
+    },
+    {
+        "code": "M7265",
+        "text": "Nekrotiserende fasciitt i bekkenregion eller lår"
+    },
+    {
+        "code": "M7266",
+        "text": "Nekrotiserende fasciitt i legg"
+    },
+    {
+        "code": "M7267",
+        "text": "Nekrotiserende fasciitt i ankel eller fot"
+    },
+    {
+        "code": "M7268",
+        "text": "Nekrotiserende fasciitt i annen lokalisasjon"
+    },
+    {
+        "code": "M7269",
+        "text": "Nekrotiserende fasciitt i uspesifisert lokalisasjon"
+    },
+    {
         "code": "M728",
         "text": "Andre spesifiserte sykdommer i fascier og annet fibrøst vev"
     },
@@ -36620,10 +36660,6 @@
         "text": "Stenose nervekan pga skiveprolaps;lumb/lumbosakr"
     },
     {
-        "code": "M9959",
-        "text": "Stenose nervekan pga skiveprolaps;buk o.a."
-    },
-    {
         "code": "M996",
         "text": "Benet stenose og subluksasjonsstenose i mellomvirvelforamen"
     },
@@ -36648,10 +36684,6 @@
         "text": "Benet/sublux-stenose mell-virv-foramen;sakr/sakrococc/sakroi"
     },
     {
-        "code": "M9969",
-        "text": "Benet/sublux-stenose mell-virv-foramen;buk o.a."
-    },
-    {
         "code": "M997",
         "text": "Bindevevs- og skivestenose i rotkanal"
     },
@@ -36674,10 +36706,6 @@
     {
         "code": "M9974",
         "text": "Bindevev/skivestenose rotkanal;sakr/sakrococc/sakroiliac"
-    },
-    {
-        "code": "M9979",
-        "text": "Bindevev/skivestenose rotkanal;buk o.a."
     },
     {
         "code": "M998",
@@ -44120,6 +44148,10 @@
         "text": "Hoste"
     },
     {
+        "code": "R053",
+        "text": "Kronisk hoste"
+    },
+    {
         "code": "R060",
         "text": "Dyspné"
     },
@@ -45721,11 +45753,11 @@
     },
     {
         "code": "S0600",
-        "text": "Hjernerystelse;uten åpen intrakraniell skade"
+        "text": "Hjernerystelse uten åpen intrakraniell skade"
     },
     {
         "code": "S0601",
-        "text": "Hjernerystelse;med åpen intrakraniell skade"
+        "text": "Hjernerystelse med åpen intrakraniell skade"
     },
     {
         "code": "S061",
@@ -45733,11 +45765,11 @@
     },
     {
         "code": "S0610",
-        "text": "Traumatisk hjerneødem;uten åpen intrakraniell skade"
+        "text": "Traumatisk hjerneødem uten åpen intrakraniell skade"
     },
     {
         "code": "S0611",
-        "text": "Traumatisk hjerneødem;med åpen intrakraniell skade"
+        "text": "Traumatisk hjerneødem med åpen intrakraniell skade"
     },
     {
         "code": "S062",
@@ -45745,11 +45777,11 @@
     },
     {
         "code": "S0620",
-        "text": "Diffus hjerneskade;uten åpen intrakraniell skade"
+        "text": "Diffus hjerneskade uten åpen intrakraniell skade"
     },
     {
         "code": "S0621",
-        "text": "Diffus hjerneskade;med åpen intrakraniell skade"
+        "text": "Diffus hjerneskade med åpen intrakraniell skade"
     },
     {
         "code": "S063",
@@ -45757,11 +45789,11 @@
     },
     {
         "code": "S0630",
-        "text": "Fokal hjerneskade;uten åpen intrakraniell skade"
+        "text": "Fokal hjerneskade uten åpen intrakraniell skade"
     },
     {
         "code": "S0631",
-        "text": "Fokal hjerneskade;med åpen intrakraniell skade"
+        "text": "Fokal hjerneskade med åpen intrakraniell skade"
     },
     {
         "code": "S064",
@@ -45769,11 +45801,11 @@
     },
     {
         "code": "S0640",
-        "text": "Epiduralblødning;uten åpen intrakraniell skade"
+        "text": "Epiduralblødning uten åpen intrakraniell skade"
     },
     {
         "code": "S0641",
-        "text": "Epiduralblødning;med åpen intrakraniell skade"
+        "text": "Epiduralblødning med åpen intrakraniell skade"
     },
     {
         "code": "S065",
@@ -45781,11 +45813,11 @@
     },
     {
         "code": "S0650",
-        "text": "Traumatisk el. uspes. subduralblødning;u/åp.intrakran.skade"
+        "text": "Traum el. uspes. subduralblødning uten åpen intrakran. skade"
     },
     {
         "code": "S0651",
-        "text": "Traumatisk el. uspes. subduralblødn.;m/åp. intrakran.skade"
+        "text": "Traum. el. uspes. subduralblødning med åpen intrakran. skade"
     },
     {
         "code": "S066",
@@ -45793,11 +45825,11 @@
     },
     {
         "code": "S0660",
-        "text": "Traumatisk subaraknoidalblødning;u/åpen intrakran. skade"
+        "text": "Traumatisk subaraknoidalblødning u/åpen intrakran. skade"
     },
     {
         "code": "S0661",
-        "text": "Traumatisk subaraknoidalblødning;med åpen intrakran. skade"
+        "text": "Traumatisk subaraknoidalblødning med åpen intrakran. skade"
     },
     {
         "code": "S067",
@@ -45805,11 +45837,11 @@
     },
     {
         "code": "S0670",
-        "text": "Intrakran. skade m/langvarig koma;u/åpen intrakran. skade"
+        "text": "Intrakran. skade m/langvarig koma u/åpen intrakran. skade"
     },
     {
         "code": "S0671",
-        "text": "Intrakraniell skade m/langvarig koma;m/åpen intrakran.skade"
+        "text": "Intrakraniell skade m/langvarig koma m/åpen intrakran.skade"
     },
     {
         "code": "S068",
@@ -45817,11 +45849,11 @@
     },
     {
         "code": "S0680",
-        "text": "Andre spes intrakranielle skader;uten åpen intrakran. skade"
+        "text": "Andre spes intrakranielle skader uten åpen intrakran. skade"
     },
     {
         "code": "S0681",
-        "text": "Andre spes intrakranielle skader;med åpen intrakran. skade"
+        "text": "Andre spes intrakranielle skader med åpen intrakran. skade"
     },
     {
         "code": "S069",
@@ -45829,11 +45861,11 @@
     },
     {
         "code": "S0690",
-        "text": "Uspesifisert intrakraniell skade;uten åpen intrakraniell skade"
+        "text": "Uspesifisert intrakraniell skade uten åpen intrakran. skade"
     },
     {
         "code": "S0691",
-        "text": "Uspesifisert intrakraniell skade;med åpen intrakraniell skade"
+        "text": "Uspesifisert intrakraniell skade med åpen intrakran. skade"
     },
     {
         "code": "S070",
@@ -47581,7 +47613,7 @@
     },
     {
         "code": "S561",
-        "text": "Skade på bøyemuskel og -sene for finger i underarmsregionen"
+        "text": "Skade på bøyemusk./-sene for a. finger enn tommel i underarm"
     },
     {
         "code": "S562",
@@ -47593,7 +47625,7 @@
     },
     {
         "code": "S564",
-        "text": "Skade på strekkemuskel og -sene for finger i u.armsreg."
+        "text": "Skade strekkemusk/-sene for a. finger enn tommel i underarm"
     },
     {
         "code": "S565",
@@ -47761,15 +47793,15 @@
     },
     {
         "code": "S626",
-        "text": "Brudd i en annen finger"
+        "text": "Brudd i en annen finger enn tommel"
     },
     {
         "code": "S6260",
-        "text": "Brudd i en annen finger;lukket"
+        "text": "Brudd i en annen finger enn tommel;lukket"
     },
     {
         "code": "S6261",
-        "text": "Brudd i en annen finger;åpent"
+        "text": "Brudd i en annen finger enn tommel;åpent"
     },
     {
         "code": "S627",
@@ -47805,7 +47837,7 @@
     },
     {
         "code": "S632",
-        "text": "Dislokasjon av flere fingre"
+        "text": "Flere dislokasjoner av fingre"
     },
     {
         "code": "S633",
@@ -47845,7 +47877,7 @@
     },
     {
         "code": "S644",
-        "text": "Skade på nerve i annen finger"
+        "text": "Skade på nerve i annen finger enn tommel"
     },
     {
         "code": "S647",
@@ -47881,7 +47913,7 @@
     },
     {
         "code": "S655",
-        "text": "Skade på blodkar i en annen finger"
+        "text": "Skade på blodkar i en annen finger enn tommel"
     },
     {
         "code": "S657",
@@ -47901,7 +47933,7 @@
     },
     {
         "code": "S661",
-        "text": "Skade på bøyemuskel/-sene for fingre i håndledds-/håndreg."
+        "text": "Skade bøyemusk/-sene for a.fingre enn tommel i håndledd/hånd"
     },
     {
         "code": "S662",
@@ -47909,7 +47941,7 @@
     },
     {
         "code": "S663",
-        "text": "Skade på strekkemuskel/-sene for fingre, håndledds-/håndreg."
+        "text": "Skade strekkemusk/-sene a. fingre enn tommel, håndledd/hånd"
     },
     {
         "code": "S664",
@@ -47917,7 +47949,7 @@
     },
     {
         "code": "S665",
-        "text": "Sk. kort muskel og sene for a. finger, håndledds-/håndreg."
+        "text": "Sk. kort muskel/sene for a. finger enn tommel, håndledd/hånd"
     },
     {
         "code": "S666",
@@ -47949,7 +47981,7 @@
     },
     {
         "code": "S681",
-        "text": "Traum. amputasjon av annen enkeltfinger (fullstendig/delvis)"
+        "text": "Traum. amput. a.enkeltfinger enn tommel (fullstendig/delvis)"
     },
     {
         "code": "S682",
@@ -51201,7 +51233,7 @@
     },
     {
         "code": "U089",
-        "text": "U08.9 Opplysning om covid-19 i egen sykehistorie"
+        "text": "Opplysning om covid-19 i egen sykehistorie"
     },
     {
         "code": "U099",
@@ -51209,7 +51241,7 @@
     },
     {
         "code": "U109",
-        "text": "Bruk av U10.9 for beredskapsformål"
+        "text": "Multiorgan inflammatorisk syndrom assosiert med covid-19"
     },
     {
         "code": "U119",
@@ -73929,663 +73961,663 @@
     },
     {
         "code": "X8n0a",
-        "text": "Overfall;bolig;Industri"
+        "text": "Kroppskrenk./overfall;bolig;Industri"
     },
     {
         "code": "X8n0b",
-        "text": "Overfall;bolig;Bygg/anl"
+        "text": "Kroppskrenk./overfall;bolig;Bygg/anl"
     },
     {
         "code": "X8n0c",
-        "text": "Overfall;bolig;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;bolig;Olje/gassutv"
     },
     {
         "code": "X8n0d",
-        "text": "Overfall;bolig;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;bolig;Jord/skogbr"
     },
     {
         "code": "X8n0e",
-        "text": "Overfall;bolig;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;bolig;Fiske/fangst"
     },
     {
         "code": "X8n0f",
-        "text": "Overfall;bolig;Forsvar"
+        "text": "Kroppskrenk./overfall;bolig;Forsvar"
     },
     {
         "code": "X8n0g",
-        "text": "Overfall;bolig;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;bolig;Politi/fengsel"
     },
     {
         "code": "X8n0h",
-        "text": "Overfall;bolig;Annen næring"
+        "text": "Kroppskrenk./overfall;bolig;Annen næring"
     },
     {
         "code": "X8n0i",
-        "text": "Overfall;bolig;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;bolig;Ukj/ikke spes næring"
     },
     {
         "code": "X8n0j",
-        "text": "Overfall;bolig;Utdann"
+        "text": "Kroppskrenk./overfall;bolig;Utdann"
     },
     {
         "code": "X8n0k",
-        "text": "Overfall;bolig;Verneplikt"
+        "text": "Kroppskrenk./overfall;bolig;Verneplikt"
     },
     {
         "code": "X8n0m",
-        "text": "Overfall;bolig;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;bolig;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n0p",
-        "text": "Overfall;bolig;Annen idrett"
+        "text": "Kroppskrenk./overfall;bolig;Annen idrett"
     },
     {
         "code": "X8n0r",
-        "text": "Overfall;bolig;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;bolig;Annen aktivitet"
     },
     {
         "code": "X8n0y",
-        "text": "Overfall;bolig;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;bolig;Ukjent aktivitet"
     },
     {
         "code": "X8n1a",
-        "text": "Overfall;veitrafikk;Industri"
+        "text": "Kroppskrenk./overfall;veitrafikk;Industri"
     },
     {
         "code": "X8n1b",
-        "text": "Overfall;veitrafikk;Bygg/anl"
+        "text": "Kroppskrenk./overfall;veitrafikk;Bygg/anl"
     },
     {
         "code": "X8n1c",
-        "text": "Overfall;veitrafikk;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;veitrafikk;Olje/gassutv"
     },
     {
         "code": "X8n1d",
-        "text": "Overfall;veitrafikk;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;veitrafikk;Jord/skogbr"
     },
     {
         "code": "X8n1e",
-        "text": "Overfall;veitrafikk;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;veitrafikk;Fiske/fangst"
     },
     {
         "code": "X8n1f",
-        "text": "Overfall;veitrafikk;Forsvar"
+        "text": "Kroppskrenk./overfall;veitrafikk;Forsvar"
     },
     {
         "code": "X8n1g",
-        "text": "Overfall;veitrafikk;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;veitrafikk;Politi/fengsel"
     },
     {
         "code": "X8n1h",
-        "text": "Overfall;veitrafikk;Annen næring"
+        "text": "Kroppskrenk./overfall;veitrafikk;Annen næring"
     },
     {
         "code": "X8n1i",
-        "text": "Overfall;veitrafikk;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;veitrafikk;Ukj/ikke spes næring"
     },
     {
         "code": "X8n1j",
-        "text": "Overfall;veitrafikk;Utdann"
+        "text": "Kroppskrenk./overfall;veitrafikk;Utdann"
     },
     {
         "code": "X8n1k",
-        "text": "Overfall;veitrafikk;Verneplikt"
+        "text": "Kroppskrenk./overfall;veitrafikk;Verneplikt"
     },
     {
         "code": "X8n1m",
-        "text": "Overfall;veitrafikk;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;veitrafikk;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n1p",
-        "text": "Overfall;veitrafikk;Annen idrett"
+        "text": "Kroppskrenk./overfall;veitrafikk;Annen idrett"
     },
     {
         "code": "X8n1r",
-        "text": "Overfall;veitrafikk;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;veitrafikk;Annen aktivitet"
     },
     {
         "code": "X8n1y",
-        "text": "Overfall;veitrafikk;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;veitrafikk;Ukjent aktivitet"
     },
     {
         "code": "X8n2a",
-        "text": "Overfall;ann gt/vei;Industri"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Industri"
     },
     {
         "code": "X8n2b",
-        "text": "Overfall;ann gt/vei;Bygg/anl"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Bygg/anl"
     },
     {
         "code": "X8n2c",
-        "text": "Overfall;ann gt/vei;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Olje/gassutv"
     },
     {
         "code": "X8n2d",
-        "text": "Overfall;ann gt/vei;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Jord/skogbr"
     },
     {
         "code": "X8n2e",
-        "text": "Overfall;ann gt/vei;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Fiske/fangst"
     },
     {
         "code": "X8n2f",
-        "text": "Overfall;ann gt/vei;Forsvar"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Forsvar"
     },
     {
         "code": "X8n2g",
-        "text": "Overfall;ann gt/vei;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Politi/fengsel"
     },
     {
         "code": "X8n2h",
-        "text": "Overfall;ann gt/vei;Annen næring"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Annen næring"
     },
     {
         "code": "X8n2i",
-        "text": "Overfall;ann gt/vei;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Ukj/ikke spes næring"
     },
     {
         "code": "X8n2j",
-        "text": "Overfall;ann gt/vei;Utdann"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Utdann"
     },
     {
         "code": "X8n2k",
-        "text": "Overfall;ann gt/vei;Verneplikt"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Verneplikt"
     },
     {
         "code": "X8n2m",
-        "text": "Overfall;ann gt/vei;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n2p",
-        "text": "Overfall;ann gt/vei;Annen idrett"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Annen idrett"
     },
     {
         "code": "X8n2r",
-        "text": "Overfall;ann gt/vei;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Annen aktivitet"
     },
     {
         "code": "X8n2y",
-        "text": "Overfall;ann gt/vei;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;ann gt/vei;Ukjent aktivitet"
     },
     {
         "code": "X8n3a",
-        "text": "Overfall;barneh/lekepl;Industri"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Industri"
     },
     {
         "code": "X8n3b",
-        "text": "Overfall;barneh/lekepl;Bygg/anl"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Bygg/anl"
     },
     {
         "code": "X8n3c",
-        "text": "Overfall;barneh/lekepl;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Olje/gassutv"
     },
     {
         "code": "X8n3d",
-        "text": "Overfall;barneh/lekepl;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Jord/skogbr"
     },
     {
         "code": "X8n3e",
-        "text": "Overfall;barneh/lekepl;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Fiske/fangst"
     },
     {
         "code": "X8n3f",
-        "text": "Overfall;barneh/lekepl;Forsvar"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Forsvar"
     },
     {
         "code": "X8n3g",
-        "text": "Overfall;barneh/lekepl;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Politi/fengsel"
     },
     {
         "code": "X8n3h",
-        "text": "Overfall;barneh/lekepl;Annen næring"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Annen næring"
     },
     {
         "code": "X8n3i",
-        "text": "Overfall;barneh/lekepl;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Ukj/ikke spes næring"
     },
     {
         "code": "X8n3j",
-        "text": "Overfall;barneh/lekepl;Utdann"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Utdann"
     },
     {
         "code": "X8n3k",
-        "text": "Overfall;barneh/lekepl;Verneplikt"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Verneplikt"
     },
     {
         "code": "X8n3m",
-        "text": "Overfall;barneh/lekepl;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n3p",
-        "text": "Overfall;barneh/lekepl;Annen idrett"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Annen idrett"
     },
     {
         "code": "X8n3r",
-        "text": "Overfall;barneh/lekepl;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Annen aktivitet"
     },
     {
         "code": "X8n3y",
-        "text": "Overfall;barneh/lekepl;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;barneh/lekepl;Ukjent aktivitet"
     },
     {
         "code": "X8n4a",
-        "text": "Overfall;skole m.v;Industri"
+        "text": "Kroppskrenk./overfall;skole m.v;Industri"
     },
     {
         "code": "X8n4b",
-        "text": "Overfall;skole m.v;Bygg/anl"
+        "text": "Kroppskrenk./overfall;skole m.v;Bygg/anl"
     },
     {
         "code": "X8n4c",
-        "text": "Overfall;skole m.v;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;skole m.v;Olje/gassutv"
     },
     {
         "code": "X8n4d",
-        "text": "Overfall;skole m.v;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;skole m.v;Jord/skogbr"
     },
     {
         "code": "X8n4e",
-        "text": "Overfall;skole m.v;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;skole m.v;Fiske/fangst"
     },
     {
         "code": "X8n4f",
-        "text": "Overfall;skole m.v;Forsvar"
+        "text": "Kroppskrenk./overfall;skole m.v;Forsvar"
     },
     {
         "code": "X8n4g",
-        "text": "Overfall;skole m.v;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;skole m.v;Politi/fengsel"
     },
     {
         "code": "X8n4h",
-        "text": "Overfall;skole m.v;Annen næring"
+        "text": "Kroppskrenk./overfall;skole m.v;Annen næring"
     },
     {
         "code": "X8n4i",
-        "text": "Overfall;skole m.v;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;skole m.v;Ukj/ikke spes næring"
     },
     {
         "code": "X8n4j",
-        "text": "Overfall;skole m.v;Utdann"
+        "text": "Kroppskrenk./overfall;skole m.v;Utdann"
     },
     {
         "code": "X8n4k",
-        "text": "Overfall;skole m.v;Verneplikt"
+        "text": "Kroppskrenk./overfall;skole m.v;Verneplikt"
     },
     {
         "code": "X8n4m",
-        "text": "Overfall;skole m.v;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;skole m.v;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n4p",
-        "text": "Overfall;skole m.v;Annen idrett"
+        "text": "Kroppskrenk./overfall;skole m.v;Annen idrett"
     },
     {
         "code": "X8n4r",
-        "text": "Overfall;skole m.v;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;skole m.v;Annen aktivitet"
     },
     {
         "code": "X8n4y",
-        "text": "Overfall;skole m.v;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;skole m.v;Ukjent aktivitet"
     },
     {
         "code": "X8n5a",
-        "text": "Overfall;h-inst/sykehus;Industri"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Industri"
     },
     {
         "code": "X8n5b",
-        "text": "Overfall;h-inst/sykehus;Bygg/anl"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Bygg/anl"
     },
     {
         "code": "X8n5c",
-        "text": "Overfall;h-inst/sykehus;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Olje/gassutv"
     },
     {
         "code": "X8n5d",
-        "text": "Overfall;h-inst/sykehus;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Jord/skogbr"
     },
     {
         "code": "X8n5e",
-        "text": "Overfall;h-inst/sykehus;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Fiske/fangst"
     },
     {
         "code": "X8n5f",
-        "text": "Overfall;h-inst/sykehus;Forsvar"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Forsvar"
     },
     {
         "code": "X8n5g",
-        "text": "Overfall;h-inst/sykehus;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Politi/fengsel"
     },
     {
         "code": "X8n5h",
-        "text": "Overfall;h-inst/sykehus;Annen næring"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Annen næring"
     },
     {
         "code": "X8n5i",
-        "text": "Overfall;h-inst/sykehus;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Ukj/ikke spes næring"
     },
     {
         "code": "X8n5j",
-        "text": "Overfall;h-inst/sykehus;Utdann"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Utdann"
     },
     {
         "code": "X8n5k",
-        "text": "Overfall;h-inst/sykehus;Verneplikt"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Verneplikt"
     },
     {
         "code": "X8n5m",
-        "text": "Overfall;h-inst/sykehus;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n5p",
-        "text": "Overfall;h-inst/sykehus;Annen idrett"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Annen idrett"
     },
     {
         "code": "X8n5r",
-        "text": "Overfall;h-inst/sykehus;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Annen aktivitet"
     },
     {
         "code": "X8n5y",
-        "text": "Overfall;h-inst/sykehus;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;h-inst/sykehus;Ukjent aktivitet"
     },
     {
         "code": "X8n6a",
-        "text": "Overfall;syke/aldershjem;Industri"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Industri"
     },
     {
         "code": "X8n6b",
-        "text": "Overfall;syke/aldershjem;Bygg/anl"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Bygg/anl"
     },
     {
         "code": "X8n6c",
-        "text": "Overfall;syke/aldershjem;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Olje/gassutv"
     },
     {
         "code": "X8n6d",
-        "text": "Overfall;syke/aldershjem;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Jord/skogbr"
     },
     {
         "code": "X8n6e",
-        "text": "Overfall;syke/aldershjem;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Fiske/fangst"
     },
     {
         "code": "X8n6f",
-        "text": "Overfall;syke/aldershjem;Forsvar"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Forsvar"
     },
     {
         "code": "X8n6g",
-        "text": "Overfall;syke/aldershjem;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Politi/fengsel"
     },
     {
         "code": "X8n6h",
-        "text": "Overfall;syke/aldershjem;Annen næring"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Annen næring"
     },
     {
         "code": "X8n6i",
-        "text": "Overfall;syke/aldershjem;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Ukj/ikke spes næring"
     },
     {
         "code": "X8n6j",
-        "text": "Overfall;syke/aldershjem;Utdann"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Utdann"
     },
     {
         "code": "X8n6k",
-        "text": "Overfall;syke/aldershjem;Verneplikt"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Verneplikt"
     },
     {
         "code": "X8n6m",
-        "text": "Overfall;syke/aldershjem;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n6p",
-        "text": "Overfall;syke/aldershjem;Annen idrett"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Annen idrett"
     },
     {
         "code": "X8n6r",
-        "text": "Overfall;syke/aldershjem;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Annen aktivitet"
     },
     {
         "code": "X8n6y",
-        "text": "Overfall;syke/aldershjem;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;syke/aldershjem;Ukjent aktivitet"
     },
     {
         "code": "X8n7a",
-        "text": "Overfall;idrettsanl;Industri"
+        "text": "Kroppskrenk./overfall;idrettsanl;Industri"
     },
     {
         "code": "X8n7b",
-        "text": "Overfall;idrettsanl;Bygg/anl"
+        "text": "Kroppskrenk./overfall;idrettsanl;Bygg/anl"
     },
     {
         "code": "X8n7c",
-        "text": "Overfall;idrettsanl;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;idrettsanl;Olje/gassutv"
     },
     {
         "code": "X8n7d",
-        "text": "Overfall;idrettsanl;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;idrettsanl;Jord/skogbr"
     },
     {
         "code": "X8n7e",
-        "text": "Overfall;idrettsanl;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;idrettsanl;Fiske/fangst"
     },
     {
         "code": "X8n7f",
-        "text": "Overfall;idrettsanl;Forsvar"
+        "text": "Kroppskrenk./overfall;idrettsanl;Forsvar"
     },
     {
         "code": "X8n7g",
-        "text": "Overfall;idrettsanl;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;idrettsanl;Politi/fengsel"
     },
     {
         "code": "X8n7h",
-        "text": "Overfall;idrettsanl;Annen næring"
+        "text": "Kroppskrenk./overfall;idrettsanl;Annen næring"
     },
     {
         "code": "X8n7i",
-        "text": "Overfall;idrettsanl;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;idrettsanl;Ukj/ikke spes næring"
     },
     {
         "code": "X8n7j",
-        "text": "Overfall;idrettsanl;Utdann"
+        "text": "Kroppskrenk./overfall;idrettsanl;Utdann"
     },
     {
         "code": "X8n7k",
-        "text": "Overfall;idrettsanl;Verneplikt"
+        "text": "Kroppskrenk./overfall;idrettsanl;Verneplikt"
     },
     {
         "code": "X8n7m",
-        "text": "Overfall;idrettsanl;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;idrettsanl;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n7p",
-        "text": "Overfall;idrettsanl;Annen idrett"
+        "text": "Kroppskrenk./overfall;idrettsanl;Annen idrett"
     },
     {
         "code": "X8n7r",
-        "text": "Overfall;idrettsanl;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;idrettsanl;Annen aktivitet"
     },
     {
         "code": "X8n7y",
-        "text": "Overfall;idrettsanl;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;idrettsanl;Ukjent aktivitet"
     },
     {
         "code": "X8n8a",
-        "text": "Overfall;friluftsliv;Industri"
+        "text": "Kroppskrenk./overfall;friluftsliv;Industri"
     },
     {
         "code": "X8n8b",
-        "text": "Overfall;friluftsliv;Bygg/anl"
+        "text": "Kroppskrenk./overfall;friluftsliv;Bygg/anl"
     },
     {
         "code": "X8n8c",
-        "text": "Overfall;friluftsliv;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;friluftsliv;Olje/gassutv"
     },
     {
         "code": "X8n8d",
-        "text": "Overfall;friluftsliv;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;friluftsliv;Jord/skogbr"
     },
     {
         "code": "X8n8e",
-        "text": "Overfall;friluftsliv;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;friluftsliv;Fiske/fangst"
     },
     {
         "code": "X8n8f",
-        "text": "Overfall;friluftsliv;Forsvar"
+        "text": "Kroppskrenk./overfall;friluftsliv;Forsvar"
     },
     {
         "code": "X8n8g",
-        "text": "Overfall;friluftsliv;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;friluftsliv;Politi/fengsel"
     },
     {
         "code": "X8n8h",
-        "text": "Overfall;friluftsliv;Annen næring"
+        "text": "Kroppskrenk./overfall;friluftsliv;Annen næring"
     },
     {
         "code": "X8n8i",
-        "text": "Overfall;friluftsliv;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;friluftsliv;Ukj/ikke spes næring"
     },
     {
         "code": "X8n8j",
-        "text": "Overfall;friluftsliv;Utdann"
+        "text": "Kroppskrenk./overfall;friluftsliv;Utdann"
     },
     {
         "code": "X8n8k",
-        "text": "Overfall;friluftsliv;Verneplikt"
+        "text": "Kroppskrenk./overfall;friluftsliv;Verneplikt"
     },
     {
         "code": "X8n8m",
-        "text": "Overfall;friluftsliv;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;friluftsliv;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n8p",
-        "text": "Overfall;friluftsliv;Annen idrett"
+        "text": "Kroppskrenk./overfall;friluftsliv;Annen idrett"
     },
     {
         "code": "X8n8r",
-        "text": "Overfall;friluftsliv;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;friluftsliv;Annen aktivitet"
     },
     {
         "code": "X8n8y",
-        "text": "Overfall;friluftsliv;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;friluftsliv;Ukjent aktivitet"
     },
     {
         "code": "X8n9a",
-        "text": "Overfall;annet sted;Industri"
+        "text": "Kroppskrenk./overfall;annet sted;Industri"
     },
     {
         "code": "X8n9b",
-        "text": "Overfall;annet sted;Bygg/anl"
+        "text": "Kroppskrenk./overfall;annet sted;Bygg/anl"
     },
     {
         "code": "X8n9c",
-        "text": "Overfall;annet sted;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;annet sted;Olje/gassutv"
     },
     {
         "code": "X8n9d",
-        "text": "Overfall;annet sted;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;annet sted;Jord/skogbr"
     },
     {
         "code": "X8n9e",
-        "text": "Overfall;annet sted;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;annet sted;Fiske/fangst"
     },
     {
         "code": "X8n9f",
-        "text": "Overfall;annet sted;Forsvar"
+        "text": "Kroppskrenk./overfall;annet sted;Forsvar"
     },
     {
         "code": "X8n9g",
-        "text": "Overfall;annet sted;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;annet sted;Politi/fengsel"
     },
     {
         "code": "X8n9h",
-        "text": "Overfall;annet sted;Annen næring"
+        "text": "Kroppskrenk./overfall;annet sted;Annen næring"
     },
     {
         "code": "X8n9i",
-        "text": "Overfall;annet sted;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;annet sted;Ukj/ikke spes næring"
     },
     {
         "code": "X8n9j",
-        "text": "Overfall;annet sted;Utdann"
+        "text": "Kroppskrenk./overfall;annet sted;Utdann"
     },
     {
         "code": "X8n9k",
-        "text": "Overfall;annet sted;Verneplikt"
+        "text": "Kroppskrenk./overfall;annet sted;Verneplikt"
     },
     {
         "code": "X8n9m",
-        "text": "Overfall;annet sted;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;annet sted;Idrett v/utd/vernepl"
     },
     {
         "code": "X8n9p",
-        "text": "Overfall;annet sted;Annen idrett"
+        "text": "Kroppskrenk./overfall;annet sted;Annen idrett"
     },
     {
         "code": "X8n9r",
-        "text": "Overfall;annet sted;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;annet sted;Annen aktivitet"
     },
     {
         "code": "X8n9y",
-        "text": "Overfall;annet sted;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;annet sted;Ukjent aktivitet"
     },
     {
         "code": "X8nxa",
-        "text": "Overfall;ukjent sted;Industri"
+        "text": "Kroppskrenk./overfall;ukjent sted;Industri"
     },
     {
         "code": "X8nxb",
-        "text": "Overfall;ukjent sted;Bygg/anl"
+        "text": "Kroppskrenk./overfall;ukjent sted;Bygg/anl"
     },
     {
         "code": "X8nxc",
-        "text": "Overfall;ukjent sted;Olje/gassutv"
+        "text": "Kroppskrenk./overfall;ukjent sted;Olje/gassutv"
     },
     {
         "code": "X8nxd",
-        "text": "Overfall;ukjent sted;Jord/skogbr"
+        "text": "Kroppskrenk./overfall;ukjent sted;Jord/skogbr"
     },
     {
         "code": "X8nxe",
-        "text": "Overfall;ukjent sted;Fiske/fangst"
+        "text": "Kroppskrenk./overfall;ukjent sted;Fiske/fangst"
     },
     {
         "code": "X8nxf",
-        "text": "Overfall;ukjent sted;Forsvar"
+        "text": "Kroppskrenk./overfall;ukjent sted;Forsvar"
     },
     {
         "code": "X8nxg",
-        "text": "Overfall;ukjent sted;Politi/fengsel"
+        "text": "Kroppskrenk./overfall;ukjent sted;Politi/fengsel"
     },
     {
         "code": "X8nxh",
-        "text": "Overfall;ukjent sted;Annen næring"
+        "text": "Kroppskrenk./overfall;ukjent sted;Annen næring"
     },
     {
         "code": "X8nxi",
-        "text": "Overfall;ukjent sted;Ukj/ikke spes næring"
+        "text": "Kroppskrenk./overfall;ukjent sted;Ukj/ikke spes næring"
     },
     {
         "code": "X8nxj",
-        "text": "Overfall;ukjent sted;Utdann"
+        "text": "Kroppskrenk./overfall;ukjent sted;Utdann"
     },
     {
         "code": "X8nxk",
-        "text": "Overfall;ukjent sted;Verneplikt"
+        "text": "Kroppskrenk./overfall;ukjent sted;Verneplikt"
     },
     {
         "code": "X8nxm",
-        "text": "Overfall;ukjent sted;Idrett v/utd/vernepl"
+        "text": "Kroppskrenk./overfall;ukjent sted;Idrett v/utd/vernepl"
     },
     {
         "code": "X8nxp",
-        "text": "Overfall;ukjent sted;Annen idrett"
+        "text": "Kroppskrenk./overfall;ukjent sted;Annen idrett"
     },
     {
         "code": "X8nxr",
-        "text": "Overfall;ukjent sted;Annen aktivitet"
+        "text": "Kroppskrenk./overfall;ukjent sted;Annen aktivitet"
     },
     {
         "code": "X8nxy",
-        "text": "Overfall;ukjent sted;Ukjent aktivitet"
+        "text": "Kroppskrenk./overfall;ukjent sted;Ukjent aktivitet"
     },
     {
         "code": "Y1n0a",
@@ -76617,7 +76649,7 @@
     },
     {
         "code": "Z305",
-        "text": "Kontroll av spiral"
+        "text": "Kontroll av spiral eller P-stav"
     },
     {
         "code": "Z308",
@@ -77130,10 +77162,6 @@
     {
         "code": "Z514",
         "text": "Forberedelse til videre undersøkelse og behandling IKAS"
-    },
-    {
-        "code": "Z515",
-        "text": "Palliativ behandling"
     },
     {
         "code": "Z518",
