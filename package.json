@@ -3,6 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "packageManager": "yarn@3.2.3",
+    "engines": {
+        "node": "18"
+    },
     "scripts": {
         "build": "next build",
         "start": "next dev",
