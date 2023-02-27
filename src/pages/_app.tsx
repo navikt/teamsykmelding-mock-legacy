@@ -46,6 +46,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         <li>
                             <Link href="/papirsykmelding-utland/opprett">Opprett utenlandsk papirsykmelding</Link>
                         </li>
+                        <li>
+                            <Link href="/papirsykmelding-utland-rina/opprett">Opprett utenlandsk sykmelding rina</Link>
+                        </li>
                     </ul>
                 </div>
 
