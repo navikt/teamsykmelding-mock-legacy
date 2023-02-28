@@ -38,7 +38,7 @@ function OpprettUtenlandskPapirsykmelding(): JSX.Element {
     return (
         <form onSubmit={handleSubmit(postData)}>
             <Heading size="medium" level="2">
-                Opprett utenlandsk papirsykmelding
+                Opprett utenlandsk sykmelding rina
             </Heading>
             <p />
             <TextField
