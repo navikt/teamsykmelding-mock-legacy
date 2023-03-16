@@ -32,6 +32,7 @@ export interface SykmeldingFormValues {
     bidiagnoser: [Diagnose] | null;
     arbeidsgiverNavn: string | null;
     vedleggMedVirus: boolean;
+    yrkesskade: boolean;
 }
 
 function OpprettSykmelding(): JSX.Element {
@@ -87,6 +88,7 @@ function OpprettSykmelding(): JSX.Element {
             utdypendeOpplysninger: data.utdypendeOpplysninger ? data.utdypendeOpplysninger : null,
             diagnosekodesystem: data.hoveddiagnose.system,
             diagnosekode: data.hoveddiagnose.code,
+            yrkesskade: data.yrkesskade,
         };
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
@@ -206,6 +208,7 @@ function OpprettSykmelding(): JSX.Element {
                     <BodyShort size="small">
                         Velg tullekode i Diagnosekode for å få en kode som vil bli avslått i systemet!
                     </BodyShort>
+                    <Checkbox {...form.register('yrkesskade')}>Yrkesskade</Checkbox>
                 </div>
                 <div className={styles.commonFormElement}>
                     <Label>Bidiagnose</Label>
