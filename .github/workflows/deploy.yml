@@ -31,6 +31,9 @@ jobs:
           command: test
           args: --org=teamsykmelding --severity-threshold=high
   build:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     name: build and push docker image
     runs-on: ubuntu-latest
     steps:
