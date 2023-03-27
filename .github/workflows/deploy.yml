@@ -2,7 +2,6 @@ name: Push
 on: push
 env:
   branchname: ${{ github.ref_name }}
-  docker_image: ghcr.io/navikt/teamsykmelding-mock:${{ github.sha }}
 jobs:
   snyk-monitor:
     if: github.ref == 'refs/heads/master'
@@ -52,13 +51,16 @@ jobs:
         run: yarn lint
       - name: Build app
         run: yarn build
-      - name: Build and publish Docker image
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo ${GITHUB_TOKEN} | docker login ghcr.io --username ${GITHUB_REPOSITORY} --password-stdin
-          docker build --tag ${docker_image} .
-          docker push ${docker_image}
+      - name: docker-build-push
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: teamsykmelding
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
 
   deploy-to-dev-gcp:
     name: deploy to nais dev
@@ -71,4 +73,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais-dev-gcp.yaml
-          VAR: image=${{ env.docker_image }}
+          VAR: image=${{ needs.build.outputs.image }}
