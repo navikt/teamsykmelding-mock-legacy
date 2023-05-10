@@ -49,6 +49,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         <li>
                             <Link href="/papirsykmelding-utland-rina/opprett">Opprett utenlandsk sykmelding rina</Link>
                         </li>
+                        <li>
+                            <Link href="/papirsykmelding-utland-nav-no/opprett">
+                                Opprett utenlandsk sykmelding nav.no
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 
