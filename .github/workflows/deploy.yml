@@ -3,33 +3,18 @@ on: push
 env:
   branchname: ${{ github.ref_name }}
 jobs:
-  snyk-monitor:
-    if: github.ref == 'refs/heads/master'
-    name: monitor dependencies
+  codeql-analysis:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: monitor
-          args: --org=teamsykmelding --severity-threshold=high
-  snyk-test:
-    name: analyze dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: test
-          args: --org=teamsykmelding --severity-threshold=high
+      - uses: actions/checkout@v3
+      - uses: github/codeql-action/init@v2
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
   build:
     permissions:
       contents: 'read'
@@ -38,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16.x
       - uses: actions/cache@v3
@@ -67,7 +52,7 @@ jobs:
 
   deploy-to-dev-gcp:
     name: deploy to nais dev
-    needs: [snyk-test, build]
+    needs: [codeql-analysis, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
