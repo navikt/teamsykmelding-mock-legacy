@@ -189,7 +189,7 @@ function OpprettSykmelding(): JSX.Element {
                     className={styles.commonFormElement}
                     {...form.register('fnrLege', { required: true })}
                     label="Fødselsnummer til lege"
-                    defaultValue={'01117302624'}
+                    defaultValue={'04056600324'}
                     error={form.formState.errors.fnrLege && 'Fødselsnummer til lege mangler'}
                 />
                 <TextField className={styles.commonFormElement} {...form.register('herId')} label="HER-id" />
@@ -197,7 +197,7 @@ function OpprettSykmelding(): JSX.Element {
                     className={styles.commonFormElement}
                     {...form.register('hprNummer')}
                     label="HPR-nummer"
-                    defaultValue={'7125186'}
+                    defaultValue={'9144889'}
                 />
                 <div className={styles.commonFormElement}>
                     <SyketilfelleStartdato />

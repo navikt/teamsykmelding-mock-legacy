@@ -71,7 +71,7 @@ function OpprettLegeerklaering(): JSX.Element {
                     className={styles.commonFormElement}
                     {...form.register('fnrLege', { required: true })}
                     label="Fødselsnummer til lege"
-                    defaultValue={'01117302624'}
+                    defaultValue={'04056600324'}
                     error={form.formState.errors.fnrLege && 'Fødselsnummer til lege mangler'}
                 />
                 <div className={styles.commonFormElement}>

@@ -158,7 +158,7 @@ function OpprettPapirsykmelding(): JSX.Element {
                     className={styles.commonFormElement}
                     {...form.register('hprNummer')}
                     label="HPR-nummer"
-                    defaultValue={'7125186'}
+                    defaultValue={'9144889'}
                 />
                 <div className={styles.commonFormElement}>
                     <SyketilfelleStartdato />
