@@ -1,34 +1,35 @@
-import { useController } from 'react-hook-form';
-import { UNSAFE_DatePicker, UNSAFE_useDatepicker } from '@navikt/ds-react';
-import { format } from 'date-fns';
+import { ReactElement } from 'react'
+import { useController } from 'react-hook-form'
+import { DatePicker, useDatepicker } from '@navikt/ds-react'
+import { format } from 'date-fns'
 
-import { toDate } from '../../utils/dateUtils';
+import { toDate } from '../../utils/dateUtils'
 
-import { SykmeldingFormValues } from './OpprettSykmelding';
+import { SykmeldingFormValues } from './OpprettSykmelding'
 
-function Kontaktdato(): JSX.Element {
+function Kontaktdato(): ReactElement {
     const { field } = useController<SykmeldingFormValues, 'kontaktDato'>({
         name: 'kontaktDato',
-    });
+    })
 
-    const { datepickerProps, inputProps } = UNSAFE_useDatepicker({
+    const { datepickerProps, inputProps } = useDatepicker({
         today: new Date(),
         defaultSelected: field.value ? toDate(field.value) : undefined,
         onDateChange: (date: Date | undefined) => {
-            field.onChange(date ? format(date, 'yyyy-MM-dd') : undefined);
+            field.onChange(date ? format(date, 'yyyy-MM-dd') : undefined)
         },
-    });
+    })
 
     return (
-        <UNSAFE_DatePicker {...datepickerProps}>
-            <UNSAFE_DatePicker.Input
+        <DatePicker {...datepickerProps}>
+            <DatePicker.Input
                 id={field.name}
                 {...inputProps}
                 label="Tilbakedatering: Kontaktdato"
                 placeholder="DD.MM.ÅÅÅÅ"
             />
-        </UNSAFE_DatePicker>
-    );
+        </DatePicker>
+    )
 }
 
-export default Kontaktdato;
+export default Kontaktdato

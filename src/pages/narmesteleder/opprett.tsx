@@ -1,9 +1,10 @@
-import { ContentContainer } from '@navikt/ds-react';
-import Head from 'next/head';
+import { ReactElement } from 'react'
+import { ContentContainer } from '@navikt/ds-react'
+import Head from 'next/head'
 
-import OpprettNarmesteleder from '../../components/narmesteleder/OpprettNarmesteleder';
+import OpprettNarmesteleder from '../../components/narmesteleder/OpprettNarmesteleder'
 
-function OpprettNL(): JSX.Element {
+function OpprettNL(): ReactElement {
     return (
         <>
             <Head>
@@ -14,7 +15,7 @@ function OpprettNL(): JSX.Element {
                 <OpprettNarmesteleder />
             </ContentContainer>
         </>
-    );
+    )
 }
 
-export default OpprettNL;
+export default OpprettNL
