@@ -1,9 +1,10 @@
-import { ContentContainer } from '@navikt/ds-react';
-import Head from 'next/head';
+import { ReactElement } from 'react'
+import { ContentContainer } from '@navikt/ds-react'
+import Head from 'next/head'
 
-import OpprettPapirsykmelding from '../../components/papirsykmelding/OpprettPapirsykmelding';
+import OpprettPapirsykmelding from '../../components/papirsykmelding/OpprettPapirsykmelding'
 
-function OpprettPapirSM(): JSX.Element {
+function OpprettPapirSM(): ReactElement {
     return (
         <>
             <Head>
@@ -14,7 +15,7 @@ function OpprettPapirSM(): JSX.Element {
                 <OpprettPapirsykmelding />
             </ContentContainer>
         </>
-    );
+    )
 }
 
-export default OpprettPapirSM;
+export default OpprettPapirSM

@@ -1,37 +1,37 @@
-import { Alert, Button, Heading, TextField } from '@navikt/ds-react';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Alert, Button, Heading, TextField } from '@navikt/ds-react'
+import { ReactElement, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 interface FormValues {
-    fnr: string;
+    fnr: string
 }
 
-function OpprettUtenlandskPapirsykmelding(): JSX.Element {
+function OpprettUtenlandskPapirsykmelding(): ReactElement {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormValues>();
-    const [result, setResult] = useState<string | null>(null);
-    const [error, setError] = useState<string | null>(null);
-    const OPPRETT_SYKMELDING_URL = `/api/proxy/utenlands/nav/opprett`;
+    } = useForm<FormValues>()
+    const [result, setResult] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
+    const OPPRETT_SYKMELDING_URL = `/api/proxy/utenlands/nav/opprett`
 
     const postData = async (data: FormValues): Promise<void> => {
-        setError(null);
-        setResult(null);
+        setError(null)
+        setResult(null)
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
             body: JSON.stringify({
                 fnr: data.fnr,
             }),
-        });
+        })
 
         if (response.ok) {
-            setResult((await response.json()).message);
+            setResult((await response.json()).message)
         } else {
-            setError((await response.json()).message);
+            setError((await response.json()).message)
         }
-    };
+    }
 
     return (
         <form onSubmit={handleSubmit(postData)}>
@@ -50,7 +50,7 @@ function OpprettUtenlandskPapirsykmelding(): JSX.Element {
             {error && <Alert variant="error">{error}</Alert>}
             {result && <Alert variant="success">{result}</Alert>}
         </form>
-    );
+    )
 }
 
-export default OpprettUtenlandskPapirsykmelding;
+export default OpprettUtenlandskPapirsykmelding

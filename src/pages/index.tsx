@@ -1,14 +1,14 @@
-import { BodyShort, Cell, ContentContainer, Grid } from '@navikt/ds-react';
-import Head from 'next/head';
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react'
+import { BodyShort, Cell, ContentContainer, Grid } from '@navikt/ds-react'
+import Head from 'next/head'
+import { logger } from '@navikt/next-logger'
 
-import { logger } from '../utils/logger';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.css'
 
-function Home(): JSX.Element {
+function Home(): ReactElement {
     useEffect(() => {
-        logger.info('Dette er logging fra frontend');
-    }, []);
+        logger.info('Dette er logging fra frontend')
+    }, [])
 
     return (
         <div className={styles.container}>
@@ -29,7 +29,7 @@ function Home(): JSX.Element {
                 </section>
             </ContentContainer>
         </div>
-    );
+    )
 }
 
-export default Home;
+export default Home

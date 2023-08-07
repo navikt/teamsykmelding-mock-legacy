@@ -1,9 +1,10 @@
-import { ContentContainer } from '@navikt/ds-react';
-import Head from 'next/head';
+import { ReactElement } from 'react'
+import { ContentContainer } from '@navikt/ds-react'
+import Head from 'next/head'
 
-import SlettNarmesteleder from '../../components/narmesteleder/SlettNarmesteleder';
+import SlettNarmesteleder from '../../components/narmesteleder/SlettNarmesteleder'
 
-function SlettNL(): JSX.Element {
+function SlettNL(): ReactElement {
     return (
         <>
             <Head>
@@ -14,7 +15,7 @@ function SlettNL(): JSX.Element {
                 <SlettNarmesteleder />
             </ContentContainer>
         </>
-    );
+    )
 }
 
-export default SlettNL;
+export default SlettNL
