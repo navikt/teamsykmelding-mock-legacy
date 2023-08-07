@@ -1,10 +1,9 @@
-import { ReactElement } from 'react'
-import { ContentContainer } from '@navikt/ds-react'
-import Head from 'next/head'
+import { ContentContainer } from '@navikt/ds-react';
+import Head from 'next/head';
 
-import OpprettUtenlandskPapirsykmeldingNavNo from '../../components/papirsykmelding-utland-nav-no/OpprettUtenlandskPapirsykmeldingNavNo'
+import OpprettUtenlandskPapirsykmeldingNavNo from '../../components/papirsykmelding-utland-nav-no/OpprettUtenlandskPapirsykmeldingNavNo';
 
-export default function OpprettUtenlandskPapirSMNavNo(): ReactElement {
+export default function OpprettUtenlandskPapirSMNavNo(): JSX.Element {
     return (
         <>
             <Head>
@@ -15,5 +14,5 @@ export default function OpprettUtenlandskPapirSMNavNo(): ReactElement {
                 <OpprettUtenlandskPapirsykmeldingNavNo />
             </ContentContainer>
         </>
-    )
+    );
 }

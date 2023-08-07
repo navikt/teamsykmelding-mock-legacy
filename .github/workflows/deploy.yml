@@ -2,7 +2,6 @@ name: Push
 on: push
 env:
   branchname: ${{ github.ref_name }}
-  NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 jobs:
   codeql-analysis:
     if: github.ref == 'refs/heads/main'
@@ -26,7 +25,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.17
+          node-version: 16.x
       - uses: actions/cache@v3
         id: yarn-cache
         with:
@@ -61,5 +60,5 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais-dev.yaml
+          RESOURCE: nais-dev-gcp.yaml
           VAR: image=${{ needs.build.outputs.image }}

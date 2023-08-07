@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "plugins": ["prettier", "postcss-modules"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "import/order": ["warn", { "newlines-between": "always" }],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowExpressions": true }
+    ],
+    "postcss-modules/no-undef-class": "error",
+    "postcss-modules/no-unused-class": "warn"
+  },
+  "settings": {
+    "postcss-modules": {
+      "exclude": ["**/node_modules/**/*", "**/global.css"]
+    }
+  }
+}

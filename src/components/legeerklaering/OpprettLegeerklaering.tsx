@@ -1,37 +1,37 @@
-import React, { ReactElement, useState } from 'react'
-import { Alert, Button, Checkbox, Heading, Label, TextField } from '@navikt/ds-react'
-import { FormProvider, useForm } from 'react-hook-form'
+import { Alert, Button, Checkbox, Heading, Label, TextField } from '@navikt/ds-react';
+import React, { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
-import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
-import styles from '../legeerklaering/OpprettLegeerklaering.module.css'
+import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker';
+import styles from '../legeerklaering/OpprettLegeerklaering.module.css';
 
 interface FormValues {
-    fnr: string
-    fnrLege: string
-    statusPresens: string
-    vedlegg: boolean
-    vedleggMedVirus: boolean
-    hoveddiagnose: Diagnose
+    fnr: string;
+    fnrLege: string;
+    statusPresens: string;
+    vedlegg: boolean;
+    vedleggMedVirus: boolean;
+    hoveddiagnose: Diagnose;
 }
 
 type OpprettLegeerklaeringApiBody = Omit<FormValues, 'hoveddiagnose'> & {
-    diagnosekodesystem: 'icd10' | 'icpc2'
-    diagnosekode: string
-}
+    diagnosekodesystem: 'icd10' | 'icpc2';
+    diagnosekode: string;
+};
 
-function OpprettLegeerklaering(): ReactElement {
+function OpprettLegeerklaering(): JSX.Element {
     const form = useForm<FormValues>({
         defaultValues: {
             hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
         },
-    })
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_LEGEERKLAERING_URL = `/api/proxy/legeerklaering/opprett`
+    });
+    const [error, setError] = useState<string | null>(null);
+    const [result, setResult] = useState<string | null>(null);
+    const OPPRETT_LEGEERKLAERING_URL = `/api/proxy/legeerklaering/opprett`;
 
     const postData = async (data: FormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
+        setError(null);
+        setResult(null);
         const postData: OpprettLegeerklaeringApiBody = {
             fnr: data.fnr,
             fnrLege: data.fnrLege,
@@ -40,19 +40,19 @@ function OpprettLegeerklaering(): ReactElement {
             vedleggMedVirus: data.vedleggMedVirus,
             diagnosekodesystem: data.hoveddiagnose.system,
             diagnosekode: data.hoveddiagnose.code,
-        }
+        };
 
         const response = await fetch(OPPRETT_LEGEERKLAERING_URL, {
             method: 'POST',
             body: JSON.stringify(postData),
-        })
+        });
 
         if (response.ok) {
-            setResult((await response.json()).message)
+            setResult((await response.json()).message);
         } else {
-            setError((await response.json()).message)
+            setError((await response.json()).message);
         }
-    }
+    };
 
     return (
         <FormProvider {...form}>
@@ -71,12 +71,12 @@ function OpprettLegeerklaering(): ReactElement {
                     className={styles.commonFormElement}
                     {...form.register('fnrLege', { required: true })}
                     label="Fødselsnummer til lege"
-                    defaultValue="04056600324"
+                    defaultValue={'04056600324'}
                     error={form.formState.errors.fnrLege && 'Fødselsnummer til lege mangler'}
                 />
                 <div className={styles.commonFormElement}>
                     <Label>Hoveddiagnose</Label>
-                    <DiagnosePicker name="hoveddiagnose" diagnoseType="hoveddiagnose" />
+                    <DiagnosePicker name={'hoveddiagnose'} diagnoseType={'hoveddiagnose'} />
                 </div>
                 <TextField
                     className={styles.commonFormElement}
@@ -94,7 +94,7 @@ function OpprettLegeerklaering(): ReactElement {
                 {result && <Alert variant="success">{result}</Alert>}
             </form>
         </FormProvider>
-    )
+    );
 }
 
-export default OpprettLegeerklaering
+export default OpprettLegeerklaering;

@@ -1,35 +1,35 @@
-import { Alert, Button, Checkbox, Heading, Select, TextField } from '@navikt/ds-react'
-import React, { ReactElement, useState } from 'react'
-import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
-import { format, sub } from 'date-fns'
+import { Alert, Button, Checkbox, Heading, Select, TextField } from '@navikt/ds-react';
+import React, { useState } from 'react';
+import { FormProvider, useForm, useFieldArray } from 'react-hook-form';
+import { format, sub } from 'date-fns';
 
-import { Periode, SykmeldingType } from '../../types/sykmelding/Periode'
-import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
-import PeriodePicker from '../formComponents/PeriodePicker/PeriodePicker'
+import { Periode, SykmeldingType } from '../../types/sykmelding/Periode';
+import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker';
+import PeriodePicker from '../formComponents/PeriodePicker/PeriodePicker';
 
-import styles from './OpprettPapirsykmelding.module.css'
-import Behandletdato from './Behandletdato'
-import SyketilfelleStartdato from './SyketilfelleStartdato'
+import styles from './OpprettPapirsykmelding.module.css';
+import Behandletdato from './Behandletdato';
+import SyketilfelleStartdato from './SyketilfelleStartdato';
 
 export interface PapirsykmeldingFormValues {
-    fnr: string
-    hprNummer: string
-    syketilfelleStartdato: string
-    behandletDato: string
-    perioder: Periode[]
-    utenOcr: boolean
-    hoveddiagnose: Diagnose
+    fnr: string;
+    hprNummer: string;
+    syketilfelleStartdato: string;
+    behandletDato: string;
+    perioder: Periode[];
+    utenOcr: boolean;
+    hoveddiagnose: Diagnose;
 }
 
 type OpprettPapirsykmeldingApiBody = Omit<PapirsykmeldingFormValues, 'hoveddiagnose'> & {
-    diagnosekodesystem: 'icd10' | 'icpc2'
-    diagnosekode: string
-}
+    diagnosekodesystem: 'icd10' | 'icpc2';
+    diagnosekode: string;
+};
 
-function OpprettPapirsykmelding(): ReactElement {
-    const date = new Date()
-    const iGar = format(sub(date, { days: 1 }), 'yyyy-MM-dd')
-    const enUkeSiden = format(sub(date, { days: 7 }), 'yyyy-MM-dd')
+function OpprettPapirsykmelding(): JSX.Element {
+    const date = new Date();
+    const iGar = format(sub(date, { days: 1 }), 'yyyy-MM-dd');
+    const enUkeSiden = format(sub(date, { days: 7 }), 'yyyy-MM-dd');
     const form = useForm<PapirsykmeldingFormValues>({
         defaultValues: {
             syketilfelleStartdato: enUkeSiden,
@@ -37,8 +37,8 @@ function OpprettPapirsykmelding(): ReactElement {
             perioder: [{ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
             hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
         },
-    })
-    const control = form.control
+    });
+    const control = form.control;
     const {
         fields: periodeFields,
         append,
@@ -46,16 +46,16 @@ function OpprettPapirsykmelding(): ReactElement {
     } = useFieldArray({
         control,
         name: 'perioder',
-    })
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_SYKMELDING_URL = `/api/proxy/papirsykmelding/opprett`
+    });
+    const [error, setError] = useState<string | null>(null);
+    const [result, setResult] = useState<string | null>(null);
+    const OPPRETT_SYKMELDING_URL = `/api/proxy/papirsykmelding/opprett`;
 
     const postData = async (data: PapirsykmeldingFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        setRegelError(null)
-        setRegelResult(null)
+        setError(null);
+        setResult(null);
+        setRegelError(null);
+        setRegelResult(null);
         const postData: OpprettPapirsykmeldingApiBody = {
             fnr: data.fnr,
             hprNummer: data.hprNummer,
@@ -65,29 +65,29 @@ function OpprettPapirsykmelding(): ReactElement {
             utenOcr: data.utenOcr,
             diagnosekodesystem: data.hoveddiagnose.system,
             diagnosekode: data.hoveddiagnose.code,
-        }
+        };
 
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
             body: JSON.stringify(postData),
-        })
+        });
 
         if (response.ok) {
-            setResult((await response.json()).message)
+            setResult((await response.json()).message);
         } else {
-            setError((await response.json()).message)
+            setError((await response.json()).message);
         }
-    }
+    };
 
-    const [regelError, setRegelError] = useState<string | null>(null)
-    const [regelResult, setRegelResult] = useState<string | null>(null)
-    const REGELSJEKK_URL = `/api/proxy/papirsykmelding/regelsjekk`
+    const [regelError, setRegelError] = useState<string | null>(null);
+    const [regelResult, setRegelResult] = useState<string | null>(null);
+    const REGELSJEKK_URL = `/api/proxy/papirsykmelding/regelsjekk`;
 
     const postDataRegelsjekk = async (data: PapirsykmeldingFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        setRegelError(null)
-        setRegelResult(null)
+        setError(null);
+        setResult(null);
+        setRegelError(null);
+        setRegelResult(null);
         const postData: OpprettPapirsykmeldingApiBody = {
             fnr: data.fnr,
             hprNummer: data.hprNummer,
@@ -97,19 +97,19 @@ function OpprettPapirsykmelding(): ReactElement {
             utenOcr: data.utenOcr,
             diagnosekodesystem: data.hoveddiagnose.system,
             diagnosekode: data.hoveddiagnose.code,
-        }
+        };
 
         const response = await fetch(REGELSJEKK_URL, {
             method: 'POST',
             body: JSON.stringify(postData),
-        })
+        });
 
         if (response.ok) {
-            setRegelResult(JSON.stringify(await response.json(), null, 2))
+            setRegelResult(JSON.stringify(await response.json(), null, 2));
         } else {
-            setRegelError((await response.json()).message)
+            setRegelError((await response.json()).message);
         }
-    }
+    };
 
     return (
         <FormProvider {...form}>
@@ -158,7 +158,7 @@ function OpprettPapirsykmelding(): ReactElement {
                     className={styles.commonFormElement}
                     {...form.register('hprNummer')}
                     label="HPR-nummer"
-                    defaultValue="9144889"
+                    defaultValue={'9144889'}
                 />
                 <div className={styles.commonFormElement}>
                     <SyketilfelleStartdato />
@@ -169,7 +169,7 @@ function OpprettPapirsykmelding(): ReactElement {
                 <p>
                     <b>Hoveddiagnose</b>
                 </p>
-                <DiagnosePicker name="hoveddiagnose" diagnoseType="hoveddiagnose" />
+                <DiagnosePicker name={'hoveddiagnose'} diagnoseType={'hoveddiagnose'} />
 
                 <Checkbox {...form.register('utenOcr')}>Opprett papirsykmelding uten OCR</Checkbox>
                 <div className={styles.buttons}>
@@ -180,11 +180,11 @@ function OpprettPapirsykmelding(): ReactElement {
                         variant="secondary"
                         type="button"
                         onClick={async () => {
-                            const validationResult = await form.trigger(undefined, { shouldFocus: true })
+                            const validationResult = await form.trigger(undefined, { shouldFocus: true });
                             if (!validationResult) {
-                                return
+                                return;
                             }
-                            return postDataRegelsjekk(form.getValues())
+                            return postDataRegelsjekk(form.getValues());
                         }}
                     >
                         Valider mot regler
@@ -194,7 +194,7 @@ function OpprettPapirsykmelding(): ReactElement {
                 </div>
             </form>
         </FormProvider>
-    )
+    );
 }
 
-export default OpprettPapirsykmelding
+export default OpprettPapirsykmelding;

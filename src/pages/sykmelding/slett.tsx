@@ -1,10 +1,9 @@
-import { ReactElement } from 'react'
-import { ContentContainer } from '@navikt/ds-react'
-import Head from 'next/head'
+import { ContentContainer } from '@navikt/ds-react';
+import Head from 'next/head';
 
-import SlettSykmelding from '../../components/sykmelding/SlettSykmelding'
+import SlettSykmelding from '../../components/sykmelding/SlettSykmelding';
 
-function SlettSM(): ReactElement {
+function SlettSM(): JSX.Element {
     return (
         <>
             <Head>
@@ -15,7 +14,7 @@ function SlettSM(): ReactElement {
                 <SlettSykmelding />
             </ContentContainer>
         </>
-    )
+    );
 }
 
-export default SlettSM
+export default SlettSM;

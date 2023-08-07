@@ -1,37 +1,37 @@
-import { Alert, Button, Heading, TextField } from '@navikt/ds-react'
-import { ReactElement, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Alert, Button, Heading, TextField } from '@navikt/ds-react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 interface FormValues {
-    fnr: string
+    fnr: string;
 }
 
-function SlettSykmelding(): ReactElement {
+function SlettSykmelding(): JSX.Element {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormValues>()
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const SLETT_SYKMELDING_URL = `/api/proxy/sykmeldinger`
+    } = useForm<FormValues>();
+    const [error, setError] = useState<string | null>(null);
+    const [result, setResult] = useState<string | null>(null);
+    const SLETT_SYKMELDING_URL = `/api/proxy/sykmeldinger`;
 
     const postData = async (data: FormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
+        setError(null);
+        setResult(null);
         const response = await fetch(`${SLETT_SYKMELDING_URL}`, {
             method: 'DELETE',
             headers: {
                 'Sykmeldt-Fnr': data.fnr,
             },
-        })
+        });
 
         if (response.ok) {
-            setResult((await response.json()).message)
+            setResult((await response.json()).message);
         } else {
-            setError((await response.json()).message)
+            setError((await response.json()).message);
         }
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit(postData)}>
@@ -50,7 +50,7 @@ function SlettSykmelding(): ReactElement {
             {error && <Alert variant="error">{error}</Alert>}
             {result && <Alert variant="success">{result}</Alert>}
         </form>
-    )
+    );
 }
 
-export default SlettSykmelding
+export default SlettSykmelding;

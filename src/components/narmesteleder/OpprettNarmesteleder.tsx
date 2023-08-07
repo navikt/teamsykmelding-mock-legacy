@@ -1,45 +1,45 @@
-import { ReactElement, useState } from 'react'
-import { Alert, Button, Checkbox, Heading, TextField } from '@navikt/ds-react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { format } from 'date-fns'
+import { Alert, Button, Checkbox, Heading, TextField } from '@navikt/ds-react';
+import { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { format } from 'date-fns';
 
-import AktivFraOgMed from './AktivFraOgMed'
+import AktivFraOgMed from './AktivFraOgMed';
 
 export interface NarmestelederFormValues {
-    ansattFnr: string
-    lederFnr: string
-    orgnummer: string
-    mobil: string
-    epost: string
-    forskutterer: boolean
-    aktivFom: string
+    ansattFnr: string;
+    lederFnr: string;
+    orgnummer: string;
+    mobil: string;
+    epost: string;
+    forskutterer: boolean;
+    aktivFom: string;
 }
 
-function OpprettNarmesteleder(): ReactElement {
-    const dagensDato = format(new Date(), 'yyyy-MM-dd')
+function OpprettNarmesteleder(): JSX.Element {
+    const dagensDato = format(new Date(), 'yyyy-MM-dd');
     const form = useForm<NarmestelederFormValues>({
         defaultValues: {
             aktivFom: dagensDato,
         },
-    })
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_NL_URL = `/api/proxy/narmesteleder/opprett`
+    });
+    const [error, setError] = useState<string | null>(null);
+    const [result, setResult] = useState<string | null>(null);
+    const OPPRETT_NL_URL = `/api/proxy/narmesteleder/opprett`;
 
     const postData = async (data: NarmestelederFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
+        setError(null);
+        setResult(null);
         const response = await fetch(OPPRETT_NL_URL, {
             method: 'POST',
             body: JSON.stringify(data),
-        })
+        });
 
         if (response.ok) {
-            setResult((await response.json()).message)
+            setResult((await response.json()).message);
         } else {
-            setError((await response.json()).message)
+            setError((await response.json()).message);
         }
-    }
+    };
 
     return (
         <FormProvider {...form}>
@@ -82,7 +82,7 @@ function OpprettNarmesteleder(): ReactElement {
                 {result && <Alert variant="success">{result}</Alert>}
             </form>
         </FormProvider>
-    )
+    );
 }
 
-export default OpprettNarmesteleder
+export default OpprettNarmesteleder;
