@@ -33,4 +33,4 @@ spec:
           cluster: dev-gcp
   env:
     - name: MOCK_BACKEND_URL
-      value: http://teamsykmelding-mock-backend
+      value: teamsykmelding-mock-backend
