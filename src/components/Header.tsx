@@ -1,14 +1,21 @@
 import { ReactElement } from 'react'
 import { Heading } from '@navikt/ds-react/esm/typography'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import godstolen from '../images/godstolen.png'
 
 import { ChatIcon } from './aksel/icons'
 
 function Header(): ReactElement {
     return (
         <div className="p-4 border-b border-b-border-subtle flex justify-between">
-            <Heading size="large" level="1">
-                Team Sykmelding Mock
-            </Heading>
+            <Link href="/" className="flex items-center gap-3">
+                <Image src={godstolen} height="64" alt="Mann i godstolen" />
+                <Heading size="large" level="1" className="text-text-default">
+                    Team Sykmelding Mock
+                </Heading>
+            </Link>
             <a
                 href="https://nav-it.slack.com/archives/CMA3XV997"
                 target="_blank"
