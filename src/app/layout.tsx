@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '@reach/combobox/styles.css'
 
 import React, { PropsWithChildren, ReactElement } from 'react'
 

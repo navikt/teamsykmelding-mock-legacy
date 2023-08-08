@@ -1,7 +1,6 @@
 import React, { ReactElement, ChangeEventHandler, useEffect, useState } from 'react'
 import { ComboboxList } from '@reach/combobox'
 
-import type { DiagnoseSearchResult, DiagnoseSuggestion } from '../../../../pages/api/diagnose/[system]'
 import {
     ComboboxWrapper,
     DsCombobox,
@@ -11,6 +10,8 @@ import {
     DsComboboxPopover,
 } from '../CustomFormComponents/Combobox'
 import { DiagnoseSystem } from '../DiagnosePicker'
+import type { DiagnoseSearchResult, DiagnoseSuggestion } from '../../../../server-actions/diagnose/diagnose-actions'
+import { diagnoseSearch } from '../../../../server-actions/diagnose/diagnose-actions'
 
 interface Props {
     id?: string
@@ -98,7 +99,7 @@ async function fetchDiagnoseSuggestions(system: DiagnoseSystem, value: string): 
         return cache[value]
     }
 
-    const result = await fetch(`/api/diagnose/${system.toLowerCase()}?value=${value}`).then((res) => res.json())
+    const result = await diagnoseSearch(system, value)
     cache[value] = result
     return result
 }

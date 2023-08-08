@@ -1,5 +1,6 @@
+'use server'
+
 import Fuse from 'fuse.js'
-import { NextApiRequest, NextApiResponse } from 'next'
 
 import icd10 from './data/icd10.json'
 import icpc2 from './data/icpc2.json'
@@ -22,28 +23,19 @@ export interface DiagnoseSearchResult {
     suggestions: DiagnoseSuggestion[]
 }
 
-const diagnoseSearch = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-    const { system, value } = req.query
-
-    if (req.method !== 'GET') {
-        res.status(405).json({ message: 'Method not supported' })
-        return
-    }
-
+export const diagnoseSearch = async (system: string, value: string): Promise<{ suggestions: DiagnoseSuggestion[] }> => {
     if (system !== 'icd10' && system !== 'icpc2') {
-        res.status(400).json({ message: `${system} is not a valid kodesystem` })
-        return
+        throw new Error(`${system} is not a valid kodesystem`)
     }
 
     if (value == null || typeof value !== 'string') {
-        res.status(400).json({ message: `Missing search value query parameter` })
-        return
+        throw new Error(`Missing search value query parameter`)
     }
 
-    res.status(200).json({ suggestions: searchSystem(system, value) })
+    return { suggestions: searchSystem(system, value) }
 }
 
-export function searchSystem(system: 'icd10' | 'icpc2', value: string): DiagnoseSuggestion[] {
+function searchSystem(system: 'icd10' | 'icpc2', value: string): DiagnoseSuggestion[] {
     if (system === 'icd10') {
         if ((value ?? '').trim() === '') {
             return icd10.slice(0, 100)
@@ -64,5 +56,3 @@ export function searchSystem(system: 'icd10' | 'icpc2', value: string): Diagnose
             .slice(0, 100)
     }
 }
-
-export default diagnoseSearch
