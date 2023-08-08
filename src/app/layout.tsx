@@ -15,7 +15,7 @@ export default function RootLayout({ children }: PropsWithChildren): ReactElemen
                     <div className="max-w-[360px] shrink-0">
                         <Sidebar />
                     </div>
-                    <div className="p-4 max-w-4xl">{children}</div>
+                    <div className="p-4 max-w-4xl grow">{children}</div>
                 </div>
             </body>
         </html>
