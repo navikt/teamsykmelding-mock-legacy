@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement } from 'react'
+import { PropsWithChildren, ReactElement } from 'react'
 import Link from 'next/link'
 
 import { BandageIcon, Buldings2Icon, PrinterSmallIcon, StethoscopeIcon } from './aksel/icons'

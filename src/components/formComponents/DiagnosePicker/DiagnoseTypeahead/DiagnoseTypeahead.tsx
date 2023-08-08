@@ -1,4 +1,4 @@
-import React, { ReactElement, ChangeEventHandler, useEffect, useState } from 'react'
+import { ReactElement, ChangeEventHandler, useEffect, useState } from 'react'
 import { ComboboxList } from '@reach/combobox'
 
 import {

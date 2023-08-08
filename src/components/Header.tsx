@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 import { Heading } from '@navikt/ds-react/esm/typography'
 
 import { ChatIcon } from './aksel/icons'

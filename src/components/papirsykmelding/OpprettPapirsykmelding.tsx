@@ -1,13 +1,15 @@
 'use client'
 
-import { Alert, Button, Checkbox, Select, TextField } from '@navikt/ds-react'
-import React, { ReactElement, useState } from 'react'
+import { Button, Checkbox, Select, TextField } from '@navikt/ds-react'
+import { ReactElement } from 'react'
 import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
 import { format, sub } from 'date-fns'
 
 import { Periode, SykmeldingType } from '../../types/sykmelding/Periode'
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
 import PeriodePicker from '../formComponents/PeriodePicker/PeriodePicker'
+import { useProxyAction } from '../../proxy/api-hooks'
+import ProxyFeedback from '../../proxy/proxy-feedback'
 
 import styles from './OpprettPapirsykmelding.module.css'
 import Behandletdato from './Behandletdato'
@@ -49,75 +51,29 @@ function OpprettPapirsykmelding(): ReactElement {
         control,
         name: 'perioder',
     })
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_SYKMELDING_URL = `/api/proxy/papirsykmelding/opprett`
 
-    const postData = async (data: PapirsykmeldingFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        setRegelError(null)
-        setRegelResult(null)
-        const postData: OpprettPapirsykmeldingApiBody = {
-            fnr: data.fnr,
-            hprNummer: data.hprNummer,
-            syketilfelleStartdato: data.syketilfelleStartdato,
-            behandletDato: data.behandletDato,
-            perioder: data.perioder,
-            utenOcr: data.utenOcr,
-            diagnosekodesystem: data.hoveddiagnose.system,
-            diagnosekode: data.hoveddiagnose.code,
-        }
-
-        const response = await fetch(OPPRETT_SYKMELDING_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(postData),
-        })
-
-        if (response.ok) {
-            setResult((await response.json()).message)
-        } else {
-            setError((await response.json()).message)
-        }
-    }
-
-    const [regelError, setRegelError] = useState<string | null>(null)
-    const [regelResult, setRegelResult] = useState<string | null>(null)
-    const REGELSJEKK_URL = `/api/proxy/papirsykmelding/regelsjekk`
-
-    const postDataRegelsjekk = async (data: PapirsykmeldingFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        setRegelError(null)
-        setRegelResult(null)
-        const postData: OpprettPapirsykmeldingApiBody = {
-            fnr: data.fnr,
-            hprNummer: data.hprNummer,
-            syketilfelleStartdato: data.syketilfelleStartdato,
-            behandletDato: data.behandletDato,
-            perioder: data.perioder,
-            utenOcr: data.utenOcr,
-            diagnosekodesystem: data.hoveddiagnose.system,
-            diagnosekode: data.hoveddiagnose.code,
-        }
-
-        const response = await fetch(REGELSJEKK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(postData),
-        })
-
-        if (response.ok) {
-            setRegelResult(JSON.stringify(await response.json(), null, 2))
-        } else {
-            setRegelError((await response.json()).message)
-        }
-    }
+    const [postData, { error, result, loading, reset }] =
+        useProxyAction<OpprettPapirsykmeldingApiBody>('/papirsykmelding/opprett')
+    const [postDataRegelsjekk, { error: regelError, result: regelResult, loading: regelLoading, reset: regelReset }] =
+        useProxyAction<OpprettPapirsykmeldingApiBody>('/papirsykmelding/regelsjekk')
 
     return (
         <FormProvider {...form}>
-            <form onSubmit={form.handleSubmit(postData)}>
+            <form
+                onSubmit={form.handleSubmit((values) => {
+                    regelReset()
+                    postData({
+                        fnr: values.fnr,
+                        hprNummer: values.hprNummer,
+                        syketilfelleStartdato: values.syketilfelleStartdato,
+                        behandletDato: values.behandletDato,
+                        perioder: values.perioder,
+                        utenOcr: values.utenOcr,
+                        diagnosekodesystem: values.hoveddiagnose.system,
+                        diagnosekode: values.hoveddiagnose.code,
+                    })
+                })}
+            >
                 <TextField
                     className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}
@@ -173,26 +129,42 @@ function OpprettPapirsykmelding(): ReactElement {
                 <DiagnosePicker name="hoveddiagnose" diagnoseType="hoveddiagnose" />
 
                 <Checkbox {...form.register('utenOcr')}>Opprett papirsykmelding uten OCR</Checkbox>
-                <div className={styles.buttons}>
-                    <Button type="submit">Opprett</Button>
-                    {error && <Alert variant="error">{error}</Alert>}
-                    {result && <Alert variant="success">{result}</Alert>}
+                <ProxyFeedback error={regelError ?? error} result={regelResult ?? result}>
+                    <Button type="submit" loading={loading} disabled={regelLoading}>
+                        Opprett
+                    </Button>
                     <Button
                         variant="secondary"
                         type="button"
+                        loading={regelLoading}
+                        disabled={loading}
                         onClick={async () => {
                             const validationResult = await form.trigger(undefined, { shouldFocus: true })
                             if (!validationResult) {
                                 return
                             }
-                            return postDataRegelsjekk(form.getValues())
+                            reset()
+                            const values = form.getValues()
+                            return postDataRegelsjekk(
+                                {
+                                    fnr: values.fnr,
+                                    hprNummer: values.hprNummer,
+                                    syketilfelleStartdato: values.syketilfelleStartdato,
+                                    behandletDato: values.behandletDato,
+                                    perioder: values.perioder,
+                                    utenOcr: values.utenOcr,
+                                    diagnosekodesystem: values.hoveddiagnose.system,
+                                    diagnosekode: values.hoveddiagnose.code,
+                                },
+                                {
+                                    responseMapper: (response) => JSON.stringify(response, null, 2),
+                                },
+                            )
                         }}
                     >
                         Valider mot regler
                     </Button>
-                    {regelError && <Alert variant="error">{regelError}</Alert>}
-                    {regelResult && <Alert variant="success">{regelResult}</Alert>}
-                </div>
+                </ProxyFeedback>
             </form>
         </FormProvider>
     )
