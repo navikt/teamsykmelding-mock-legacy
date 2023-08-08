@@ -233,6 +233,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@navikt/next-api-proxy@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@navikt/next-api-proxy@npm:3.2.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-api-proxy%2F3.2.0%2Faf63cc82c9f4f50f0ab4fd7b4628fe73ae4bfbbf"
+  peerDependencies:
+    next: 13
+  checksum: e6e52cc6ebf96e869d0fc677286b22c9f54f36a0fc394bbd157fa4ae8dd354df08d634abd870957609b3a8e5b2d323b69761ecdc895d4ace9d9a4e7970bb404e
+  languageName: node
+  linkType: hard
+
 "@navikt/next-logger@npm:^1.19.0":
   version: 1.19.0
   resolution: "@navikt/next-logger@npm:1.19.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-logger%2F1.19.0%2F4d5b48fe77dedbb63b03b49f9e8b70a0a2580fcd"
@@ -4905,6 +4914,7 @@ __metadata:
     "@navikt/ds-css": ^4.9.0
     "@navikt/ds-react": ^4.9.0
     "@navikt/eslint-config-teamsykmelding": ^3.0.0
+    "@navikt/next-api-proxy": ^3.2.0
     "@navikt/next-logger": ^1.19.0
     "@reach/combobox": ^0.18.0
     "@types/node": 18.17.3
