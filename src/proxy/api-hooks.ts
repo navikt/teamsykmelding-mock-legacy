@@ -54,7 +54,11 @@ export function useProxyAction<BodyType>(
                 if (response.ok) {
                     setResult(mapper(await response.json()))
                 } else {
-                    setError((await response.json()).message)
+                    if (response.headers.get('Content-Type')?.includes('application/json')) {
+                        setError((await response.json()).message)
+                    } else {
+                        setError(await response.text())
+                    }
                 }
             } finally {
                 setLoading(false)
