@@ -1,4 +1,6 @@
-import { Alert, Button, Heading, TextField } from '@navikt/ds-react'
+'use client'
+
+import { Alert, Button, TextField } from '@navikt/ds-react'
 import { ReactElement, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -38,10 +40,6 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
 
     return (
         <form onSubmit={handleSubmit(postData)}>
-            <Heading size="medium" level="2">
-                Opprett utenlandsk sykmelding rina
-            </Heading>
-            <p />
             <TextField
                 {...register('fnr', { required: true })}
                 label="Fødselsnummer"

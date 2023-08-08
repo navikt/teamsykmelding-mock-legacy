@@ -1,5 +1,7 @@
+'use client'
+
 import React, { ReactElement, useState } from 'react'
-import { Alert, Button, Checkbox, Heading, Label, TextField } from '@navikt/ds-react'
+import { Alert, Button, Checkbox, Label, TextField } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
@@ -58,10 +60,6 @@ function OpprettLegeerklaering(): ReactElement {
     return (
         <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(postData)}>
-                <Heading size="medium" level="2" spacing>
-                    Opprett legeerklæring
-                </Heading>
-                <p />
                 <TextField
                     className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}
