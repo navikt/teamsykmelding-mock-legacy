@@ -1,11 +1,12 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
-import { BandageIcon, Buldings2Icon, PrinterSmallIcon, StethoscopeIcon } from '@navikt/aksel-icons'
 import Link from 'next/link'
-import { Heading } from '@navikt/ds-react'
+
+import { BandageIcon, Buldings2Icon, PrinterSmallIcon, StethoscopeIcon } from './aksel/icons'
+import { Heading } from './aksel/server'
 
 function Sidebar(): ReactElement {
     return (
-        <div className="p-4">
+        <div className="p-4 border-r border-r-border-subtle">
             <SidebarHeading Icon={Buldings2Icon}> Nærmesteleder</SidebarHeading>
             <ul className="list-disc pl-4">
                 <li>

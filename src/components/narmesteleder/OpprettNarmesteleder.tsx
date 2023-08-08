@@ -1,5 +1,7 @@
+'use client'
+
 import { ReactElement, useState } from 'react'
-import { Alert, Button, Checkbox, Heading, TextField } from '@navikt/ds-react'
+import { Alert, Button, Checkbox, TextField } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { format } from 'date-fns'
 
@@ -45,10 +47,6 @@ function OpprettNarmesteleder(): ReactElement {
     return (
         <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(postData)}>
-                <Heading size="medium" level="2">
-                    Registrer nærmeste leder
-                </Heading>
-                <p />
                 <TextField
                     {...form.register('ansattFnr', { required: true })}
                     label="Fødselsnummer"

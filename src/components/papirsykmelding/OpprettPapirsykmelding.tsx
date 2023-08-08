@@ -1,4 +1,6 @@
-import { Alert, Button, Checkbox, Heading, Select, TextField } from '@navikt/ds-react'
+'use client'
+
+import { Alert, Button, Checkbox, Select, TextField } from '@navikt/ds-react'
 import React, { ReactElement, useState } from 'react'
 import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
 import { format, sub } from 'date-fns'
@@ -116,9 +118,6 @@ function OpprettPapirsykmelding(): ReactElement {
     return (
         <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(postData)}>
-                <Heading size="medium" level="2" spacing>
-                    Opprett papirsykmelding
-                </Heading>
                 <TextField
                     className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}

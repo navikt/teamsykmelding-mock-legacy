@@ -1,5 +1,7 @@
+'use client'
+
 import { ReactElement, useState } from 'react'
-import { Alert, Button, Heading, TextField } from '@navikt/ds-react'
+import { Alert, Button, TextField } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 
 interface FormValues {
@@ -35,10 +37,6 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
 
     return (
         <form onSubmit={handleSubmit(postData)}>
-            <Heading size="medium" level="2">
-                Opprett utenlandsk papirsykmelding
-            </Heading>
-            <p />
             <TextField
                 {...register('fnr', { required: true })}
                 label="Fødselsnummer"

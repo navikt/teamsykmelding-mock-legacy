@@ -1,4 +1,6 @@
-import { Alert, BodyShort, Button, Checkbox, Heading, Label, Select, TextField } from '@navikt/ds-react'
+'use client'
+
+import { Alert, BodyShort, Button, Checkbox, Label, Select, TextField } from '@navikt/ds-react'
 import React, { ReactElement, useState } from 'react'
 import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
 import { format, sub } from 'date-fns'
@@ -141,9 +143,6 @@ function OpprettSykmelding(): ReactElement {
     return (
         <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(postData)}>
-                <Heading size="medium" level="2" spacing>
-                    Opprett sykmelding
-                </Heading>
                 <TextField
                     className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}

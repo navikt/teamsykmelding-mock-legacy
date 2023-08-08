@@ -1,5 +1,7 @@
+'use client'
+
 import { ReactElement, useState } from 'react'
-import { Alert, Button, Heading, TextField } from '@navikt/ds-react'
+import { Alert, Button, TextField } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 
 interface FormValues {
@@ -36,10 +38,6 @@ function SlettNarmesteleder(): ReactElement {
 
     return (
         <form onSubmit={handleSubmit(postData)}>
-            <Heading size="medium" level="2">
-                Deaktiver nærmeste leder
-            </Heading>
-            <p />
             <TextField
                 {...register('fnr', { required: true })}
                 label="Sykmeldtes fødselsnummer"
