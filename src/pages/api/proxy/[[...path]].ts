@@ -1,3 +1,6 @@
+import 'next-logger'
+import '@navikt/next-logger'
+
 import { NextApiRequest, NextApiResponse } from 'next'
 import { proxyApiRouteRequest } from '@navikt/next-api-proxy'
 
