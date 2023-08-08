@@ -271,7 +271,9 @@ function OpprettSykmelding(): ReactElement {
                                 return
                             }
                             reset()
-                            return postDataRegelsjekk(mapFormValuesToAPIBody(form.getValues()))
+                            return postDataRegelsjekk(mapFormValuesToAPIBody(form.getValues()), {
+                                responseMapper: (response) => JSON.stringify(response, null, 2),
+                            })
                         }}
                     >
                         Valider mot regler
