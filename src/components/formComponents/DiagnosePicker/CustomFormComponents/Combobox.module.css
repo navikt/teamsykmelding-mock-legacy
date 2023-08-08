@@ -1,7 +1,7 @@
 .suggestionPopover[data-reach-combobox-popover] {
-    border-radius: var(--navds-border-radius-medium);
-    border-color: var(--navds-search-color-border);
-    box-shadow: var(--navds-shadow-medium);
+    border-radius: var(--a-border-radius-medium);
+    border-color: var(--a-search-color-border);
+    box-shadow: var(--a-shadow-medium);
     max-height: 320px;
     overflow: auto;
 
@@ -11,12 +11,12 @@
 
 .suggestionNoResult {
     padding: 0.5rem;
-    color: var(--navds-semantic-color-text-muted);
+    color: var(--a-semantic-color-text-muted);
 }
 
 .suggestion[data-reach-combobox-option][data-highlighted],
 .suggestion[data-reach-combobox-option]:hover {
-    background-color: var(--navds-global-color-blue-100);
+    background-color: var(--a-global-color-blue-100);
 }
 
 .suggestion[data-reach-combobox-option] {
@@ -25,15 +25,15 @@
 }
 
 .suggestion:first-child {
-    border-radius: var(--navds-border-radius-medium) var(--navds-border-radius-medium) 0 0;
+    border-radius: var(--a-border-radius-medium) var(--a-border-radius-medium) 0 0;
 }
 
 .suggestion:last-child {
-    border-radius: 0 0 var(--navds-border-radius-medium) var(--navds-border-radius-medium);
+    border-radius: 0 0 var(--a-border-radius-medium) var(--a-border-radius-medium);
 }
 
 .suggestion:only-child {
-    border-radius: var(--navds-border-radius-medium);
+    border-radius: var(--a-border-radius-medium);
 }
 
 .suggestion [data-user-value] {
