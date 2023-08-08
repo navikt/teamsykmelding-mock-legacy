@@ -31,6 +31,7 @@ function OpprettNarmesteleder(): ReactElement {
         setResult(null)
         const response = await fetch(OPPRETT_NL_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
         })
 

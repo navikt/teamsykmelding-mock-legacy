@@ -22,6 +22,7 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
         setResult(null)
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 fnr: data.fnr,
                 antallPdfs: data.antallPdfs,

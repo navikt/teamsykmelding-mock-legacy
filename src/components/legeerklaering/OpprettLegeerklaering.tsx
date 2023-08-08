@@ -44,6 +44,7 @@ function OpprettLegeerklaering(): ReactElement {
 
         const response = await fetch(OPPRETT_LEGEERKLAERING_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postData),
         })
 

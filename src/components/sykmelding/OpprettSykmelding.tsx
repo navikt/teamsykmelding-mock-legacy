@@ -92,6 +92,7 @@ function OpprettSykmelding(): ReactElement {
         }
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(mappedData),
         })
 
@@ -126,6 +127,7 @@ function OpprettSykmelding(): ReactElement {
         }
         const response = await fetch(REGELSJEKK_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(mappedData),
         })
 

@@ -69,6 +69,7 @@ function OpprettPapirsykmelding(): ReactElement {
 
         const response = await fetch(OPPRETT_SYKMELDING_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postData),
         })
 
@@ -101,6 +102,7 @@ function OpprettPapirsykmelding(): ReactElement {
 
         const response = await fetch(REGELSJEKK_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postData),
         })
 
