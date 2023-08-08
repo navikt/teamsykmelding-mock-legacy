@@ -1,9 +1,10 @@
-import { ContentContainer } from '@navikt/ds-react';
-import Head from 'next/head';
+import { ReactElement } from 'react'
+import { ContentContainer } from '@navikt/ds-react'
+import Head from 'next/head'
 
-import OpprettSykmelding from '../../components/sykmelding/OpprettSykmelding';
+import OpprettSykmelding from '../../components/sykmelding/OpprettSykmelding'
 
-function OpprettSM(): JSX.Element {
+function OpprettSM(): ReactElement {
     return (
         <>
             <Head>
@@ -14,7 +15,7 @@ function OpprettSM(): JSX.Element {
                 <OpprettSykmelding />
             </ContentContainer>
         </>
-    );
+    )
 }
 
-export default OpprettSM;
+export default OpprettSM

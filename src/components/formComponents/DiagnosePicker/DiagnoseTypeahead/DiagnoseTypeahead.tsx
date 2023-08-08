@@ -1,9 +1,7 @@
-import '@reach/combobox/styles.css';
+import React, { ReactElement, ChangeEventHandler, useEffect, useState } from 'react'
+import { ComboboxList } from '@reach/combobox'
 
-import React, { ChangeEventHandler, useEffect, useState } from 'react';
-import { ComboboxList } from '@reach/combobox';
-
-import type { DiagnoseSearchResult, DiagnoseSuggestion } from '../../../../pages/api/diagnose/[system]';
+import type { DiagnoseSearchResult, DiagnoseSuggestion } from '../../../../pages/api/diagnose/[system]'
 import {
     ComboboxWrapper,
     DsCombobox,
@@ -11,21 +9,21 @@ import {
     DsComboboxNoResult,
     DsComboboxOption,
     DsComboboxPopover,
-} from '../CustomFormComponents/Combobox';
-import { DiagnoseSystem } from '../DiagnosePicker';
+} from '../CustomFormComponents/Combobox'
+import { DiagnoseSystem } from '../DiagnosePicker'
 
 interface Props {
-    id?: string;
-    system: DiagnoseSystem;
-    onSelect: (value: DiagnoseSuggestion) => void;
+    id?: string
+    system: DiagnoseSystem
+    onSelect: (value: DiagnoseSuggestion) => void
 }
 
-function DiagnoseTypeahead({ id, system, onSelect }: Props): JSX.Element {
-    const [searchTerm, setSearchTerm] = useState<string>('');
-    const suggestions = useDiagnoseSuggestions(system, searchTerm);
+function DiagnoseTypeahead({ id, system, onSelect }: Props): ReactElement {
+    const [searchTerm, setSearchTerm] = useState<string>('')
+    const suggestions = useDiagnoseSuggestions(system, searchTerm)
     const handleSearchTermChange: ChangeEventHandler<HTMLInputElement> = (event): void => {
-        setSearchTerm(event.target.value);
-    };
+        setSearchTerm(event.target.value)
+    }
 
     return (
         <ComboboxWrapper label="Diagnosekode">
@@ -33,17 +31,18 @@ function DiagnoseTypeahead({ id, system, onSelect }: Props): JSX.Element {
                 openOnFocus
                 aria-label={`Søk i ${system} diagnoser`}
                 onSelect={(item) => {
-                    const diagnose = suggestions.find((it) => it.code === item);
+                    const diagnose = suggestions.find((it) => it.code === item)
                     if (!diagnose) {
+                        // eslint-disable-next-line no-console
                         console.warn(
                             `Diagnose was not found in suggestions in diagnose typeahead. Diagnose: ${diagnose}, suggestions: ${suggestions.map(
                                 (it) => it.code,
                             )}`,
-                        );
-                        return;
+                        )
+                        return
                     }
 
-                    onSelect(diagnose);
+                    onSelect(diagnose)
                 }}
             >
                 <DsComboboxInput
@@ -70,38 +69,38 @@ function DiagnoseTypeahead({ id, system, onSelect }: Props): JSX.Element {
                 )}
             </DsCombobox>
         </ComboboxWrapper>
-    );
+    )
 }
 
 function useDiagnoseSuggestions(system: DiagnoseSystem, searchTerm: string): DiagnoseSuggestion[] {
-    const [suggestions, setSuggestions] = useState<DiagnoseSuggestion[]>([]);
+    const [suggestions, setSuggestions] = useState<DiagnoseSuggestion[]>([])
 
     useEffect(() => {
         if (searchTerm.trim() !== '') {
-            let isCurrentSearch = true;
+            let isCurrentSearch = true
             fetchDiagnoseSuggestions(system, searchTerm).then((result) => {
-                if (isCurrentSearch) setSuggestions(result.suggestions);
-            });
+                if (isCurrentSearch) setSuggestions(result.suggestions)
+            })
 
             return () => {
-                isCurrentSearch = false;
-            };
+                isCurrentSearch = false
+            }
         }
-    }, [searchTerm, system]);
+    }, [searchTerm, system])
 
-    return suggestions;
+    return suggestions
 }
 
-const cache: Record<string, DiagnoseSearchResult> = {};
+const cache: Record<string, DiagnoseSearchResult> = {}
 
 async function fetchDiagnoseSuggestions(system: DiagnoseSystem, value: string): Promise<DiagnoseSearchResult> {
     if (cache[`${system}-${value}`]) {
-        return cache[value];
+        return cache[value]
     }
 
-    const result = await fetch(`/api/diagnose/${system.toLowerCase()}?value=${value}`).then((res) => res.json());
-    cache[value] = result;
-    return result;
+    const result = await fetch(`/api/diagnose/${system.toLowerCase()}?value=${value}`).then((res) => res.json())
+    cache[value] = result
+    return result
 }
 
-export default DiagnoseTypeahead;
+export default DiagnoseTypeahead

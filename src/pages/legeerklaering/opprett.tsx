@@ -1,9 +1,10 @@
-import { ContentContainer } from '@navikt/ds-react';
-import Head from 'next/head';
+import { ReactElement } from 'react'
+import { ContentContainer } from '@navikt/ds-react'
+import Head from 'next/head'
 
-import OpprettLegeerklaering from '../../components/legeerklaering/OpprettLegeerklaering';
+import OpprettLegeerklaering from '../../components/legeerklaering/OpprettLegeerklaering'
 
-function OpprettLE(): JSX.Element {
+function OpprettLE(): ReactElement {
     return (
         <>
             <Head>
@@ -14,7 +15,7 @@ function OpprettLE(): JSX.Element {
                 <OpprettLegeerklaering />
             </ContentContainer>
         </>
-    );
+    )
 }
 
-export default OpprettLE;
+export default OpprettLE
