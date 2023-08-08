@@ -1,8 +1,11 @@
 'use client'
 
-import { ReactElement, useState } from 'react'
-import { Alert, Button, TextField } from '@navikt/ds-react'
+import { ReactElement } from 'react'
+import { Button, TextField } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
+
+import { useProxyDelete } from '../../proxy/api-hooks'
+import ProxyFeedback from '../../proxy/proxy-feedback'
 
 interface FormValues {
     fnr: string
@@ -15,29 +18,19 @@ function SlettNarmesteleder(): ReactElement {
         handleSubmit,
         formState: { errors },
     } = useForm<FormValues>()
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const SLETT_NL_URL = `/api/proxy/narmesteleder/`
 
-    const postData = async (data: FormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        const response = await fetch(`${SLETT_NL_URL}${data.orgnummer}`, {
-            method: 'DELETE',
-            headers: {
-                'Sykmeldt-Fnr': data.fnr,
-            },
-        })
-
-        if (response.ok) {
-            setResult((await response.json()).message)
-        } else {
-            setError((await response.json()).message)
-        }
-    }
+    const [postData, { result, error, loading }] = useProxyDelete('/narmesteleder')
 
     return (
-        <form onSubmit={handleSubmit(postData)}>
+        <form
+            onSubmit={handleSubmit((formValues) =>
+                postData({
+                    pathParam: `/${formValues.orgnummer}`,
+                    fnr: formValues.fnr,
+                }),
+            )}
+            className="flex gap-4 flex-col"
+        >
             <TextField
                 {...register('fnr', { required: true })}
                 label="Sykmeldtes fødselsnummer"
@@ -48,11 +41,11 @@ function SlettNarmesteleder(): ReactElement {
                 label="Organisasjonsnummer"
                 error={errors.orgnummer && 'Organisasjonsnummer mangler'}
             />
-            <p />
-            <Button type="submit">Deaktiver</Button>
-            <p />
-            {error && <Alert variant="error">{error}</Alert>}
-            {result && <Alert variant="success">{result}</Alert>}
+            <ProxyFeedback error={error} result={result}>
+                <Button type="submit" loading={loading}>
+                    Deaktiver
+                </Button>
+            </ProxyFeedback>
         </form>
     )
 }

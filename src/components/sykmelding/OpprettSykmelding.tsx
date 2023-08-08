@@ -1,13 +1,15 @@
 'use client'
 
-import { Alert, BodyShort, Button, Checkbox, Label, Select, TextField } from '@navikt/ds-react'
-import React, { ReactElement, useState } from 'react'
+import { BodyShort, Button, Checkbox, Label, Select, TextField } from '@navikt/ds-react'
+import { ReactElement } from 'react'
 import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
 import { format, sub } from 'date-fns'
 
 import { Periode, SykmeldingType } from '../../types/sykmelding/Periode'
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
 import PeriodePicker from '../formComponents/PeriodePicker/PeriodePicker'
+import { useProxyAction } from '../../proxy/api-hooks'
+import ProxyFeedback from '../../proxy/proxy-feedback'
 
 import styles from './OpprettSykmelding.module.css'
 import SyketilfelleStartdato from './SyketilfelleStartdato'
@@ -35,6 +37,11 @@ export interface SykmeldingFormValues {
     arbeidsgiverNavn: string | null
     vedleggMedVirus: boolean
     yrkesskade: boolean
+}
+
+type SykmeldingAPIBody = Omit<SykmeldingFormValues, 'hoveddiagnose'> & {
+    diagnosekodesystem: 'icd10' | 'icpc2'
+    diagnosekode: string
 }
 
 function OpprettSykmelding(): ReactElement {
@@ -68,81 +75,18 @@ function OpprettSykmelding(): ReactElement {
         name: 'bidiagnoser',
     })
 
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_SYKMELDING_URL = `/api/proxy/sykmelding/opprett`
-
-    const postData = async (data: SykmeldingFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        setRegelError(null)
-        setRegelResult(null)
-        const mappedData: Omit<SykmeldingFormValues, 'hoveddiagnose'> & {
-            diagnosekodesystem: 'icd10' | 'icpc2'
-            diagnosekode: string
-        } = {
-            ...data,
-            kontaktDato: data.kontaktDato ? data.kontaktDato : null,
-            annenFraverGrunn: data.annenFraverGrunn ? data.annenFraverGrunn : null,
-            herId: data.herId ? data.herId : null,
-            meldingTilArbeidsgiver: data.meldingTilArbeidsgiver ? data.meldingTilArbeidsgiver : null,
-            begrunnIkkeKontakt: data.begrunnIkkeKontakt ? data.begrunnIkkeKontakt : null,
-            utdypendeOpplysninger: data.utdypendeOpplysninger ? data.utdypendeOpplysninger : null,
-            diagnosekodesystem: data.hoveddiagnose.system,
-            diagnosekode: data.hoveddiagnose.code,
-            yrkesskade: data.yrkesskade,
-        }
-        const response = await fetch(OPPRETT_SYKMELDING_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(mappedData),
-        })
-
-        if (response.ok) {
-            setResult((await response.json()).message)
-        } else {
-            setError((await response.json()).message)
-        }
-    }
-
-    const [regelError, setRegelError] = useState<string | null>(null)
-    const [regelResult, setRegelResult] = useState<string | null>(null)
-    const REGELSJEKK_URL = `/api/proxy/sykmelding/regelsjekk`
-    const postDataRegelsjekk = async (data: SykmeldingFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        setRegelError(null)
-        setRegelResult(null)
-        const mappedData: Omit<SykmeldingFormValues, 'hoveddiagnose'> & {
-            diagnosekodesystem: 'icd10' | 'icpc2'
-            diagnosekode: string
-        } = {
-            ...data,
-            kontaktDato: data.kontaktDato ? data.kontaktDato : null,
-            annenFraverGrunn: data.annenFraverGrunn ? data.annenFraverGrunn : null,
-            herId: data.herId ? data.herId : null,
-            meldingTilArbeidsgiver: data.meldingTilArbeidsgiver ? data.meldingTilArbeidsgiver : null,
-            begrunnIkkeKontakt: data.begrunnIkkeKontakt ? data.begrunnIkkeKontakt : null,
-            utdypendeOpplysninger: data.utdypendeOpplysninger ? data.utdypendeOpplysninger : null,
-            diagnosekodesystem: data.hoveddiagnose.system,
-            diagnosekode: data.hoveddiagnose.code,
-        }
-        const response = await fetch(REGELSJEKK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(mappedData),
-        })
-
-        if (response.ok) {
-            setRegelResult(JSON.stringify(await response.json(), null, 2))
-        } else {
-            setRegelError((await response.json()).message)
-        }
-    }
+    const [postData, { error, result, loading, reset }] = useProxyAction<SykmeldingAPIBody>('/sykmelding/opprett')
+    const [postDataRegelsjekk, { error: regelError, result: regelResult, loading: regelLoading, reset: regelReset }] =
+        useProxyAction<SykmeldingAPIBody>('/sykmelding/regelsjekk')
 
     return (
         <FormProvider {...form}>
-            <form onSubmit={form.handleSubmit(postData)}>
+            <form
+                onSubmit={form.handleSubmit((values) => {
+                    regelReset()
+                    postData(mapFormValuesToAPIBody(values))
+                })}
+            >
                 <TextField
                     className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}
@@ -312,29 +256,45 @@ function OpprettSykmelding(): ReactElement {
                     label="Regelsettversjon"
                     defaultValue="3"
                 />
-                <div className={styles.buttons}>
-                    <Button type="submit">Opprett</Button>
-                    {error && <Alert variant="error">{error}</Alert>}
-                    {result && <Alert variant="success">{result}</Alert>}
+                <ProxyFeedback error={regelError ?? error} result={regelResult ?? result}>
+                    <Button type="submit" loading={loading} disabled={regelLoading}>
+                        Opprett
+                    </Button>
                     <Button
                         variant="secondary"
                         type="button"
+                        loading={regelLoading}
+                        disabled={loading}
                         onClick={async () => {
                             const validationResult = await form.trigger(undefined, { shouldFocus: true })
                             if (!validationResult) {
                                 return
                             }
-                            return postDataRegelsjekk(form.getValues())
+                            reset()
+                            return postDataRegelsjekk(mapFormValuesToAPIBody(form.getValues()))
                         }}
                     >
                         Valider mot regler
                     </Button>
-                    {regelError && <Alert variant="error">{regelError}</Alert>}
-                    {regelResult && <Alert variant="success">{regelResult}</Alert>}
-                </div>
+                </ProxyFeedback>
             </form>
         </FormProvider>
     )
+}
+
+function mapFormValuesToAPIBody(values: SykmeldingFormValues): SykmeldingAPIBody {
+    return {
+        ...values,
+        kontaktDato: values.kontaktDato ? values.kontaktDato : null,
+        annenFraverGrunn: values.annenFraverGrunn ? values.annenFraverGrunn : null,
+        herId: values.herId ? values.herId : null,
+        meldingTilArbeidsgiver: values.meldingTilArbeidsgiver ? values.meldingTilArbeidsgiver : null,
+        begrunnIkkeKontakt: values.begrunnIkkeKontakt ? values.begrunnIkkeKontakt : null,
+        utdypendeOpplysninger: values.utdypendeOpplysninger ? values.utdypendeOpplysninger : null,
+        diagnosekodesystem: values.hoveddiagnose.system,
+        diagnosekode: values.hoveddiagnose.code,
+        yrkesskade: values.yrkesskade,
+    }
 }
 
 export default OpprettSykmelding

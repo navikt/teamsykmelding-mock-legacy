@@ -1,9 +1,12 @@
 'use client'
 
-import { ReactElement, useState } from 'react'
-import { Alert, Button, Checkbox, TextField } from '@navikt/ds-react'
+import { ReactElement } from 'react'
+import { Button, Checkbox, TextField } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { format } from 'date-fns'
+
+import { useProxyAction } from '../../proxy/api-hooks'
+import ProxyFeedback from '../../proxy/proxy-feedback'
 
 import AktivFraOgMed from './AktivFraOgMed'
 
@@ -24,61 +27,46 @@ function OpprettNarmesteleder(): ReactElement {
             aktivFom: dagensDato,
         },
     })
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_NL_URL = `/api/proxy/narmesteleder/opprett`
 
-    const postData = async (data: NarmestelederFormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        const response = await fetch(OPPRETT_NL_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-        })
-
-        if (response.ok) {
-            setResult((await response.json()).message)
-        } else {
-            setError((await response.json()).message)
-        }
-    }
+    const [postData, { error, result, loading }] = useProxyAction<NarmestelederFormValues>('/narmesteleder/opprett')
 
     return (
         <FormProvider {...form}>
-            <form onSubmit={form.handleSubmit(postData)}>
-                <TextField
-                    {...form.register('ansattFnr', { required: true })}
-                    label="Fødselsnummer"
-                    error={form.formState.errors.ansattFnr && 'Fødselsnummer for den sykmeldte mangler'}
-                />
-                <TextField
-                    {...form.register('lederFnr', { required: true })}
-                    label="Fødselsnummer til ny nærmeste leder"
-                    error={form.formState.errors.lederFnr && 'Fødselsnummer for nærmeste leder mangler'}
-                />
-                <TextField
-                    {...form.register('orgnummer', { required: true })}
-                    label="Organisasjonsnummer"
-                    error={form.formState.errors.orgnummer && 'Organisasjonsnummer mangler'}
-                />
-                <TextField
-                    {...form.register('mobil', { required: true })}
-                    label="Telefonnummer til ny nærmeste leder"
-                    error={form.formState.errors.mobil && 'Telefonnummer for nærmeste leder mangler'}
-                />
-                <TextField
-                    {...form.register('epost', { required: true })}
-                    label="E-post til ny nærmeste leder"
-                    error={form.formState.errors.epost && 'E-post for nærmeste leder mangler'}
-                />
+            <form onSubmit={form.handleSubmit((values) => postData(values))} className="flex flex-col gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <TextField
+                        {...form.register('ansattFnr', { required: true })}
+                        label="Fødselsnummer"
+                        error={form.formState.errors.ansattFnr && 'Fødselsnummer for den sykmeldte mangler'}
+                    />
+                    <TextField
+                        {...form.register('lederFnr', { required: true })}
+                        label="Fødselsnummer til ny nærmeste leder"
+                        error={form.formState.errors.lederFnr && 'Fødselsnummer for nærmeste leder mangler'}
+                    />
+                    <TextField
+                        {...form.register('orgnummer', { required: true })}
+                        label="Organisasjonsnummer"
+                        error={form.formState.errors.orgnummer && 'Organisasjonsnummer mangler'}
+                    />
+                    <TextField
+                        {...form.register('mobil', { required: true })}
+                        label="Telefonnummer til ny nærmeste leder"
+                        error={form.formState.errors.mobil && 'Telefonnummer for nærmeste leder mangler'}
+                    />
+                    <TextField
+                        {...form.register('epost', { required: true })}
+                        label="E-post til ny nærmeste leder"
+                        error={form.formState.errors.epost && 'E-post for nærmeste leder mangler'}
+                    />
+                </div>
                 <Checkbox {...form.register('forskutterer')}>Arbeidsgiver forskutterer</Checkbox>
                 <AktivFraOgMed />
-                <p />
-                <Button type="submit">Registrer</Button>
-                <p />
-                {error && <Alert variant="error">{error}</Alert>}
-                {result && <Alert variant="success">{result}</Alert>}
+                <ProxyFeedback error={error} result={result}>
+                    <Button type="submit" loading={loading}>
+                        Registrer
+                    </Button>
+                </ProxyFeedback>
             </form>
         </FormProvider>
     )

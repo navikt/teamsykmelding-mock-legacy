@@ -8,6 +8,8 @@ import { getEnv } from '../../../utils/env'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     if (process.env.NODE_ENV !== 'production') {
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+
         res.status(200).json({ message: 'Jobber lokalt, 200 ok læll' })
         return
     }

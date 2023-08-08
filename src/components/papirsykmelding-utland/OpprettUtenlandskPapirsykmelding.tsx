@@ -1,8 +1,11 @@
 'use client'
 
-import { ReactElement, useState } from 'react'
-import { Alert, Button, TextField } from '@navikt/ds-react'
+import { ReactElement } from 'react'
+import { Button, TextField } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
+
+import { useProxyAction } from '../../proxy/api-hooks'
+import ProxyFeedback from '../../proxy/proxy-feedback'
 
 interface FormValues {
     fnr: string
@@ -14,39 +17,21 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
         handleSubmit,
         formState: { errors },
     } = useForm<FormValues>()
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_SYKMELDING_URL = `/api/proxy/papirsykmelding/utenlandsk/opprett`
 
-    const postData = async (data: FormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        const response = await fetch(OPPRETT_SYKMELDING_URL, {
-            method: 'POST',
-            headers: {
-                'Sykmeldt-Fnr': data.fnr,
-            },
-        })
-
-        if (response.ok) {
-            setResult((await response.json()).message)
-        } else {
-            setError((await response.json()).message)
-        }
-    }
+    const [postData, { result, error, loading }] = useProxyAction('/papirsykmelding/utenlandsk/opprett')
 
     return (
-        <form onSubmit={handleSubmit(postData)}>
+        <form onSubmit={handleSubmit((values) => postData(undefined, { fnr: values.fnr }))}>
             <TextField
                 {...register('fnr', { required: true })}
                 label="Fødselsnummer"
                 error={errors.fnr && 'Fødselsnummer mangler'}
             />
-            <p />
-            <Button type="submit">Opprett</Button>
-            <p />
-            {error && <Alert variant="error">{error}</Alert>}
-            {result && <Alert variant="success">{result}</Alert>}
+            <ProxyFeedback error={error} result={result}>
+                <Button type="submit" loading={loading}>
+                    Opprett
+                </Button>
+            </ProxyFeedback>
         </form>
     )
 }

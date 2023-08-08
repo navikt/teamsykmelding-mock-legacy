@@ -1,4 +1,4 @@
-import React, { ReactElement, PropsWithChildren } from 'react'
+import { ReactElement, PropsWithChildren } from 'react'
 import { useController } from 'react-hook-form'
 import { BodyLong, Button, ErrorMessage, Label, Select } from '@navikt/ds-react'
 import cn from 'clsx'

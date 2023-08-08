@@ -1,5 +1,5 @@
 import { BodyShort, Label } from '@navikt/ds-react'
-import React, { ReactElement, HTMLAttributes, PropsWithChildren } from 'react'
+import { ReactElement, HTMLAttributes, PropsWithChildren } from 'react'
 import {
     Combobox,
     ComboboxInput,

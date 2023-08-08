@@ -1,11 +1,12 @@
 'use client'
 
-import React, { ReactElement, useState } from 'react'
-import { Alert, Button, Checkbox, Label, TextField } from '@navikt/ds-react'
+import { ReactElement } from 'react'
+import { Button, Checkbox, Label, TextField } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
-import styles from '../legeerklaering/OpprettLegeerklaering.module.css'
+import { useProxyAction } from '../../proxy/api-hooks'
+import ProxyFeedback from '../../proxy/proxy-feedback'
 
 interface FormValues {
     fnr: string
@@ -27,70 +28,51 @@ function OpprettLegeerklaering(): ReactElement {
             hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
         },
     })
-    const [error, setError] = useState<string | null>(null)
-    const [result, setResult] = useState<string | null>(null)
-    const OPPRETT_LEGEERKLAERING_URL = `/api/proxy/legeerklaering/opprett`
 
-    const postData = async (data: FormValues): Promise<void> => {
-        setError(null)
-        setResult(null)
-        const postData: OpprettLegeerklaeringApiBody = {
-            fnr: data.fnr,
-            fnrLege: data.fnrLege,
-            statusPresens: data.statusPresens,
-            vedlegg: data.vedlegg,
-            vedleggMedVirus: data.vedleggMedVirus,
-            diagnosekodesystem: data.hoveddiagnose.system,
-            diagnosekode: data.hoveddiagnose.code,
-        }
-
-        const response = await fetch(OPPRETT_LEGEERKLAERING_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(postData),
-        })
-
-        if (response.ok) {
-            setResult((await response.json()).message)
-        } else {
-            setError((await response.json()).message)
-        }
-    }
+    const [postData, { loading, result, error }] =
+        useProxyAction<OpprettLegeerklaeringApiBody>('/legeerklaering/opprett')
 
     return (
         <FormProvider {...form}>
-            <form onSubmit={form.handleSubmit(postData)}>
+            <form
+                onSubmit={form.handleSubmit((data) =>
+                    postData({
+                        fnr: data.fnr,
+                        fnrLege: data.fnrLege,
+                        statusPresens: data.statusPresens,
+                        vedlegg: data.vedlegg,
+                        vedleggMedVirus: data.vedleggMedVirus,
+                        diagnosekodesystem: data.hoveddiagnose.system,
+                        diagnosekode: data.hoveddiagnose.code,
+                    }),
+                )}
+                className="flex gap-4 flex-col"
+            >
                 <TextField
-                    className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}
                     label="Fødselsnummer"
                     error={form.formState.errors.fnr && 'Fødselsnummer for pasienten mangler'}
                 />
                 <TextField
-                    className={styles.commonFormElement}
                     {...form.register('fnrLege', { required: true })}
                     label="Fødselsnummer til lege"
                     defaultValue="04056600324"
                     error={form.formState.errors.fnrLege && 'Fødselsnummer til lege mangler'}
                 />
-                <div className={styles.commonFormElement}>
+                <div>
                     <Label>Hoveddiagnose</Label>
                     <DiagnosePicker name="hoveddiagnose" diagnoseType="hoveddiagnose" />
                 </div>
-                <TextField
-                    className={styles.commonFormElement}
-                    {...form.register('statusPresens')}
-                    label="Status presens"
-                />
-                <Checkbox className={styles.commonFormElement} {...form.register('vedlegg')}>
-                    Vedlegg
-                </Checkbox>
-                <Checkbox className={styles.commonFormElement} {...form.register('vedleggMedVirus')}>
-                    Vedlegg med virus
-                </Checkbox>
-                <Button type="submit">Opprett</Button>
-                {error && <Alert variant="error">{error}</Alert>}
-                {result && <Alert variant="success">{result}</Alert>}
+                <TextField {...form.register('statusPresens')} label="Status presens" />
+                <div>
+                    <Checkbox {...form.register('vedlegg')}>Vedlegg</Checkbox>
+                    <Checkbox {...form.register('vedleggMedVirus')}>Vedlegg med virus</Checkbox>
+                </div>
+                <ProxyFeedback error={error} result={result}>
+                    <Button type="submit" loading={loading}>
+                        Opprett
+                    </Button>
+                </ProxyFeedback>
             </form>
         </FormProvider>
     )
