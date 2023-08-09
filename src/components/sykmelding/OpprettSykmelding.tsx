@@ -10,6 +10,7 @@ import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/Diagn
 import PeriodePicker from '../formComponents/PeriodePicker/PeriodePicker'
 import { useProxyAction } from '../../proxy/api-hooks'
 import ProxyFeedback from '../../proxy/proxy-feedback'
+import FnrTextField from '../formComponents/FnrTextField'
 
 import styles from './OpprettSykmelding.module.css'
 import SyketilfelleStartdato from './SyketilfelleStartdato'
@@ -87,7 +88,7 @@ function OpprettSykmelding(): ReactElement {
                     postData(mapFormValuesToAPIBody(values))
                 })}
             >
-                <TextField
+                <FnrTextField
                     className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}
                     label="Fødselsnummer"

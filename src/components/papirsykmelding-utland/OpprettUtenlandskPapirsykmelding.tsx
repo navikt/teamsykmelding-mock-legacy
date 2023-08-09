@@ -1,11 +1,12 @@
 'use client'
 
 import { ReactElement } from 'react'
-import { Button, TextField } from '@navikt/ds-react'
+import { Button } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 
 import { useProxyAction } from '../../proxy/api-hooks'
 import ProxyFeedback from '../../proxy/proxy-feedback'
+import FnrTextField from '../formComponents/FnrTextField'
 
 interface FormValues {
     fnr: string
@@ -22,7 +23,7 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
 
     return (
         <form onSubmit={handleSubmit((values) => postData(undefined, { fnr: values.fnr }))}>
-            <TextField
+            <FnrTextField
                 {...register('fnr', { required: true })}
                 label="Fødselsnummer"
                 error={errors.fnr && 'Fødselsnummer mangler'}

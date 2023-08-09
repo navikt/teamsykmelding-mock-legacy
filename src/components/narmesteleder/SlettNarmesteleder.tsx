@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 
 import { useProxyDelete } from '../../proxy/api-hooks'
 import ProxyFeedback from '../../proxy/proxy-feedback'
+import FnrTextField from '../formComponents/FnrTextField'
 
 interface FormValues {
     fnr: string
@@ -31,7 +32,7 @@ function SlettNarmesteleder(): ReactElement {
             )}
             className="flex gap-4 flex-col"
         >
-            <TextField
+            <FnrTextField
                 {...register('fnr', { required: true })}
                 label="Sykmeldtes fødselsnummer"
                 error={errors.fnr && 'Fødselsnummer for den sykmeldte mangler'}

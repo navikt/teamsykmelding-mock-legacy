@@ -7,6 +7,7 @@ import { format } from 'date-fns'
 
 import { useProxyAction } from '../../proxy/api-hooks'
 import ProxyFeedback from '../../proxy/proxy-feedback'
+import FnrTextField from '../formComponents/FnrTextField'
 
 import AktivFraOgMed from './AktivFraOgMed'
 
@@ -34,7 +35,7 @@ function OpprettNarmesteleder(): ReactElement {
         <FormProvider {...form}>
             <form onSubmit={form.handleSubmit((values) => postData(values))} className="flex flex-col gap-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <TextField
+                    <FnrTextField
                         {...form.register('ansattFnr', { required: true })}
                         label="Fødselsnummer"
                         error={form.formState.errors.ansattFnr && 'Fødselsnummer for den sykmeldte mangler'}
