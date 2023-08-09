@@ -62,7 +62,7 @@ const manuellBehandlingScenario: () => Partial<SykmeldingFormValues> = () => {
                 type: 'HUNDREPROSENT',
             },
         ],
-        behandletDato: formatISO(now),
+        behandletDato: formatISO(now, { representation: 'date' }),
         begrunnIkkeKontakt: 'Eksempel på begrunnelse for tilbakedaterirng',
     }
 }

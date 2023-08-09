@@ -5,5 +5,5 @@ export function toDate(date: string | Date): Date {
 }
 
 export function subDays(date: string | Date, days: number): string {
-    return formatISO(sub(toDate(date), { days }))
+    return formatISO(sub(toDate(date), { days }), { representation: 'date' })
 }
