@@ -53,7 +53,7 @@ function Sidebar(): ReactElement {
     )
 }
 
-function SidebarHeading({ Icon, children }: PropsWithChildren<{ Icon: typeof BandageIcon }>): ReactElement {
+function SidebarHeading({ Icon, children }: PropsWithChildren<Readonly<{ Icon: typeof BandageIcon }>>): ReactElement {
     return (
         <div className="flex mt-4 items-center">
             <Icon className="text-2xl m-1" />
