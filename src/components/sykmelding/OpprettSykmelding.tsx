@@ -1,9 +1,10 @@
 'use client'
 
 import { BodyShort, Button, Checkbox, Label, Select, TextField } from '@navikt/ds-react'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
 import { format, sub } from 'date-fns'
+import { Heading } from '@navikt/ds-react/esm/typography'
 
 import { Periode, SykmeldingType } from '../../types/sykmelding/Periode'
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
@@ -16,6 +17,7 @@ import styles from './OpprettSykmelding.module.css'
 import SyketilfelleStartdato from './SyketilfelleStartdato'
 import Behandletdato from './Behandletdato'
 import Kontaktdato from './Kontaktdato'
+import Scenarios from './Scenarios'
 
 export interface SykmeldingFormValues {
     fnr: string
@@ -55,6 +57,7 @@ function OpprettSykmelding(): ReactElement {
             behandletDato: enUkeSiden,
             perioder: [{ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
             hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
+            arbeidsgiverNavn: 'Eksempel Arbeidsgiversen AS',
         },
     })
     const control = form.control
@@ -82,6 +85,10 @@ function OpprettSykmelding(): ReactElement {
 
     return (
         <FormProvider {...form}>
+            <Scenarios />
+            <Heading size="medium" level="3" spacing className="mt-8">
+                Sykmeldingen
+            </Heading>
             <form
                 onSubmit={form.handleSubmit((values) => {
                     regelReset()
