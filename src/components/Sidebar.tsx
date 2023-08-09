@@ -6,7 +6,7 @@ import { Heading } from './aksel/server'
 
 function Sidebar(): ReactElement {
     return (
-        <div className="p-4 border-r border-r-border-subtle">
+        <div className="p-4 sticky top-0">
             <SidebarHeading Icon={Buldings2Icon}> Nærmesteleder</SidebarHeading>
             <ul className="list-disc pl-4">
                 <li>

@@ -9,13 +9,15 @@ import Header from '../components/Header'
 export default function RootLayout({ children }: PropsWithChildren): ReactElement {
     return (
         <html lang="no">
-            <body>
+            <body className="h-screen flex flex-col">
                 <Header />
-                <div className="flex">
-                    <div className="max-w-[360px] shrink-0">
+                <div className="flex grow">
+                    <div className="max-w-[360px] shrink-0 border-r border-r-border-subtle">
                         <Sidebar />
                     </div>
-                    <div className="p-4 max-w-4xl grow">{children}</div>
+                    <div className="p-4 grow relative">
+                        <div className="max-w-4xl">{children}</div>
+                    </div>
                 </div>
             </body>
         </html>
