@@ -10,6 +10,7 @@ import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/Diagn
 import PeriodePicker from '../formComponents/PeriodePicker/PeriodePicker'
 import { useProxyAction } from '../../proxy/api-hooks'
 import ProxyFeedback from '../../proxy/proxy-feedback'
+import FnrTextField from '../formComponents/FnrTextField'
 
 import styles from './OpprettPapirsykmelding.module.css'
 import Behandletdato from './Behandletdato'
@@ -74,7 +75,7 @@ function OpprettPapirsykmelding(): ReactElement {
                     })
                 })}
             >
-                <TextField
+                <FnrTextField
                     className={styles.commonFormElement}
                     {...form.register('fnr', { required: true })}
                     label="Fødselsnummer"

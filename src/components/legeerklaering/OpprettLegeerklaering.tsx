@@ -7,6 +7,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'
 import { useProxyAction } from '../../proxy/api-hooks'
 import ProxyFeedback from '../../proxy/proxy-feedback'
+import FnrTextField from '../formComponents/FnrTextField'
 
 interface FormValues {
     fnr: string
@@ -48,7 +49,7 @@ function OpprettLegeerklaering(): ReactElement {
                 )}
                 className="flex gap-4 flex-col"
             >
-                <TextField
+                <FnrTextField
                     {...form.register('fnr', { required: true })}
                     label="Fødselsnummer"
                     error={form.formState.errors.fnr && 'Fødselsnummer for pasienten mangler'}

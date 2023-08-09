@@ -1,11 +1,12 @@
 'use client'
 
-import { Button, TextField } from '@navikt/ds-react'
+import { Button } from '@navikt/ds-react'
 import { ReactElement } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { useProxyDelete } from '../../proxy/api-hooks'
 import ProxyFeedback from '../../proxy/proxy-feedback'
+import FnrTextField from '../formComponents/FnrTextField'
 
 interface FormValues {
     fnr: string
@@ -28,7 +29,7 @@ function SlettSykmelding(): ReactElement {
                 }),
             )}
         >
-            <TextField
+            <FnrTextField
                 {...register('fnr', { required: true })}
                 label="Sykmeldtes fødselsnummer"
                 error={errors.fnr && 'Fødselsnummer for den sykmeldte mangler'}
