@@ -289,12 +289,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/next-api-proxy@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@navikt/next-api-proxy@npm:3.2.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-api-proxy%2F3.2.0%2Faf63cc82c9f4f50f0ab4fd7b4628fe73ae4bfbbf"
+"@navikt/next-api-proxy@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@navikt/next-api-proxy@npm:3.3.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-api-proxy%2F3.3.0%2Fc3d32b0d9bbfd066b679546165f0ee48d972e954"
   peerDependencies:
     next: 13
-  checksum: e6e52cc6ebf96e869d0fc677286b22c9f54f36a0fc394bbd157fa4ae8dd354df08d634abd870957609b3a8e5b2d323b69761ecdc895d4ace9d9a4e7970bb404e
+  checksum: a47d91ffcf920eb8ef8708fda9266859f4cd5a9ecb79d98dc1a053a8ed2acc41d6d7caa9ed45b2d0deb65e7f6c679bc9d70b0307b116c1ebd0ea7477a242d649
   languageName: node
   linkType: hard
 
@@ -5427,7 +5427,7 @@ __metadata:
     "@navikt/ds-react": ^4.9.0
     "@navikt/ds-tailwind": ^4.9.0
     "@navikt/eslint-config-teamsykmelding": ^3.0.0
-    "@navikt/next-api-proxy": ^3.2.0
+    "@navikt/next-api-proxy": ^3.3.0
     "@navikt/next-logger": ^1.19.0
     "@reach/combobox": ^0.18.0
     "@types/canvas-confetti": ^1.6.0
