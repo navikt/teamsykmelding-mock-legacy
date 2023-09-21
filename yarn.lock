@@ -230,43 +230,50 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/aksel-icons@npm:^4.9.0":
-  version: 4.9.0
-  resolution: "@navikt/aksel-icons@npm:4.9.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faksel-icons%2F4.9.0%2F041744a25684a8cee8c3375c2f9b929ea1cdcb93"
-  checksum: b4fd3b1cd09e420ad1ed91aef7757cf858f8babde43287953f2d0b7b0fcf845550df61e695baac5bbdd4e169fb456bf59e9931cf955c464e0279cab6d09b5b3c
+"@navikt/aksel-icons@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "@navikt/aksel-icons@npm:5.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faksel-icons%2F5.5.0%2Fb382aa387897f3f4850fbc16c3b95d6a57b7ef38"
+  checksum: 500b039ed265398cfb3706a5f3455bdecf6180356dc2c5fbf9f6400c668f7c24e226c191308c6a6e5469ad2e2c15a870202bcbfc5e6bcc431de1ce7be6e4d3dd
   languageName: node
   linkType: hard
 
-"@navikt/ds-css@npm:^4.9.0":
-  version: 4.9.0
-  resolution: "@navikt/ds-css@npm:4.9.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-css%2F4.9.0%2Fbbe29245205e41026bebe4bbcfa1e682b1149e81"
-  checksum: 029a229f8a576bea35786974bbf1e7ce0c0e054b6b6a55150e4ad76eb11d0e73c596bcff555ad79dd905867b174d40494321e7f32995d3a93f973e8f592888be
+"@navikt/ds-css@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "@navikt/ds-css@npm:5.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-css%2F5.5.0%2F1802dd367f4fc83a892bbc250068efc6f5f5c205"
+  checksum: 3b460c3e3fff9359a53b4bf2fc4fa462d1e636e08bd079709264684618004fbdac1fdb2f7c43f91dfbeb0a83d2ae0f9abcea26cb7fac56f1fb865b21243ab733
   languageName: node
   linkType: hard
 
-"@navikt/ds-react@npm:^4.9.0":
-  version: 4.9.0
-  resolution: "@navikt/ds-react@npm:4.9.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-react%2F4.9.0%2F15ffd74b3a4cf9edfbf88ae4ed67417bed1d26c1"
+"@navikt/ds-react@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "@navikt/ds-react@npm:5.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-react%2F5.5.0%2F9dd060472b85eaaf0f7cf344a93d20bb0bbd9d42"
   dependencies:
     "@floating-ui/react": 0.24.1
-    "@navikt/aksel-icons": ^4.9.0
+    "@navikt/aksel-icons": ^5.5.0
+    "@navikt/ds-tokens": ^5.5.0
     "@radix-ui/react-tabs": 1.0.0
     "@radix-ui/react-toggle-group": 1.0.0
     clsx: ^1.2.1
     date-fns: 2.29.3
     react-day-picker: 8.3.4
-    react-modal: 3.15.1
   peerDependencies:
     "@types/react": ^17.0.30 || ^18.0.0
     react: ^17.0.0 || ^18.0.0
-  checksum: c33997bff839ec339ccc6cbdfcd75742b0c48e79f98108b640ced95226b8cbaeeb714cf23850767910818070dc27dbdbff277792ea7d351228043c18fb555517
+  checksum: e1481e470f5bfe6c3b7010f0e71ef70919e1f34ace69c94cc74d493c80f95b2d898a67fc3a99d73ea887f0f53e1d1446c199ea7213ffd8b2014b45edf429077a
   languageName: node
   linkType: hard
 
-"@navikt/ds-tailwind@npm:^4.9.0":
-  version: 4.9.0
-  resolution: "@navikt/ds-tailwind@npm:4.9.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-tailwind%2F4.9.0%2F01a70f51d7108251c7be979f5c09337d4db8fc91"
-  checksum: cce481a033721c6fd531ebf340cfc82d083ce4c283a5854fd6099840034a94d23e95e144f7527e51e10b94fc9adb60e3bd661d2f81485be824c651391370742b
+"@navikt/ds-tailwind@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "@navikt/ds-tailwind@npm:5.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-tailwind%2F5.5.0%2F0b61d1b5fcf8952350677cc10c4269833fde3afd"
+  checksum: b7013e6b00a0a5520e55682aa612a955841d9928d0dd01cf6333dd74e8f72c5fc876543e57b5922353b7aabbacb54248cb4995c414eddbf3cf7b1691d95e1b7f
+  languageName: node
+  linkType: hard
+
+"@navikt/ds-tokens@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "@navikt/ds-tokens@npm:5.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-tokens%2F5.5.0%2Ff963d7872d9b6eb74198f19f107b6073bfa8c6a5"
+  checksum: 2a7db42e1db5b481f4613552d658d211023c8eae308603161d5957026f10ca8bc7ef1057d2865416c9ce3e1c21b78ab3066061601e382c04328f068fea065a3a
   languageName: node
   linkType: hard
 
@@ -2480,13 +2487,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"exenv@npm:^1.2.0":
-  version: 1.2.2
-  resolution: "exenv@npm:1.2.2"
-  checksum: a894f3b60ab8419e0b6eec99c690a009c8276b4c90655ccaf7d28faba2de3a6b93b3d92210f9dc5efd36058d44f04098f6bbccef99859151104bfd49939904dc
-  languageName: node
-  linkType: hard
-
 "exponential-backoff@npm:^3.1.1":
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
@@ -3613,7 +3613,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -4594,7 +4594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -4671,28 +4671,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
-  languageName: node
-  linkType: hard
-
-"react-lifecycles-compat@npm:^3.0.0":
-  version: 3.0.4
-  resolution: "react-lifecycles-compat@npm:3.0.4"
-  checksum: a904b0fc0a8eeb15a148c9feb7bc17cec7ef96e71188280061fc340043fd6d8ee3ff233381f0e8f95c1cf926210b2c4a31f38182c8f35ac55057e453d6df204f
-  languageName: node
-  linkType: hard
-
-"react-modal@npm:3.15.1":
-  version: 3.15.1
-  resolution: "react-modal@npm:3.15.1"
-  dependencies:
-    exenv: ^1.2.0
-    prop-types: ^15.7.2
-    react-lifecycles-compat: ^3.0.0
-    warning: ^4.0.3
-  peerDependencies:
-    react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
-    react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
-  checksum: ee99ca312c35bcec9ef0868babf970ce03c52801731e29be336bb6bdc867a1ecf00a73e1fb5bc3b1b1ef66ceb0c9b4a0199fadb85b1b9829f731409951b018f0
   languageName: node
   linkType: hard
 
@@ -5422,10 +5400,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "teamsykmelding-mock@workspace:."
   dependencies:
-    "@navikt/aksel-icons": ^4.9.0
-    "@navikt/ds-css": ^4.9.0
-    "@navikt/ds-react": ^4.9.0
-    "@navikt/ds-tailwind": ^4.9.0
+    "@navikt/aksel-icons": ^5.5.0
+    "@navikt/ds-css": ^5.5.0
+    "@navikt/ds-react": ^5.5.0
+    "@navikt/ds-tailwind": ^5.5.0
     "@navikt/eslint-config-teamsykmelding": ^3.0.0
     "@navikt/next-api-proxy": ^3.2.0
     "@navikt/next-logger": ^1.19.0
@@ -5723,15 +5701,6 @@ __metadata:
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 474acf1146cb2701fe3b074892217553dfcf9a031280919ba1b8d651a068c9b15d863b7303cb15bd00a862b498e6cf4ad7b4a08fb134edd5a6f7641681cb54a2
-  languageName: node
-  linkType: hard
-
-"warning@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "warning@npm:4.0.3"
-  dependencies:
-    loose-envify: ^1.0.0
-  checksum: 4f2cb6a9575e4faf71ddad9ad1ae7a00d0a75d24521c193fa464f30e6b04027bd97aa5d9546b0e13d3a150ab402eda216d59c1d0f2d6ca60124d96cd40dfa35c
   languageName: node
   linkType: hard
 
