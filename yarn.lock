@@ -1359,13 +1359,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.14":
-  version: 10.4.14
-  resolution: "autoprefixer@npm:10.4.14"
+"autoprefixer@npm:^10.4.16":
+  version: 10.4.16
+  resolution: "autoprefixer@npm:10.4.16"
   dependencies:
-    browserslist: ^4.21.5
-    caniuse-lite: ^1.0.30001464
-    fraction.js: ^4.2.0
+    browserslist: ^4.21.10
+    caniuse-lite: ^1.0.30001538
+    fraction.js: ^4.3.6
     normalize-range: ^0.1.2
     picocolors: ^1.0.0
     postcss-value-parser: ^4.2.0
@@ -1373,7 +1373,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: e9f18e664a4e4a54a8f4ec5f6b49ed228ec45afaa76efcae361c93721795dc5ab644f36d2fdfc0dea446b02a8067b9372f91542ea431994399e972781ed46d95
+  checksum: 45fad7086495048dacb14bb7b00313e70e135b5d8e8751dcc60548889400763705ab16fc2d99ea628b44c3472698fb0e39598f595ba28409c965ab159035afde
   languageName: node
   linkType: hard
 
@@ -1465,7 +1465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.21.5":
+"browserslist@npm:^4.21.10":
   version: 4.21.10
   resolution: "browserslist@npm:4.21.10"
   dependencies:
@@ -1551,10 +1551,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001464, caniuse-lite@npm:^1.0.30001517":
+"caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001517":
   version: 1.0.30001519
   resolution: "caniuse-lite@npm:1.0.30001519"
   checksum: 66085133ede05d947e30b62fed2cbae18e5767afda8b0de38840883e1cfe5846bf1568ddbafd31647544e59112355abedaf9c867ac34541bfc20d69e7a19d94c
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001538":
+  version: 1.0.30001538
+  resolution: "caniuse-lite@npm:1.0.30001538"
+  checksum: 94c5d55757a339c7cc175f08a024671e2b4e7c04f130b1015793303d637061347efb6ad84447c3b8137333e742d150b8ad9672716bbf2482646c2e63a56f6c55
   languageName: node
   linkType: hard
 
@@ -2629,10 +2636,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "fraction.js@npm:4.2.0"
-  checksum: 8c76a6e21dedea87109d6171a0ac77afa14205794a565d71cb10d2925f629a3922da61bf45ea52dbc30bce4d8636dc0a27213a88cbd600eab047d82f9a3a94c5
+"fraction.js@npm:^4.3.6":
+  version: 4.3.6
+  resolution: "fraction.js@npm:4.3.6"
+  checksum: e96ae77e64ebfd442d3a5a01a3f0637b0663fc2440bcf2841b3ad9341ba24c81fb2e3e7142e43ef7d088558c6b3f8609df135b201adc7a1c674aea6a71384162
   languageName: node
   linkType: hard
 
@@ -4479,7 +4486,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.23, postcss@npm:^8.4.27":
+"postcss@npm:^8.4.23":
   version: 8.4.27
   resolution: "postcss@npm:8.4.27"
   dependencies:
@@ -4487,6 +4494,17 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 1cdd0c298849df6cd65f7e646a3ba36870a37b65f55fd59d1a165539c263e9b4872a402bf4ed1ca1bc31f58b68b2835545e33ea1a23b161a1f8aa6d5ded81e78
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.30":
+  version: 8.4.30
+  resolution: "postcss@npm:8.4.30"
+  dependencies:
+    nanoid: ^3.3.6
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.2
+  checksum: 6c810c10c9bd3e03ca016e0b6b6756261e640aba1a9a7b1200b55502bc34b9165e38f590aef3493afc2f30ab55cdfcd43fd0f8408d69a77318ddbcf2a8ad164b
   languageName: node
   linkType: hard
 
@@ -5433,7 +5451,7 @@ __metadata:
     "@types/canvas-confetti": ^1.6.0
     "@types/node": 18.17.3
     "@types/react": 18.2.18
-    autoprefixer: ^10.4.14
+    autoprefixer: ^10.4.16
     canvas-confetti: ^1.6.0
     date-fns: ^2.30.0
     eslint: 8.46.0
@@ -5446,7 +5464,7 @@ __metadata:
     node-gyp: ^9.4.0
     pino: ^8.15.0
     pino-pretty: ^10.2.0
-    postcss: ^8.4.27
+    postcss: ^8.4.30
     postcss-import: ^15.1.0
     prettier: ^3.0.1
     prettier-plugin-tailwindcss: ^0.4.1
