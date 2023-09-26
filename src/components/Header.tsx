@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { Heading } from '@navikt/ds-react/esm/typography'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 
 import godstolen from '../images/godstolen.png'
@@ -11,7 +11,7 @@ function Header(): ReactElement {
     return (
         <div className="p-4 border-b border-b-border-subtle flex justify-between">
             <Link href="/" className="flex items-center gap-3">
-                <Image src={godstolen} height="64" alt="Mann i godstolen" />
+                <Image src={godstolen} width="64" height="64" alt="Mann i godstolen" />
                 <Heading size="large" level="1" className="text-text-default">
                     Team Sykmelding Mock
                 </Heading>
