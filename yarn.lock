@@ -1589,10 +1589,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"canvas-confetti@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "canvas-confetti@npm:1.6.0"
-  checksum: be19e3be736ab28aa8af7b53cba9f4146f5714edadbf4d5a7d7b1899914dc59a8ac5574260fe6b7d9995c51df5787b0b707adfbb72dbacbc61fc03f9f2b25291
+"canvas-confetti@npm:^1.6.1":
+  version: 1.6.1
+  resolution: "canvas-confetti@npm:1.6.1"
+  checksum: f52f79cfc793831467e1431b1510e03c8746a1447c2836028443fa2a53b32480baace029e1a84cb663e57067fbff735e6d22cf3519f9021cc02cac1949749bd0
   languageName: node
   linkType: hard
 
@@ -5693,7 +5693,7 @@ __metadata:
     "@types/node": 18.17.19
     "@types/react": 18.2.22
     autoprefixer: ^10.4.16
-    canvas-confetti: ^1.6.0
+    canvas-confetti: ^1.6.1
     date-fns: ^2.30.0
     eslint: 8.50.0
     eslint-config-next: 13.4.12
