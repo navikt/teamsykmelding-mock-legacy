@@ -22,7 +22,7 @@
         "@navikt/next-api-proxy": "^3.3.0",
         "@navikt/next-logger": "^1.19.0",
         "@reach/combobox": "^0.18.0",
-        "canvas-confetti": "^1.6.1",
+        "canvas-confetti": "^1.9.0",
         "date-fns": "^2.30.0",
         "fuse.js": "^6.6.2",
         "next": "13.4.12",
