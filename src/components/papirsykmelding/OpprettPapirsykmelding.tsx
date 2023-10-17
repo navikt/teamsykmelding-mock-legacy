@@ -75,12 +75,7 @@ function OpprettPapirsykmelding(): ReactElement {
                     })
                 })}
             >
-                <FnrTextField
-                    className={styles.commonFormElement}
-                    {...form.register('fnr', { required: true })}
-                    label="Fødselsnummer"
-                    error={form.formState.errors.fnr && 'Fødselsnummer for pasienten mangler'}
-                />
+                <FnrTextField className={styles.commonFormElement} {...form.register('fnr')} label="Fødselsnummer" />
                 <div className={styles.periodeFields}>
                     {periodeFields.map((it, index) => (
                         <div key={it.id} className={styles.periodeFieldRow}>
