@@ -143,7 +143,7 @@ function OpprettPapirsykmelding(): ReactElement {
                             const values = form.getValues()
                             return postDataRegelsjekk(
                                 {
-                                    fnr: values.fnr,
+                                    fnr: values.fnr ? values.fnr : null,
                                     hprNummer: values.hprNummer,
                                     syketilfelleStartdato: values.syketilfelleStartdato,
                                     behandletDato: values.behandletDato,
