@@ -17,7 +17,7 @@ import Behandletdato from './Behandletdato'
 import SyketilfelleStartdato from './SyketilfelleStartdato'
 
 export interface PapirsykmeldingFormValues {
-    fnr: string
+    fnr: string | null
     hprNummer: string
     syketilfelleStartdato: string
     behandletDato: string
