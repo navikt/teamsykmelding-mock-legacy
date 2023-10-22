@@ -43,7 +43,7 @@
         "eslint": "8.51.0",
         "eslint-config-next": "13.5.4",
         "husky": "^8.0.3",
-        "lint-staged": "^15.0.1",
+        "lint-staged": "^15.0.2",
         "node-gyp": "^9.4.0",
         "postcss": "^8.4.31",
         "postcss-import": "^15.1.0",
