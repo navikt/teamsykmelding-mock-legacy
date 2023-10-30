@@ -24,6 +24,17 @@ The following steps need to be in the project directory(the root foler for this 
 
 ### Install all the dependencies
 
+### Access to GitHub Package Registry
+
+Since we use dependencies inherent in GPR,
+then one must set up access to the GPR with a PAT (personal access token)
+which has `read:packages`.
+You can [create PAT here](https://github.com/settings/tokens).
+If you have a PAT that you use to access maven packages in GitHub, you can reuse this.
+In your `.bashrc` or `.zshrc`, set the following environment variable:
+
+`export NPM_AUTH_TOKEN=<your PAT with read:packages>`
+
 ```bash
 yarn
 ```

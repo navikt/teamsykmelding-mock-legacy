@@ -23,6 +23,7 @@ export interface SykmeldingFormValues {
     fnr: string
     fnrLege: string
     herId: string | null
+    beskrivBistandNav: string | null
     meldingTilArbeidsgiver: string | null
     hprNummer: string
     syketilfelleStartdato: string
@@ -195,6 +196,11 @@ function OpprettSykmelding(): ReactElement {
                     {...form.register('meldingTilArbeidsgiver')}
                     label="Melding til arbeidsgiver"
                 />
+                <TextField
+                    className={styles.commonFormElement}
+                    {...form.register('beskrivBistandNav')}
+                    label="Utdype/begrunne hvorfor NAV skal ta opp saken"
+                />
                 <Select
                     {...form.register('annenFraverGrunn')}
                     label="Annen fraværsårsak"
@@ -299,6 +305,7 @@ function mapFormValuesToAPIBody(values: SykmeldingFormValues): SykmeldingAPIBody
         annenFraverGrunn: values.annenFraverGrunn ? values.annenFraverGrunn : null,
         herId: values.herId ? values.herId : null,
         meldingTilArbeidsgiver: values.meldingTilArbeidsgiver ? values.meldingTilArbeidsgiver : null,
+        beskrivBistandNav: values.beskrivBistandNav ? values.beskrivBistandNav : null,
         begrunnIkkeKontakt: values.begrunnIkkeKontakt ? values.begrunnIkkeKontakt : null,
         utdypendeOpplysninger: values.utdypendeOpplysninger ? values.utdypendeOpplysninger : null,
         diagnosekodesystem: values.hoveddiagnose.system,
