@@ -20,7 +20,7 @@
         "@navikt/ds-react": "^5.7.6",
         "@navikt/ds-tailwind": "^5.7.6",
         "@navikt/next-api-proxy": "^3.3.1",
-        "@navikt/next-logger": "^1.19.0",
+        "@navikt/next-logger": "^1.21.0",
         "@reach/combobox": "^0.18.0",
         "canvas-confetti": "^1.9.0",
         "date-fns": "^2.30.0",

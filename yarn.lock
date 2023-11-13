@@ -306,13 +306,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/next-logger@npm:^1.19.0":
-  version: 1.19.0
-  resolution: "@navikt/next-logger@npm:1.19.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-logger%2F1.19.0%2F4d5b48fe77dedbb63b03b49f9e8b70a0a2580fcd"
+"@navikt/next-logger@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@navikt/next-logger@npm:1.21.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-logger%2F1.21.0%2F1779d3111b64412a0b48932b686d7ac269260736"
   peerDependencies:
-    next: 12 || 13
+    next: 12 || 13 || 14
     pino: 8
-  checksum: c6bee721954bb7d15302c6165a524add06653781936b0d6d6c0f2ffad2a6c2b1445b7078933a154879dbf834415675b823d3e5c697871dc4b4cfb39216a51b93
+  checksum: daf712c2379709b4237e991b57d23a2440b19928bd99d77051b302e07bf09419d7005d3d2ad4e8f67772d34ea118a8558f2f4300fc3ca26974794409b236656e
   languageName: node
   linkType: hard
 
@@ -5571,7 +5571,7 @@ __metadata:
     "@navikt/ds-tailwind": "npm:^5.7.6"
     "@navikt/eslint-config-teamsykmelding": "npm:^4.5.0"
     "@navikt/next-api-proxy": "npm:^3.3.1"
-    "@navikt/next-logger": "npm:^1.19.0"
+    "@navikt/next-logger": "npm:^1.21.0"
     "@reach/combobox": "npm:^0.18.0"
     "@types/canvas-confetti": "npm:^1.6.2"
     "@types/node": "npm:18.18.7"
