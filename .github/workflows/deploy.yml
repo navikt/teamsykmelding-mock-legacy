@@ -1,8 +1,5 @@
 name: Push
 on: push
-env:
-  branchname: ${{ github.ref_name }}
-  NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 jobs:
   codeql-analysis:
     if: github.ref == 'refs/heads/main'
@@ -23,23 +20,11 @@ jobs:
     name: build and push docker image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: navikt/teamsykmelding-github-actions-workflows/actions/yarn-cached@node-20
         with:
-          node-version: 18.17
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: .yarn/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install yarn dependencies
-        run: yarn --immutable
-      - name: Lint
-        run: yarn lint
-      - name: Build app
-        run: yarn build
+          NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+      - run: yarn lint
+      - run: yarn build
       - name: docker-build-push
         uses: nais/docker-build-push@v0
         id: docker-build-push
