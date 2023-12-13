@@ -31,12 +31,12 @@ function DiagnosePicker({ name, diagnoseType, onRemove, children }: PropsWithChi
                         field.onChange({ system: event.target.value, code: null, text: null })
                     }}
                 >
-                    <option>icd10</option>
-                    <option>icpc2</option>
+                    <option>ICD10</option>
+                    <option>ICPC2</option>
                 </Select>
                 <DiagnoseTypeahead
                     id={diagnoseType}
-                    system={field.value.system}
+                    system={field.value.system.toLowerCase()}
                     onSelect={(suggestion) => field.onChange({ ...suggestion, system: field.value.system })}
                 />
                 <DiagnoseDescription text={field.value.text} />
