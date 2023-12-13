@@ -31,8 +31,8 @@ function DiagnosePicker({ name, diagnoseType, onRemove, children }: PropsWithChi
                         field.onChange({ system: event.target.value, code: null, text: null })
                     }}
                 >
-                    <option>ICD10</option>
-                    <option>ICPC2</option>
+                    <option>icd10</option>
+                    <option>icpc2</option>
                 </Select>
                 <DiagnoseTypeahead
                     id={diagnoseType}
