@@ -1,15 +1,13 @@
 'use server'
 
+import { ICD10, ICPC2 } from '@navikt/diagnosekoder'
 import Fuse from 'fuse.js'
 
-import icd10 from './data/icd10.json'
-import icpc2 from './data/icpc2.json'
-
-const fuseIcd10 = new Fuse([...icd10, { code: 'tullekode', text: 'Tullekode' }], {
+const fuseIcd10 = new Fuse([...ICD10, { code: 'tullekode', text: 'Tullekode' }], {
     keys: ['code', 'text'],
     threshold: 0.2,
 })
-const fuseIcpc2 = new Fuse([...icpc2, { code: 'tullekode', text: 'Tullekode' }], {
+const fuseIcpc2 = new Fuse([...ICPC2, { code: 'tullekode', text: 'Tullekode' }], {
     keys: ['code', 'text'],
     threshold: 0.2,
 })
@@ -28,7 +26,7 @@ export const diagnoseSearch = async (system: string, value: string): Promise<{ s
         throw new Error(`${system} is not a valid kodesystem`)
     }
 
-    if (value == null || typeof value !== 'string') {
+    if (value == null) {
         throw new Error(`Missing search value query parameter`)
     }
 
@@ -38,7 +36,7 @@ export const diagnoseSearch = async (system: string, value: string): Promise<{ s
 function searchSystem(system: 'icd10' | 'icpc2', value: string): DiagnoseSuggestion[] {
     if (system === 'icd10') {
         if ((value ?? '').trim() === '') {
-            return icd10.slice(0, 100)
+            return ICD10.slice(0, 100)
         }
 
         return fuseIcd10
@@ -47,7 +45,7 @@ function searchSystem(system: 'icd10' | 'icpc2', value: string): DiagnoseSuggest
             .slice(0, 100)
     } else {
         if ((value ?? '').trim() === '') {
-            return icpc2.slice(0, 100)
+            return ICPC2.slice(0, 100)
         }
 
         return fuseIcpc2

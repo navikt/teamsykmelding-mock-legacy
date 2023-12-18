@@ -237,6 +237,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@navikt/diagnosekoder@npm:1.2023.0":
+  version: 1.2023.0
+  resolution: "@navikt/diagnosekoder@npm:1.2023.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fdiagnosekoder%2F1.2023.0%2F5a183052f0676e45a88cb9ebb8696d85452f54e6"
+  checksum: d178d6dace566a6e9e99f36bed500a3825c82c3059c4c9e687846a56527f1a9552c9608975fa5e3498291c98b8925d9674a2e87b7a5b2897d5cef83193eaa3d8
+  languageName: node
+  linkType: hard
+
 "@navikt/ds-css@npm:^5.10.1":
   version: 5.10.1
   resolution: "@navikt/ds-css@npm:5.10.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fds-css%2F5.10.1%2Ffb0dc63ae42c7ba17aa47992829952d4598d5def"
@@ -5699,6 +5706,7 @@ __metadata:
   resolution: "teamsykmelding-mock@workspace:."
   dependencies:
     "@navikt/aksel-icons": "npm:^5.10.1"
+    "@navikt/diagnosekoder": "npm:1.2023.0"
     "@navikt/ds-css": "npm:^5.10.1"
     "@navikt/ds-react": "npm:^5.10.1"
     "@navikt/ds-tailwind": "npm:^5.10.1"
