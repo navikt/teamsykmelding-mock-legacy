@@ -23,11 +23,7 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
 
     return (
         <form onSubmit={handleSubmit((values) => postData(undefined, { fnr: values.fnr }))}>
-            <FnrTextField
-                {...register('fnr', { required: true })}
-                label="Fødselsnummer"
-                error={errors.fnr && 'Fødselsnummer mangler'}
-            />
+            <FnrTextField {...register('fnr')} label="Fødselsnummer" error={errors.fnr && 'Fødselsnummer mangler'} />
             <ProxyFeedback error={error} result={result}>
                 <Button type="submit" loading={loading}>
                     Opprett
