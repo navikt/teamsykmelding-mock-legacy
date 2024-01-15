@@ -16,17 +16,13 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: {},
     } = useForm<FormValues>()
     const [postData, { result, error, loading }] = useProxyAction<{ fnr: string }>('/utenlands/nav/opprett')
 
     return (
         <form onSubmit={handleSubmit((values) => postData(values))}>
-            <FnrTextField
-                {...register('fnr', { required: true })}
-                label="Fødselsnummer"
-                error={errors.fnr && 'Fødselsnummer mangler'}
-            />
+            <FnrTextField {...register('fnr')} label="Fødselsnummer" />
             <ProxyFeedback error={error} result={result}>
                 <Button type="submit" loading={loading}>
                     Opprett

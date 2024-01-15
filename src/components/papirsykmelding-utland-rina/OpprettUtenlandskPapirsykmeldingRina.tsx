@@ -31,11 +31,7 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
 
     return (
         <form onSubmit={handleSubmit((values) => postData(values))} className="flex flex-col gap-4">
-            <FnrTextField
-                {...register('fnr', { required: true })}
-                label="Fødselsnummer"
-                error={errors.fnr && 'Fødselsnummer mangler'}
-            />
+            <FnrTextField {...register('fnr')} label="Fødselsnummer" />
             <TextField
                 label="Antall PDFs"
                 {...register('antallPdfs', { required: true })}
