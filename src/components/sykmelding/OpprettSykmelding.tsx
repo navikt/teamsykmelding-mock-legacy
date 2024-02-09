@@ -109,6 +109,7 @@ function OpprettSykmelding(): ReactElement {
                             <Select {...form.register(`perioder.${index}.type`)} label="Sykmeldingstype">
                                 <option value="HUNDREPROSENT">HUNDREPROSENT</option>
                                 <option value="AVVENTENDE">AVVENTENDE</option>
+                                <option value="GRADERT_UNDER_20">GRADERT_UNDER_20</option>
                                 <option value="GRADERT_20">GRADERT_20</option>
                                 <option value="GRADERT_40">GRADERT_40</option>
                                 <option value="GRADERT_50">GRADERT_50</option>

@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 export const SykmeldingType = z.enum([
     'AVVENTENDE',
+    'GRADERT_UNDER_20',
     'GRADERT_20',
     'GRADERT_40',
     'GRADERT_50',

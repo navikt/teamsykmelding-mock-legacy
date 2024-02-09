@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "engines": {
-        "node": "21.6.1"
+        "node": "20"
     },
     "packageManager": "yarn@4.0.1",
     "scripts": {
