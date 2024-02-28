@@ -9,7 +9,7 @@ import ProxyFeedback from '../../proxy/proxy-feedback'
 import FnrTextField from '../formComponents/FnrTextField'
 
 interface FormValues {
-    fnr: string
+    fnr: string | null
 }
 
 function OpprettUtenlandskPapirsykmelding(): ReactElement {
@@ -18,7 +18,7 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
         handleSubmit,
         formState: {},
     } = useForm<FormValues>()
-    const [postData, { result, error, loading }] = useProxyAction<{ fnr: string }>('/utenlands/nav/opprett')
+    const [postData, { result, error, loading }] = useProxyAction<FormValues>('/utenlands/nav/opprett')
 
     return (
         <form onSubmit={handleSubmit((values) => postData(values))}>
