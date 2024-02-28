@@ -9,7 +9,7 @@ import ProxyFeedback from '../../proxy/proxy-feedback'
 import FnrTextField from '../formComponents/FnrTextField'
 
 interface FormValues {
-    fnr: string
+    fnr: string | null
     antallPdfs: number
 }
 
@@ -24,10 +24,7 @@ function OpprettUtenlandskPapirsykmelding(): ReactElement {
         },
     })
 
-    const [postData, { result, error, loading }] = useProxyAction<{
-        fnr: string
-        antallPdfs: number
-    }>('/utenlands/opprett')
+    const [postData, { result, error, loading }] = useProxyAction<FormValues>('/utenlands/opprett')
 
     return (
         <form onSubmit={handleSubmit((values) => postData(values))} className="flex flex-col gap-4">
