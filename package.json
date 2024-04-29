@@ -5,7 +5,7 @@
     "engines": {
         "node": "20"
     },
-    "packageManager": "yarn@4.0.1",
+    "packageManager": "yarn@4.1.1",
     "scripts": {
         "dev": "yarn start",
         "build": "next build",
