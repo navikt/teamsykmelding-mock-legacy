@@ -1,7 +1,6 @@
 import { ReactElement } from 'react'
 import { Metadata } from 'next'
-
-import { BodyShort } from '../components/aksel/server'
+import { BodyShort } from '@navikt/ds-react'
 
 export const metadata: Metadata = {
     title: 'Team Sykmelding Mock',

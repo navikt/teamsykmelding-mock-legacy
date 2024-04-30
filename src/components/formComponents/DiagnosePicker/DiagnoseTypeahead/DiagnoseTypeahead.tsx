@@ -49,6 +49,7 @@ function DiagnoseTypeahead({ id, system, onSelect }: Props): ReactElement {
                 <DsComboboxInput
                     id={id}
                     onChange={handleSearchTermChange}
+                    // @ts-expect-error Gonna switch to different combobox later
                     placeholder={`Søk i ${system} diagnoser...`}
                 />
                 {suggestions && (
