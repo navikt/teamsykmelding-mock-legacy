@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
-import { Heading } from '@navikt/ds-react/esm/typography'
+import { Heading } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { LinkPanel } from '@navikt/ds-react'
 import { formatISO } from 'date-fns'

@@ -1,7 +1,6 @@
 import { PropsWithChildren, ReactElement } from 'react'
 import { Metadata } from 'next'
-
-import { Heading } from '../aksel/server'
+import { Heading } from '@navikt/ds-react'
 
 type Props = { metadata: Metadata }
 

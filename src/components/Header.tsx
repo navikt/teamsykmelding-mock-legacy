@@ -1,11 +1,10 @@
 import { ReactElement } from 'react'
-import { Heading } from '@navikt/ds-react/esm/typography'
+import { Heading } from '@navikt/ds-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ChatIcon } from '@navikt/aksel-icons'
 
 import godstolen from '../images/godstolen.png'
-
-import { ChatIcon } from './aksel/icons'
 
 function Header(): ReactElement {
     return (

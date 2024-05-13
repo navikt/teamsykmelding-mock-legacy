@@ -6,6 +6,9 @@ const nextConfig = {
         dirs: ['src'],
         ignoreDuringBuilds: true,
     },
+    experimental: {
+        optimizePackageImports: ['@navikt/ds-react', '@navikt/aksel-icons'],
+    },
 }
 
 module.exports = nextConfig

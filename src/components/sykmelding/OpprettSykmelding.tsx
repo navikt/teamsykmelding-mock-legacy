@@ -4,7 +4,7 @@ import { BodyShort, Button, Checkbox, Label, Select, TextField } from '@navikt/d
 import React, { ReactElement } from 'react'
 import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
 import { format, sub } from 'date-fns'
-import { Heading } from '@navikt/ds-react/esm/typography'
+import { Heading } from '@navikt/ds-react'
 
 import { Periode, SykmeldingType } from '../../types/sykmelding/Periode'
 import DiagnosePicker, { Diagnose } from '../formComponents/DiagnosePicker/DiagnosePicker'

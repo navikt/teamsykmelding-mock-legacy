@@ -1,8 +1,7 @@
 import { PropsWithChildren, ReactElement } from 'react'
 import Link from 'next/link'
-
-import { BandageIcon, Buldings2Icon, PrinterSmallIcon, StethoscopeIcon } from './aksel/icons'
-import { Heading } from './aksel/server'
+import { BandageIcon, Buldings2Icon, PrinterSmallIcon, StethoscopeIcon } from '@navikt/aksel-icons'
+import { Heading } from '@navikt/ds-react'
 
 function Sidebar(): ReactElement {
     return (
