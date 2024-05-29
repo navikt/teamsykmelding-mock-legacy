@@ -9,7 +9,7 @@ spec:
   image: {{ image }}
   port: 3000
   ingresses:
-    - "https://teamsykmelding-mock.ansatt.nav.no"
+    - "https://teamsykmelding-mock.ansatt.dev.nav.no"
   replicas:
     min: 1
     max: 2
