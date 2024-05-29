@@ -9,7 +9,9 @@ export function middleware(request: NextRequest): NextResponse | void {
     // Redirect to ingress
     if (forwardedHostHeader?.includes('intern')) {
         logger.info('Hit old ingress, redirecting to new ingress')
-        return NextResponse.redirect(new URL(url.pathname, 'https://teamsykmelding-mock.ansatt.dev.nav.no'))
+        return NextResponse.redirect(
+            new URL(`?was-old=true`, 'https://teamsykmelding-mock.ansatt.dev.nav.no' + url.pathname),
+        )
     }
 }
 

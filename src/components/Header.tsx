@@ -1,10 +1,12 @@
-import { ReactElement } from 'react'
+import { ReactElement, Suspense } from 'react'
 import { Heading } from '@navikt/ds-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChatIcon } from '@navikt/aksel-icons'
 
 import godstolen from '../images/godstolen.png'
+
+import NewIngressWarning from './NewIngressWarning'
 
 function Header(): ReactElement {
     return (
@@ -15,6 +17,9 @@ function Header(): ReactElement {
                     Team Sykmelding Mock
                 </Heading>
             </Link>
+            <Suspense>
+                <NewIngressWarning />
+            </Suspense>
             <a
                 href="https://nav-it.slack.com/archives/CMA3XV997"
                 target="_blank"
