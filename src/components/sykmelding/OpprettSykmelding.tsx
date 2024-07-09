@@ -51,12 +51,12 @@ type SykmeldingAPIBody = Omit<SykmeldingFormValues, 'hoveddiagnose'> & {
 function OpprettSykmelding(): ReactElement {
     const date = new Date()
     const iGar = format(sub(date, { days: 1 }), 'yyyy-MM-dd')
-    const enUkeSiden = format(sub(date, { days: 7 }), 'yyyy-MM-dd')
+    const treUkerSiden = format(sub(date, { days: 21 }), 'yyyy-MM-dd')
     const form = useForm<SykmeldingFormValues>({
         defaultValues: {
-            syketilfelleStartdato: enUkeSiden,
-            behandletDato: enUkeSiden,
-            perioder: [{ fom: enUkeSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
+            syketilfelleStartdato: treUkerSiden,
+            behandletDato: treUkerSiden,
+            perioder: [{ fom: treUkerSiden, tom: iGar, type: SykmeldingType.Enum.HUNDREPROSENT }],
             hoveddiagnose: { system: 'icd10', code: 'H100', text: 'Mukopurulent konjunktivitt' },
             arbeidsgiverNavn: 'Eksempel Arbeidsgiversen AS',
         },
@@ -131,7 +131,7 @@ function OpprettSykmelding(): ReactElement {
                         type="button"
                         onClick={() =>
                             perioderAppend({
-                                fom: enUkeSiden,
+                                fom: treUkerSiden,
                                 tom: iGar,
                                 type: SykmeldingType.Enum.HUNDREPROSENT,
                             })
