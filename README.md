@@ -1,5 +1,8 @@
 ## teamsykmelding-mock
 
+> [!WARNING]
+> Dette repoet er deprekert. Mock-frontenden er slått sammen med backenden og kan finnes i repoet https://github.com/navikt/teamsykmelding-mock
+
 Frontend app for [teamsykmelding-mock-backend](https://github.com/navikt/teamsykmelding-mock-backend)
 
 ## Technologies used
