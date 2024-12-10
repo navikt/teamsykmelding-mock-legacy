@@ -341,12 +341,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/next-api-proxy@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "@navikt/next-api-proxy@npm:3.4.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-api-proxy%2F3.4.1%2F14f22ff5c725e12dfa8ced0284cb6a4394c81860"
+"@navikt/next-api-proxy@npm:^3.4.2":
+  version: 3.4.2
+  resolution: "@navikt/next-api-proxy@npm:3.4.2::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-api-proxy%2F3.4.2%2F84b1e7b75f3f05f1e082738c1b4e8d3fe14909e5"
   peerDependencies:
     next: 13 || 14
-  checksum: 10/b3066ac6e25cd16f80296cdda8026b13177bf0b9aa4ab50d6a0c5cbae3ad0ce7c271f67efe1d799b20001513bac28a22b2bfa492fed17fc96f69062cd75e2216
+  checksum: 10/22b1760d03b2909481876b8635f1b8241eb7c9b9dc18d85e65d4cc2c1da0fd76f1776fdaeda3d819eeb0024c93084a5d1d27b284a050eeb470c707282a3c9ec4
   languageName: node
   linkType: hard
 
@@ -6245,7 +6245,7 @@ __metadata:
     "@navikt/ds-react": "npm:^6.7.1"
     "@navikt/ds-tailwind": "npm:^6.7.1"
     "@navikt/eslint-config-teamsykmelding": "npm:^6.2.0"
-    "@navikt/next-api-proxy": "npm:^3.4.1"
+    "@navikt/next-api-proxy": "npm:^3.4.2"
     "@navikt/next-logger": "npm:^1.24.0"
     "@reach/combobox": "npm:^0.18.0"
     "@types/node": "npm:20.12.11"
